@@ -1,0 +1,1113 @@
+{
+  "step1": {
+    "label": "step1",
+    "scrollY": 5908,
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you. 1 2 3 4 NAME NEXT",
+    "fieldGroups": [
+      {
+        "className": "elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required",
+        "text": "NAME",
+        "rect": {
+          "x": 45.69,
+          "y": 320.5,
+          "w": 298.63,
+          "h": 58.69
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 45.69,
+          "y": 389.19,
+          "w": 298.63,
+          "h": 40
+        }
+      }
+    ],
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(57, 181, 74)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 126.91,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 136.91,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.11,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 223.11,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.31,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 309.31,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      }
+    ],
+    "labels": [
+      {
+        "text": "NAME",
+        "rect": {
+          "x": 50.69,
+          "y": 320.5,
+          "w": 36.08,
+          "h": 18.69
+        },
+        "style": {
+          "fontSize": "11px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.7px",
+          "letterSpacing": "1px",
+          "textTransform": "uppercase"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "value": "",
+        "checked": false,
+        "rect": {
+          "x": 50.69,
+          "y": 339.19,
+          "w": 288.63,
+          "h": 40
+        },
+        "style": {
+          "fontSize": "13px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.2px",
+          "color": "rgb(194, 194, 194)",
+          "background": "rgba(65, 65, 65, 0.43)",
+          "border": "1px solid rgba(255, 255, 255, 0.56)",
+          "padding": "8px 16px"
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "text": "NEXT",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-next",
+        "type": "button",
+        "rect": {
+          "x": 50.69,
+          "y": 389.19,
+          "w": 288.63,
+          "h": 40
+        },
+        "bg": "rgb(49, 49, 49)",
+        "color": "rgb(255, 255, 255)"
+      }
+    ],
+    "msg": []
+  },
+  "step1Filled": {
+    "label": "step1Filled",
+    "scrollY": 5908,
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you. 1 2 3 4 NAME NEXT",
+    "fieldGroups": [
+      {
+        "className": "elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required",
+        "text": "NAME",
+        "rect": {
+          "x": 45.69,
+          "y": 320.5,
+          "w": 298.63,
+          "h": 58.69
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 45.69,
+          "y": 389.19,
+          "w": 298.63,
+          "h": 40
+        }
+      }
+    ],
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(57, 181, 74)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 126.91,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 136.91,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.11,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 223.11,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.31,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 309.31,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      }
+    ],
+    "labels": [
+      {
+        "text": "NAME",
+        "rect": {
+          "x": 50.69,
+          "y": 320.5,
+          "w": 36.08,
+          "h": 18.69
+        },
+        "style": {
+          "fontSize": "11px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.7px",
+          "letterSpacing": "1px",
+          "textTransform": "uppercase"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "value": "123",
+        "checked": false,
+        "rect": {
+          "x": 50.69,
+          "y": 339.19,
+          "w": 288.63,
+          "h": 40
+        },
+        "style": {
+          "fontSize": "13px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.2px",
+          "color": "rgb(194, 194, 194)",
+          "background": "rgba(65, 65, 65, 0.43)",
+          "border": "1px solid rgba(255, 255, 255, 0.56)",
+          "padding": "8px 16px"
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "text": "NEXT",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-next",
+        "type": "button",
+        "rect": {
+          "x": 50.69,
+          "y": 389.19,
+          "w": 288.63,
+          "h": 40
+        },
+        "bg": "rgb(49, 49, 49)",
+        "color": "rgb(255, 255, 255)"
+      }
+    ],
+    "msg": []
+  },
+  "step2": {
+    "label": "step2",
+    "scrollY": 5908,
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you. 1 2 3 4 ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND PREVIOUS NEXT",
+    "fieldGroups": [
+      {
+        "className": "elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-attendance elementor-col-100 elementor-field-required",
+        "text": "ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND",
+        "rect": {
+          "x": 45.69,
+          "y": 320.5,
+          "w": 298.63,
+          "h": 73.38
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-previous",
+        "text": "PREVIOUS",
+        "rect": {
+          "x": 45.69,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 195,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      }
+    ],
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-completed",
+        "rect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 126.91,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 136.91,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(57, 181, 74)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.11,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 223.11,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.31,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 309.31,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      }
+    ],
+    "labels": [
+      {
+        "text": "ATTENDANCE",
+        "rect": {
+          "x": 50.69,
+          "y": 320.5,
+          "w": 83.31,
+          "h": 18.69
+        },
+        "style": {
+          "fontSize": "11px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.7px",
+          "letterSpacing": "1px",
+          "textTransform": "uppercase"
+        }
+      }
+    ],
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "PREVIOUS",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-previous",
+        "type": "button",
+        "rect": {
+          "x": 50.69,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(105, 114, 125)",
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "NEXT",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-next",
+        "type": "button",
+        "rect": {
+          "x": 200,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(49, 49, 49)",
+        "color": "rgb(255, 255, 255)"
+      }
+    ],
+    "msg": []
+  },
+  "step2Selected": {
+    "label": "step2Selected",
+    "scrollY": 5908,
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you. 1 2 3 4 ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND PREVIOUS NEXT",
+    "fieldGroups": [
+      {
+        "className": "elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-attendance elementor-col-100 elementor-field-required",
+        "text": "ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND",
+        "rect": {
+          "x": 45.69,
+          "y": 320.5,
+          "w": 298.63,
+          "h": 73.38
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-previous",
+        "text": "PREVIOUS",
+        "rect": {
+          "x": 45.69,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 195,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      }
+    ],
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-completed",
+        "rect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 126.91,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 136.91,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(57, 181, 74)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.11,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 223.11,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.31,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 309.31,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      }
+    ],
+    "labels": [
+      {
+        "text": "ATTENDANCE",
+        "rect": {
+          "x": 50.69,
+          "y": 320.5,
+          "w": 83.31,
+          "h": 18.69
+        },
+        "style": {
+          "fontSize": "11px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.7px",
+          "letterSpacing": "1px",
+          "textTransform": "uppercase"
+        }
+      }
+    ],
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "PREVIOUS",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-previous",
+        "type": "button",
+        "rect": {
+          "x": 50.69,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(105, 114, 125)",
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "NEXT",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-next",
+        "type": "button",
+        "rect": {
+          "x": 200,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(49, 49, 49)",
+        "color": "rgb(255, 255, 255)"
+      }
+    ],
+    "msg": []
+  },
+  "step3": {
+    "label": "step3",
+    "scrollY": 5908,
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you. 1 2 3 4 ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND PREVIOUS NEXT",
+    "fieldGroups": [
+      {
+        "className": "elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-attendance elementor-col-100 elementor-field-required",
+        "text": "ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND",
+        "rect": {
+          "x": 45.69,
+          "y": 320.5,
+          "w": 298.63,
+          "h": 73.38
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-previous",
+        "text": "PREVIOUS",
+        "rect": {
+          "x": 45.69,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 195,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      }
+    ],
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-completed",
+        "rect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 126.91,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 136.91,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(57, 181, 74)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.11,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 223.11,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.31,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 309.31,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      }
+    ],
+    "labels": [
+      {
+        "text": "ATTENDANCE",
+        "rect": {
+          "x": 50.69,
+          "y": 320.5,
+          "w": 83.31,
+          "h": 18.69
+        },
+        "style": {
+          "fontSize": "11px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.7px",
+          "letterSpacing": "1px",
+          "textTransform": "uppercase"
+        }
+      }
+    ],
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "PREVIOUS",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-previous",
+        "type": "button",
+        "rect": {
+          "x": 50.69,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(105, 114, 125)",
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "NEXT",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-next",
+        "type": "button",
+        "rect": {
+          "x": 200,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(49, 49, 49)",
+        "color": "rgb(255, 255, 255)"
+      }
+    ],
+    "msg": []
+  },
+  "step4": {
+    "label": "step4",
+    "scrollY": 5908,
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you. 1 2 3 4 ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND PREVIOUS NEXT",
+    "fieldGroups": [
+      {
+        "className": "elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-attendance elementor-col-100 elementor-field-required",
+        "text": "ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND",
+        "rect": {
+          "x": 45.69,
+          "y": 320.5,
+          "w": 298.63,
+          "h": 73.38
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-previous",
+        "text": "PREVIOUS",
+        "rect": {
+          "x": 45.69,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 195,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      }
+    ],
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-completed",
+        "rect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 126.91,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 136.91,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(57, 181, 74)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.11,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 223.11,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.31,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 309.31,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      }
+    ],
+    "labels": [
+      {
+        "text": "ATTENDANCE",
+        "rect": {
+          "x": 50.69,
+          "y": 320.5,
+          "w": 83.31,
+          "h": 18.69
+        },
+        "style": {
+          "fontSize": "11px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.7px",
+          "letterSpacing": "1px",
+          "textTransform": "uppercase"
+        }
+      }
+    ],
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "PREVIOUS",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-previous",
+        "type": "button",
+        "rect": {
+          "x": 50.69,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(105, 114, 125)",
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "NEXT",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-next",
+        "type": "button",
+        "rect": {
+          "x": 200,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(49, 49, 49)",
+        "color": "rgb(255, 255, 255)"
+      }
+    ],
+    "msg": []
+  },
+  "step4Filled": {
+    "label": "step4Filled",
+    "scrollY": 5908,
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you. 1 2 3 4 ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND PREVIOUS NEXT",
+    "fieldGroups": [
+      {
+        "className": "elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-attendance elementor-col-100 elementor-field-required",
+        "text": "ATTENDANCE EXCITED TO ATTEND UNABLE ATTEND",
+        "rect": {
+          "x": 45.69,
+          "y": 320.5,
+          "w": 298.63,
+          "h": 73.38
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-previous",
+        "text": "PREVIOUS",
+        "rect": {
+          "x": 45.69,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 195,
+          "y": 403.88,
+          "w": 149.31,
+          "h": 40
+        }
+      }
+    ],
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-completed",
+        "rect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 50.69,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 126.91,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 136.91,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(57, 181, 74)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.11,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "numRect": {
+          "x": 223.11,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.31,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "numRect": {
+          "x": 309.31,
+          "y": 260.5,
+          "w": 30,
+          "h": 30
+        },
+        "lineAfter": false,
+        "color": "rgb(194, 203, 210)"
+      }
+    ],
+    "labels": [
+      {
+        "text": "ATTENDANCE",
+        "rect": {
+          "x": 50.69,
+          "y": 320.5,
+          "w": 83.31,
+          "h": 18.69
+        },
+        "style": {
+          "fontSize": "11px",
+          "fontFamily": "inter, sans-serif",
+          "lineHeight": "18.7px",
+          "letterSpacing": "1px",
+          "textTransform": "uppercase"
+        }
+      }
+    ],
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "PREVIOUS",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-previous",
+        "type": "button",
+        "rect": {
+          "x": 50.69,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(105, 114, 125)",
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "NEXT",
+        "className": "elementor-button elementor-size-sm e-form__buttons__wrapper__button e-form__buttons__wrapper__button-next",
+        "type": "button",
+        "rect": {
+          "x": 200,
+          "y": 403.88,
+          "w": 139.31,
+          "h": 40
+        },
+        "bg": "rgb(49, 49, 49)",
+        "color": "rgb(255, 255, 255)"
+      }
+    ],
+    "msg": []
+  }
+}

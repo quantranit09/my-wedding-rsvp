@@ -1,0 +1,810 @@
+{
+  "step1": {
+    "label": {
+      "text": "NAME",
+      "rect": {
+        "x": 50.6875,
+        "y": 320.5,
+        "w": 36.078125,
+        "h": 18.6875
+      },
+      "style": {
+        "fontSize": "11px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.7px",
+        "letterSpacing": "1px",
+        "color": "rgb(255, 255, 255)",
+        "textTransform": "uppercase"
+      }
+    },
+    "scrollY": 5908,
+    "section": {
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 844
+      },
+      "padding": "78px 50.6875px 39px",
+      "background": "url(\"https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00189-copy.jpg.jpeg\")",
+      "display": "flex",
+      "gap": "20px"
+    },
+    "heading": {
+      "text": "Kindly Confirm Your Presence And Share Your Blessings",
+      "rect": {
+        "x": 50.6875,
+        "y": 78,
+        "w": 288.625,
+        "h": 84
+      },
+      "style": {
+        "fontSize": "28px",
+        "fontFamily": "Candlefish, sans-serif",
+        "lineHeight": "28px",
+        "fontWeight": "400",
+        "letterSpacing": "0.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "desc": {
+      "text": "Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you.",
+      "rect": {
+        "x": 50.6875,
+        "y": 182,
+        "w": 288.625,
+        "h": 58.5
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "19.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "form": {
+      "rect": {
+        "x": 50.6875,
+        "y": 260.5,
+        "w": 288.625,
+        "h": 178.6875
+      }
+    },
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 50.6875,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(57, 181, 74)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 126.90625,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.109375,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.3125,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      }
+    ],
+    "activeField": [
+      {
+        "className": "elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required",
+        "text": "NAME",
+        "rect": {
+          "x": 45.6875,
+          "y": 320.5,
+          "w": 298.625,
+          "h": 58.6875
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 45.6875,
+          "y": 389.1875,
+          "w": 298.625,
+          "h": 40
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      }
+    ],
+    "input": {
+      "tag": "INPUT",
+      "type": "text",
+      "value": "",
+      "rect": {
+        "x": 50.6875,
+        "y": 339.1875,
+        "w": 288.625,
+        "h": 40
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.2px",
+        "color": "rgb(194, 194, 194)",
+        "background": "rgba(65, 65, 65, 0.43)",
+        "border": "1px solid rgba(255, 255, 255, 0.56)",
+        "padding": "8px 16px"
+      }
+    },
+    "buttons": [
+      {
+        "text": "NEXT",
+        "type": "button",
+        "rect": {
+          "x": 50.6875,
+          "y": 389.1875,
+          "w": 288.625,
+          "h": 40
+        },
+        "style": {
+          "fontSize": "13px",
+          "fontFamily": "inter, sans-serif",
+          "letterSpacing": "1px",
+          "background": "rgb(49, 49, 49)",
+          "color": "rgb(255, 255, 255)",
+          "border": "0px none rgb(255, 255, 255)"
+        }
+      }
+    ]
+  },
+  "step2": {
+    "label": {
+      "text": "NAME",
+      "rect": {
+        "x": 50.6875,
+        "y": 320.5,
+        "w": 36.078125,
+        "h": 18.6875
+      },
+      "style": {
+        "fontSize": "11px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.7px",
+        "letterSpacing": "1px",
+        "color": "rgb(255, 255, 255)",
+        "textTransform": "uppercase"
+      }
+    },
+    "scrollY": 5908,
+    "section": {
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 844
+      },
+      "padding": "78px 50.6875px 39px",
+      "background": "url(\"https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00189-copy.jpg.jpeg\")",
+      "display": "flex",
+      "gap": "20px"
+    },
+    "heading": {
+      "text": "Kindly Confirm Your Presence And Share Your Blessings",
+      "rect": {
+        "x": 50.6875,
+        "y": 78,
+        "w": 288.625,
+        "h": 84
+      },
+      "style": {
+        "fontSize": "28px",
+        "fontFamily": "Candlefish, sans-serif",
+        "lineHeight": "28px",
+        "fontWeight": "400",
+        "letterSpacing": "0.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "desc": {
+      "text": "Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you.",
+      "rect": {
+        "x": 50.6875,
+        "y": 182,
+        "w": 288.625,
+        "h": 58.5
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "19.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "form": {
+      "rect": {
+        "x": 50.6875,
+        "y": 260.5,
+        "w": 288.625,
+        "h": 178.6875
+      }
+    },
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 50.6875,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(57, 181, 74)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 126.90625,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.109375,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.3125,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      }
+    ],
+    "activeField": [
+      {
+        "className": "elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required",
+        "text": "NAME",
+        "rect": {
+          "x": 45.6875,
+          "y": 320.5,
+          "w": 298.625,
+          "h": 58.6875
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 45.6875,
+          "y": 389.1875,
+          "w": 298.625,
+          "h": 40
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      }
+    ],
+    "input": {
+      "tag": "INPUT",
+      "type": "text",
+      "value": "",
+      "rect": {
+        "x": 50.6875,
+        "y": 339.1875,
+        "w": 288.625,
+        "h": 40
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.2px",
+        "color": "rgb(194, 194, 194)",
+        "background": "rgba(65, 65, 65, 0.43)",
+        "border": "1px solid rgba(255, 255, 255, 0.56)",
+        "padding": "8px 16px"
+      }
+    },
+    "buttons": [
+      {
+        "text": "NEXT",
+        "type": "button",
+        "rect": {
+          "x": 50.6875,
+          "y": 389.1875,
+          "w": 288.625,
+          "h": 40
+        },
+        "style": {
+          "fontSize": "13px",
+          "fontFamily": "inter, sans-serif",
+          "letterSpacing": "1px",
+          "background": "rgb(43, 99, 138)",
+          "color": "rgb(255, 255, 255)",
+          "border": "0px none rgb(255, 255, 255)"
+        }
+      }
+    ]
+  },
+  "step3": {
+    "label": {
+      "text": "NAME",
+      "rect": {
+        "x": 50.6875,
+        "y": 320.5,
+        "w": 36.078125,
+        "h": 18.6875
+      },
+      "style": {
+        "fontSize": "11px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.7px",
+        "letterSpacing": "1px",
+        "color": "rgb(255, 255, 255)",
+        "textTransform": "uppercase"
+      }
+    },
+    "scrollY": 5908,
+    "section": {
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 844
+      },
+      "padding": "78px 50.6875px 39px",
+      "background": "url(\"https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00189-copy.jpg.jpeg\")",
+      "display": "flex",
+      "gap": "20px"
+    },
+    "heading": {
+      "text": "Kindly Confirm Your Presence And Share Your Blessings",
+      "rect": {
+        "x": 50.6875,
+        "y": 78,
+        "w": 288.625,
+        "h": 84
+      },
+      "style": {
+        "fontSize": "28px",
+        "fontFamily": "Candlefish, sans-serif",
+        "lineHeight": "28px",
+        "fontWeight": "400",
+        "letterSpacing": "0.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "desc": {
+      "text": "Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you.",
+      "rect": {
+        "x": 50.6875,
+        "y": 182,
+        "w": 288.625,
+        "h": 58.5
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "19.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "form": {
+      "rect": {
+        "x": 50.6875,
+        "y": 260.5,
+        "w": 288.625,
+        "h": 178.6875
+      }
+    },
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 50.6875,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(57, 181, 74)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 126.90625,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.109375,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.3125,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      }
+    ],
+    "activeField": [
+      {
+        "className": "elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required",
+        "text": "NAME",
+        "rect": {
+          "x": 45.6875,
+          "y": 320.5,
+          "w": 298.625,
+          "h": 58.6875
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 45.6875,
+          "y": 389.1875,
+          "w": 298.625,
+          "h": 40
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      }
+    ],
+    "input": {
+      "tag": "INPUT",
+      "type": "text",
+      "value": "",
+      "rect": {
+        "x": 50.6875,
+        "y": 339.1875,
+        "w": 288.625,
+        "h": 40
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.2px",
+        "color": "rgb(194, 194, 194)",
+        "background": "rgba(65, 65, 65, 0.43)",
+        "border": "1px solid rgba(255, 255, 255, 0.56)",
+        "padding": "8px 16px"
+      }
+    },
+    "buttons": [
+      {
+        "text": "NEXT",
+        "type": "button",
+        "rect": {
+          "x": 50.6875,
+          "y": 389.1875,
+          "w": 288.625,
+          "h": 40
+        },
+        "style": {
+          "fontSize": "13px",
+          "fontFamily": "inter, sans-serif",
+          "letterSpacing": "1px",
+          "background": "rgb(43, 99, 138)",
+          "color": "rgb(255, 255, 255)",
+          "border": "0px none rgb(255, 255, 255)"
+        }
+      }
+    ]
+  },
+  "step4": {
+    "label": {
+      "text": "NAME",
+      "rect": {
+        "x": 50.6875,
+        "y": 320.5,
+        "w": 36.078125,
+        "h": 18.6875
+      },
+      "style": {
+        "fontSize": "11px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.7px",
+        "letterSpacing": "1px",
+        "color": "rgb(255, 255, 255)",
+        "textTransform": "uppercase"
+      }
+    },
+    "scrollY": 5908,
+    "section": {
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 844
+      },
+      "padding": "78px 50.6875px 39px",
+      "background": "url(\"https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00189-copy.jpg.jpeg\")",
+      "display": "flex",
+      "gap": "20px"
+    },
+    "heading": {
+      "text": "Kindly Confirm Your Presence And Share Your Blessings",
+      "rect": {
+        "x": 50.6875,
+        "y": 78,
+        "w": 288.625,
+        "h": 84
+      },
+      "style": {
+        "fontSize": "28px",
+        "fontFamily": "Candlefish, sans-serif",
+        "lineHeight": "28px",
+        "fontWeight": "400",
+        "letterSpacing": "0.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "desc": {
+      "text": "Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you.",
+      "rect": {
+        "x": 50.6875,
+        "y": 182,
+        "w": 288.625,
+        "h": 58.5
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "19.5px",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    "form": {
+      "rect": {
+        "x": 50.6875,
+        "y": 260.5,
+        "w": 288.625,
+        "h": 178.6875
+      }
+    },
+    "indicators": [
+      {
+        "text": "1",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-active",
+        "rect": {
+          "x": 50.6875,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(57, 181, 74)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(255, 255, 255)"
+      },
+      {
+        "text": "2",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 126.90625,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "3",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 213.109375,
+          "y": 260.5,
+          "w": 50,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      },
+      {
+        "text": "4",
+        "className": "e-form__indicators__indicator e-form__indicators__indicator--state-inactive",
+        "rect": {
+          "x": 299.3125,
+          "y": 260.5,
+          "w": 40,
+          "h": 40
+        },
+        "color": "rgb(194, 203, 210)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(194, 203, 210)"
+      }
+    ],
+    "activeField": [
+      {
+        "className": "elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required",
+        "text": "NAME",
+        "rect": {
+          "x": 45.6875,
+          "y": 320.5,
+          "w": 298.625,
+          "h": 58.6875
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      },
+      {
+        "className": "elementor-field-group e-form__buttons__wrapper elementor-field-type-next",
+        "text": "NEXT",
+        "rect": {
+          "x": 45.6875,
+          "y": 389.1875,
+          "w": 298.625,
+          "h": 40
+        },
+        "style": {
+          "display": "flex",
+          "flexDirection": "row",
+          "gap": "normal",
+          "margin": "0px 0px 10px",
+          "padding": "0px 5px"
+        }
+      }
+    ],
+    "input": {
+      "tag": "INPUT",
+      "type": "text",
+      "value": "",
+      "rect": {
+        "x": 50.6875,
+        "y": 339.1875,
+        "w": 288.625,
+        "h": 40
+      },
+      "style": {
+        "fontSize": "13px",
+        "fontFamily": "inter, sans-serif",
+        "lineHeight": "18.2px",
+        "color": "rgb(194, 194, 194)",
+        "background": "rgba(65, 65, 65, 0.43)",
+        "border": "1px solid rgba(255, 255, 255, 0.56)",
+        "padding": "8px 16px"
+      }
+    },
+    "buttons": [
+      {
+        "text": "NEXT",
+        "type": "button",
+        "rect": {
+          "x": 50.6875,
+          "y": 389.1875,
+          "w": 288.625,
+          "h": 40
+        },
+        "style": {
+          "fontSize": "13px",
+          "fontFamily": "inter, sans-serif",
+          "letterSpacing": "1px",
+          "background": "rgb(43, 99, 138)",
+          "color": "rgb(255, 255, 255)",
+          "border": "0px none rgb(255, 255, 255)"
+        }
+      }
+    ]
+  }
+}

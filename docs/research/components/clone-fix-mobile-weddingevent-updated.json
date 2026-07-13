@@ -1,0 +1,301 @@
+{
+  "text": "SAVE OUR DATE\n\nSATURDAY\n01 MARCH 202X\nHoly Matrimony\n12.00 - 01.00 PM\n\nGereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\nGOOGLE MAPS\nWedding Reception\n12.00 - 01.00 PM\n\nGereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\nGOOGLE MAPS",
+  "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 390,
+    "h": 844
+  },
+  "nodes": [
+    {
+      "tag": "img",
+      "text": "",
+      "rect": {
+        "x": 170,
+        "y": 159,
+        "w": 50,
+        "h": 50
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, ui-sans-serif, system-ui, sans-serif",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "color": "rgba(0, 0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "margin": "0px 170px",
+        "width": "50px",
+        "height": "50px",
+        "display": "block",
+        "position": "static",
+        "opacity": "0.944229",
+        "transform": "matrix(1, 0, 0, 1, 0, 0.669253)",
+        "transition": "all",
+        "textTransform": "none"
+      },
+      "href": null,
+      "complete": true,
+      "naturalWidth": 112
+    },
+    {
+      "tag": "p",
+      "text": "SAVE OUR DATE",
+      "rect": {
+        "x": 0,
+        "y": 226,
+        "w": 390,
+        "h": 10
+      },
+      "styles": {
+        "fontSize": "10px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "10px",
+        "letterSpacing": "1.8px",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "margin": "16px 0px 0px",
+        "width": "390px",
+        "height": "10px",
+        "display": "block",
+        "position": "static",
+        "opacity": "0.853177",
+        "transform": "matrix(1, 0, 0, 1, 0, 1.76188)",
+        "transition": "all",
+        "textTransform": "uppercase"
+      },
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "h2",
+      "text": "SATURDAY\n01 MARCH 202X",
+      "rect": {
+        "x": 0,
+        "y": 247,
+        "w": 390,
+        "h": 62
+      },
+      "styles": {
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "fontFamily": "Candlefish, serif",
+        "lineHeight": "31px",
+        "letterSpacing": "normal",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "margin": "10px 0px 0px",
+        "width": "390px",
+        "height": "62px",
+        "display": "block",
+        "position": "static",
+        "opacity": "0.720658",
+        "transform": "matrix(1, 0, 0, 1, 0, 3.35211)",
+        "transition": "all",
+        "textTransform": "none"
+      },
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "h3",
+      "text": "Holy Matrimony\n12.00 - 01.00 PM",
+      "rect": {
+        "x": 0,
+        "y": 327,
+        "w": 390,
+        "h": 56
+      },
+      "styles": {
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "fontFamily": "Candlefish, serif",
+        "lineHeight": "28px",
+        "letterSpacing": "normal",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "margin": "0px",
+        "width": "390px",
+        "height": "56px",
+        "display": "block",
+        "position": "static",
+        "opacity": "0.944229",
+        "transform": "matrix(1, 0, 0, 1, 0, 0.669253)",
+        "transition": "all",
+        "textTransform": "none"
+      },
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "p",
+      "text": "Gereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rect": {
+        "x": 80,
+        "y": 394,
+        "w": 230,
+        "h": 59
+      },
+      "styles": {
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "margin": "10px 80px 0px",
+        "width": "230px",
+        "height": "58.5px",
+        "display": "block",
+        "position": "static",
+        "opacity": "0.853177",
+        "transform": "matrix(1, 0, 0, 1, 0, 1.76188)",
+        "transition": "all",
+        "textTransform": "none"
+      },
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "a",
+      "text": "GOOGLE MAPS",
+      "rect": {
+        "x": 130,
+        "y": 468,
+        "w": 130,
+        "h": 33
+      },
+      "styles": {
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "13px",
+        "letterSpacing": "normal",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgb(128, 128, 128)",
+        "padding": "10px 13px",
+        "margin": "14px 0px 0px",
+        "width": "130px",
+        "height": "33px",
+        "display": "inline-flex",
+        "position": "static",
+        "opacity": "0.720658",
+        "transform": "matrix(1, 0, 0, 1, 0, 3.35211)",
+        "transition": "color 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), fill 0.3s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.3s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.3s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), translate 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1), rotate 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), display 0.3s cubic-bezier(0.4, 0, 0.2, 1), content-visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1), overlay 0.3s cubic-bezier(0.4, 0, 0.2, 1), pointer-events 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "textTransform": "uppercase"
+      },
+      "href": "https://maps.app.goo.gl/fQGiC37iEx6fcuNq8",
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "h3",
+      "text": "Wedding Reception\n12.00 - 01.00 PM",
+      "rect": {
+        "x": 0,
+        "y": 518,
+        "w": 390,
+        "h": 56
+      },
+      "styles": {
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "fontFamily": "Candlefish, serif",
+        "lineHeight": "28px",
+        "letterSpacing": "normal",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "margin": "0px",
+        "width": "390px",
+        "height": "56px",
+        "display": "block",
+        "position": "static",
+        "opacity": "0.944229",
+        "transform": "matrix(1, 0, 0, 1, 0, 0.669253)",
+        "transition": "all",
+        "textTransform": "none"
+      },
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "p",
+      "text": "Gereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rect": {
+        "x": 80,
+        "y": 585,
+        "w": 230,
+        "h": 59
+      },
+      "styles": {
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "19.5px",
+        "letterSpacing": "normal",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "margin": "10px 80px 0px",
+        "width": "230px",
+        "height": "58.5px",
+        "display": "block",
+        "position": "static",
+        "opacity": "0.853177",
+        "transform": "matrix(1, 0, 0, 1, 0, 1.76188)",
+        "transition": "all",
+        "textTransform": "none"
+      },
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "a",
+      "text": "GOOGLE MAPS",
+      "rect": {
+        "x": 130,
+        "y": 659,
+        "w": 130,
+        "h": 33
+      },
+      "styles": {
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, sans-serif",
+        "lineHeight": "13px",
+        "letterSpacing": "normal",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgb(128, 128, 128)",
+        "padding": "10px 13px",
+        "margin": "14px 0px 0px",
+        "width": "130px",
+        "height": "33px",
+        "display": "inline-flex",
+        "position": "static",
+        "opacity": "0.720658",
+        "transform": "matrix(1, 0, 0, 1, 0, 3.35211)",
+        "transition": "color 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), fill 0.3s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.3s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.3s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), translate 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1), rotate 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), display 0.3s cubic-bezier(0.4, 0, 0.2, 1), content-visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1), overlay 0.3s cubic-bezier(0.4, 0, 0.2, 1), pointer-events 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "textTransform": "uppercase"
+      },
+      "href": "https://maps.app.goo.gl/fQGiC37iEx6fcuNq8",
+      "complete": null,
+      "naturalWidth": null
+    }
+  ],
+  "scrollY": 4220,
+  "errors": []
+}

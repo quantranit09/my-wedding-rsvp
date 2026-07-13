@@ -1,0 +1,164 @@
+{
+  "images": 20,
+  "videos": 0,
+  "audio": 1,
+  "favicons": 0,
+  "fonts": 10,
+  "results": [
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2021/10/Roxborough-CF.ttf",
+      "destination": "public/fonts/reveused/Roxborough-CF.ttf",
+      "bytes": 97352
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2023/11/Inter-VariableFont_slntwght.ttf",
+      "destination": "public/fonts/reveused/Inter-VariableFont_slntwght.ttf",
+      "bytes": 804612
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2023/12/Thesignature.ttf",
+      "destination": "public/fonts/reveused/Thesignature.ttf",
+      "bytes": 35908
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00137.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00137.jpg.jpeg",
+      "bytes": 589871
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00139.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00139.jpg.jpeg",
+      "bytes": 460964
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00187.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00187.jpg.jpeg",
+      "bytes": 177300
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00188.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00188.jpg.jpeg",
+      "bytes": 174874
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00189-copy.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00189-copy.jpg.jpeg",
+      "bytes": 131816
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00200-copy.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00200-copy.jpg.jpeg",
+      "bytes": 88667
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/03/reveused-imam-nandira-00204.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00204.jpg.jpeg",
+      "bytes": 88390
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/04/Legan.ttf",
+      "destination": "public/fonts/reveused/Legan.ttf",
+      "bytes": 351968
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/05/Ovo-Regular.ttf",
+      "destination": "public/fonts/reveused/Ovo-Regular.ttf",
+      "bytes": 47676
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/07/TimesNow-Light.ttf",
+      "destination": "public/fonts/reveused/TimesNow-Light.ttf",
+      "bytes": 46904
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/07/TimesNow-SemiBold.ttf",
+      "destination": "public/fonts/reveused/TimesNow-SemiBold.ttf",
+      "bytes": 46864
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/07/TimesNow-SemiLight.ttf",
+      "destination": "public/fonts/reveused/TimesNow-SemiLight.ttf",
+      "bytes": 47700
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/09/Candlefish.ttf",
+      "destination": "public/fonts/reveused/Candlefish.ttf",
+      "bytes": 53024
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2024/11/groove-blog-olive-versi-400173.jpg",
+      "destination": "public/images/reveused/groove-blog-olive-versi-400173.jpg",
+      "bytes": 809945
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/02/Lausanne-300.ttf",
+      "destination": "public/fonts/reveused/Lausanne-300.ttf",
+      "bytes": 55528
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00141.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00141.jpg.jpeg",
+      "bytes": 540647
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00148.jpg-1.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00148.jpg-1.jpeg",
+      "bytes": 486683
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00152.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00152.jpg.jpeg",
+      "bytes": 434013
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00162.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00162.jpg.jpeg",
+      "bytes": 318151
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00171.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00171.jpg.jpeg",
+      "bytes": 289332
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00181.jpg-1.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00181.jpg-1.jpeg",
+      "bytes": 196116
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00183.jpg-1.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00183.jpg-1.jpeg",
+      "bytes": 185233
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00186-copy.jpg-1.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00186-copy.jpg-1.jpeg",
+      "bytes": 152901
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00189.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00189.jpg.jpeg",
+      "bytes": 157378
+    },
+    {
+      "url": "https://groovepublic.com/wp-content/uploads/2025/03/reveused-imam-nandira-00195-copy.jpg.jpeg",
+      "destination": "public/images/reveused/reveused-imam-nandira-00195-copy.jpg.jpeg",
+      "bytes": 144606
+    },
+    {
+      "url": "https://is3.cloudhost.id/externalgroovepublic/MP3/s%C3%B8d%20ven%20-%20infinity%20(lyric%20video)%20(mp3cut.net).mp3",
+      "destination": "public/audio/reveused/sod-ven-infinity.mp3",
+      "bytes": 4117244
+    },
+    {
+      "url": "https://s.w.org/images/core/emoji/17.0.2/svg/1f6c0.svg",
+      "destination": "public/images/reveused/1f6c0.svg",
+      "bytes": 1009
+    },
+    {
+      "url": "https://s.w.org/images/core/emoji/17.0.2/svg/1f90d.svg",
+      "destination": "public/images/reveused/1f90d.svg",
+      "bytes": 368
+    }
+  ]
+}

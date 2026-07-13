@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  metadataBase: new URL(siteUrl),
+  title: "The Wedding of Imam Nandira",
+  description: "Invitation",
+  openGraph: {
+    title: "The Wedding of Imam Nandira",
+    description: "Invitation",
+    images: ["/images/imam-nandira-00189.jpg.jpeg"],
+  },
 };
 
 export default function RootLayout({
@@ -23,11 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="h-full antialiased" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

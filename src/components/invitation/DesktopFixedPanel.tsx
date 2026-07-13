@@ -1,0 +1,1 @@
+export { DesktopFixedPanel } from "./InvitationSections";

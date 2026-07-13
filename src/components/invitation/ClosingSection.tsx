@@ -1,0 +1,1 @@
+export { ClosingSection } from "./InvitationSections";

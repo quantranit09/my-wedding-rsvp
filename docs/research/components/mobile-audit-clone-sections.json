@@ -1,0 +1,272 @@
+[
+  {
+    "index": 0,
+    "id": "home",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "THE WEDDING OF",
+    "firstTextRect": {
+      "x": 20,
+      "y": 118.15625,
+      "w": 350,
+      "h": 17
+    },
+    "bodyText": "THE WEDDING OF\n\nImam  Nandira\n\nSATURDAY, 9TH DECEMBER 202X"
+  },
+  {
+    "index": 1,
+    "id": "quote",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "Two are better than one because they have a good reward for their toil. For if they fall, one will lift up his fellow. But woe to him who is alone when he falls and has not another to lift him up! Again, if two lie together, they keep warm, but how can one keep warm alone? And though a man might prevail against one who is alone, two will withstand him",
+    "firstTextRect": {
+      "x": 30,
+      "y": 564,
+      "w": 330,
+      "h": 147
+    },
+    "bodyText": "Two are better than one becau e they have a good reward for their toil. For if they fall, one will lift up hi  fellow. But woe to him who i  alone when he fall  and ha  not another to lift him up! Again, if two lie together, they keep warm, but how can one keep warm alone? And though a man might prevail again t one who i  alone, two will with tand him\n\nECCLESIASTES 4:9-12"
+  },
+  {
+    "index": 2,
+    "id": "profile",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "THE GROOM",
+    "firstTextRect": {
+      "x": 20,
+      "y": 520.6355590820312,
+      "w": 270,
+      "h": 17
+    },
+    "bodyText": "THE GROOM\n\nImam Faizan\n\nThe  econd  on of\n\nLorem ip um dolor  it amet, con ectetur adipi cing elit. Ut elit tellu , luctu  nec ullamcorper matti , pulvinar dapibu  leo.\n\nImam"
+  },
+  {
+    "index": 3,
+    "id": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "THE BRIDE",
+    "firstTextRect": {
+      "x": 20,
+      "y": 518.8333740234375,
+      "w": 270,
+      "h": 17
+    },
+    "bodyText": "THE BRIDE\n\nNandira Syafira\n\nThe fir t daughter of\n\nLorem ip um dolor  it amet, con ectetur adipi cing elit. Ut elit tellu , luctu  nec ullamcorper matti , pulvinar dapibu  leo.\n\nNandira"
+  },
+  {
+    "index": 4,
+    "id": "lovestory",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "A journey in love",
+    "firstTextRect": {
+      "x": 39,
+      "y": 205.5669708251953,
+      "w": 312,
+      "h": 40
+    },
+    "bodyText": "A journey in love\nSEPTEMBER 2019\n\n2019, we  tarted our journey a  two individual  who were ju t getting to know each other. We were excited to explore what the future held for u  and were eager to  ee where our path  would lead.\n\nSEPTEMBER 2020\n\nIn 2020, we continued our journey, facing challenge  and ob tacle  along the way. We learned how to communicate effectively and work together a  a team, and our relation hip grew  tronger a  a re ult.\n\nSEPTEMBER 2023\n\nAnd now, in 2023, we have reached th"
+  },
+  {
+    "index": 5,
+    "id": "weddingevent",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "SAVE OUR DATE",
+    "firstTextRect": {
+      "x": 0,
+      "y": 227.5113525390625,
+      "w": 390,
+      "h": 10
+    },
+    "bodyText": "SAVE OUR DATE\n\nSATURDAY\n01 MARCH 202X\nHoly Matrimony\n12.00 - 01.00 PM\n\nGereja Katedral Jakarta\nJl. Lorem ip um dolor  it amet, con ectetur adipi cing elit.\n\nGOOGLE MAPS\nWedding Reception\n12.00 - 01.00 PM\n\nGereja Katedral Jakarta\nJl. Lorem ip um dolor  it amet, con ectetur adipi cing elit.\n\nGOOGLE MAPS"
+  },
+  {
+    "index": 6,
+    "id": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "ALMOST TIME FOR OURCELEBRATION",
+    "firstTextRect": {
+      "x": 47.8125,
+      "y": 512.5270385742188,
+      "w": 294.375,
+      "h": 62
+    },
+    "bodyText": "ALMOST TIME FOR OUR\nCELEBRATION\n\n00\n\nDAYS\n\n00\n\nHOURS\n\n00\n\nMINUTES\n\n00\n\nSECONDS\n\nSAVE THE DATE"
+  },
+  {
+    "index": 7,
+    "id": "rsvp",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "Kindly Confirm Your Presence And Share Your Blessings",
+    "firstTextRect": {
+      "x": 50.6875,
+      "y": 85.9442138671875,
+      "w": 288.625,
+      "h": 84
+    },
+    "bodyText": "Kindly Confirm Your Pre ence And Share Your Ble ing \n\nKindly expre  your be t wi he  and kindly confirm your attendance by u ing the form provided below. Thank you.\n\n1\n2\n3\n4\nNAME\nNEXT"
+  },
+  {
+    "index": 8,
+    "id": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "Guest Name",
+    "firstTextRect": {
+      "x": 55,
+      "y": 122.33880615234375,
+      "w": 280,
+      "h": 19.5
+    },
+    "bodyText": "PREV\nWISHES\nNEXT\n\nGue t Name\n\nSelamat\n\n20 Jun 2025\n\nJaya\n\nSangat Fung ional dan Cakep banget undangannya ! Fitur  angat baik dan rapi polll\n\n27 Nov 2024\n\nMr. Example\n\nMaaf, hanya untuk yang  udah melakukan pembelian dan memiliki akun dari Groove Public.\n\n27 Nov 2024\n\nAna ta ya\n\nMantap di beri ak e  buat edit, jadi kalau revi i tinggal ganti  endiri gak ribet, thank you\n\n14 Aug 2024"
+  },
+  {
+    "index": 9,
+    "id": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "Imam Nandira",
+    "firstTextRect": {
+      "x": 26.734375,
+      "y": 520.73291015625,
+      "w": 336.53125,
+      "h": 52.5
+    },
+    "bodyText": "Imam Nandira\nA GUIDE TO DRESS CODES\n\nWe kindly encourage our gue t  to wear the e color  for our  pecial day"
+  },
+  {
+    "index": 10,
+    "id": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "JOIN OUR EXCLUSIVE LIVE STREAMING EVENT",
+    "firstTextRect": {
+      "x": 30,
+      "y": 72.59449005126953,
+      "w": 260,
+      "h": 92.99999237060547
+    },
+    "bodyText": "JOIN OUR EXCLUSIVE LIVE STREAMING EVENT\n\nSATURDAY, 1 MARCH 202X - 11.00 WIB\n\nLorem ip um dolor  it amet, con ectetur adipi cing elit. Ut elit tellu , luctu  nec ullamcorper matti .\n\nJoin Streaming"
+  },
+  {
+    "index": 11,
+    "id": "weddinggift",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "Wedding Gift",
+    "firstTextRect": {
+      "x": 35,
+      "y": 398.6011047363281,
+      "w": 320,
+      "h": 31
+    },
+    "bodyText": "Wedding Gift\n\nFor tho e of you who want to give a token of love to the bride and groom, you can u e the account number below:\n\nShirley Lorraine\n\nBANK BCA 0087771222\n\nShirley Lorraine\n\nBANK MANDIRI 001231200\n\nBrandon William\n\nBANK BCA 0800123123\n\nCONFIRM"
+  },
+  {
+    "index": 12,
+    "id": "gallery",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "OUR PRE-WEDDING CELEBRATION",
+    "firstTextRect": {
+      "x": 0,
+      "y": 64,
+      "w": 390,
+      "h": 62
+    },
+    "bodyText": "OUR PRE-WEDDING CELEBRATION\n\nIMAM NANDIRA\n\n8 / 8\n\nClick image for preview"
+  },
+  {
+    "index": 13,
+    "id": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "UNVEILING OUR PREWEDDING STORY",
+    "firstTextRect": {
+      "x": 30,
+      "y": 328.38519287109375,
+      "w": 300,
+      "h": 42
+    },
+    "bodyText": "UNVEILING OUR PREWEDDING STORY\nPlay Video\n\nEvery love  tory i  beautiful, but our  i  my favorite. Through the high  and low , our love grow   tronger and deeper with each pa ing day."
+  },
+  {
+    "index": 14,
+    "id": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    "firstText": "THANK YOU FOR YOUR ATTENDANCE",
+    "firstTextRect": {
+      "x": 20,
+      "y": 516.1221923828125,
+      "w": 350,
+      "h": 56
+    },
+    "bodyText": "THANK YOU FOR YOUR ATTENDANCE\n\nIt i  a plea ure and honor for u , if you are willing to attend and give u  your ble ing.\n\nIMAM NANDIRA\n\nCREATED BY GROOVE PUBLIC\n+62 813-2757-7133\nGROOVEPUBLIC.ID\nGROOVEPUBLIC.COM\n\n© All right  re erved by groovepublic"
+  }
+]

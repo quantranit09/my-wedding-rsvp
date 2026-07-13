@@ -1,0 +1,561 @@
+{
+  "meta": {
+    "title": "The Wedding of Imam Nandira",
+    "description": "Invitation",
+    "ogImage": "https://groovepublic.com/images/reveused/reveused-imam-nandira-00189.jpg.jpeg",
+    "viewport": "width=device-width, initial-scale=1",
+    "bodyClasses": [
+      "flex",
+      "min-h-full",
+      "flex-col"
+    ],
+    "htmlClasses": [
+      "h-full",
+      "antialiased"
+    ],
+    "hasLenis": false,
+    "scrollHeight": 1200,
+    "innerWidth": 1440,
+    "innerHeight": 1200,
+    "afterOpen": false
+  },
+  "colors": [
+    [
+      "lab(90.952 0 -0.0000119209)",
+      8
+    ],
+    [
+      "rgb(255, 255, 255)",
+      4
+    ],
+    [
+      "oklab(0.999994 0.0000455678 0.0000200868 / 0.75)",
+      3
+    ],
+    [
+      "rgb(16, 16, 16)",
+      2
+    ],
+    [
+      "rgb(0, 0, 0)",
+      1
+    ]
+  ],
+  "fonts": [
+    [
+      "Legan, ui-sans-serif, system-ui, sans-serif | 400 | 16px | 24px",
+      5
+    ],
+    [
+      "Legan, sans-serif | 400 | 26px | 39px",
+      2
+    ],
+    [
+      "Legan, sans-serif | 400 | 24px | 36px",
+      1
+    ]
+  ],
+  "assets": {
+    "images": [],
+    "videos": [],
+    "backgroundImages": [
+      {
+        "url": "url(\"http://localhost:3000/images/reveused/reveused-imam-nandira-00186-copy.jpg-1.jpeg\")",
+        "selector": "div.mx-auto.h-\\[90px\\].w-\\[130px\\]",
+        "classes": [
+          "mx-auto",
+          "h-[90px]",
+          "w-[130px]",
+          "bg-reveused-00186",
+          "bg-cover",
+          "bg-center"
+        ]
+      }
+    ],
+    "favicons": [
+      {
+        "rel": "icon",
+        "href": "http://localhost:3000/favicon.ico?favicon.0x3dzn~oxb6tn.ico",
+        "sizes": "256x256",
+        "type": "image/x-icon"
+      }
+    ],
+    "inlineSvgs": [],
+    "styleSheets": [
+      {
+        "id": "",
+        "href": "http://localhost:3000/_next/static/chunks/ai-website-cloner-template_src_app_globals_0tye4jh.css"
+      }
+    ]
+  },
+  "fixed": [
+    {
+      "selector": "div.fixed.inset-0.z-\\[9999999\\]",
+      "text": "THE WEDDING OF IMAM NANDIRA LOADING... 99%",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1200,
+        "viewportX": 0,
+        "viewportY": 0
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, ui-sans-serif, system-ui, sans-serif",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgb(16, 16, 16)",
+        "background": "rgb(16, 16, 16) none repeat scroll 0% 0% / auto padding-box border-box",
+        "width": "1440px",
+        "height": "1200px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "border": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+        "overflow": "visible",
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "position": "fixed",
+        "zIndex": "9999999",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "objectPosition": "50% 50%",
+        "textOverflow": "clip"
+      }
+    }
+  ],
+  "interactives": [],
+  "sections": [
+    {
+      "index": 0,
+      "selector": "div.fixed.inset-0.z-\\[9999999\\]",
+      "id": null,
+      "classes": [
+        "fixed",
+        "inset-0",
+        "z-[9999999]",
+        "flex",
+        "flex-col",
+        "items-center",
+        "justify-center",
+        "bg-[#101010]",
+        "text-center",
+        "text-white"
+      ],
+      "dataId": null,
+      "dataElementType": null,
+      "text": "THE WEDDING OF IMAM NANDIRA LOADING... 99%",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1200,
+        "viewportX": 0,
+        "viewportY": 0
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, ui-sans-serif, system-ui, sans-serif",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgb(16, 16, 16)",
+        "background": "rgb(16, 16, 16) none repeat scroll 0% 0% / auto padding-box border-box",
+        "width": "1440px",
+        "height": "1200px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "border": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+        "overflow": "visible",
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "position": "fixed",
+        "zIndex": "9999999",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "objectPosition": "50% 50%",
+        "textOverflow": "clip"
+      },
+      "images": [],
+      "backgroundImages": [
+        "url(\"http://localhost:3000/images/reveused/reveused-imam-nandira-00186-copy.jpg-1.jpeg\")"
+      ]
+    }
+  ],
+  "panels": [],
+  "sectionDetails": [
+    {
+      "tag": "div",
+      "selector": "div.fixed.inset-0.z-\\[9999999\\]",
+      "id": null,
+      "classes": [
+        "fixed",
+        "inset-0",
+        "z-[9999999]",
+        "flex",
+        "flex-col",
+        "items-center",
+        "justify-center",
+        "bg-[#101010]"
+      ],
+      "dataId": null,
+      "dataElementType": null,
+      "widgetType": null,
+      "text": "",
+      "innerText": "THE WEDDING OF IMAM NANDIRA LOADING... 99%",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1200,
+        "viewportX": 0,
+        "viewportY": 0
+      },
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Legan, ui-sans-serif, system-ui, sans-serif",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgb(16, 16, 16)",
+        "background": "rgb(16, 16, 16) none repeat scroll 0% 0% / auto padding-box border-box",
+        "width": "1440px",
+        "height": "1200px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "border": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+        "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+        "overflow": "visible",
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "position": "fixed",
+        "zIndex": "9999999",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "objectPosition": "50% 50%",
+        "textOverflow": "clip"
+      },
+      "image": null,
+      "backgroundImage": "none",
+      "childCount": 2,
+      "children": [
+        {
+          "tag": "div",
+          "selector": "div.mb-\\[60px\\].space-y-6",
+          "id": null,
+          "classes": [
+            "mb-[60px]",
+            "space-y-6"
+          ],
+          "dataId": null,
+          "dataElementType": null,
+          "widgetType": null,
+          "text": "",
+          "innerText": "THE WEDDING OF IMAM NANDIRA",
+          "rect": {
+            "x": 550,
+            "y": 396,
+            "width": 340,
+            "height": 216,
+            "viewportX": 550,
+            "viewportY": 396
+          },
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Legan, ui-sans-serif, system-ui, sans-serif",
+            "lineHeight": "24px",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+            "margin": "0px 0px 60px",
+            "marginBottom": "60px",
+            "width": "339.797px",
+            "height": "216px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+            "overflow": "visible",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "textOverflow": "clip"
+          },
+          "image": null,
+          "backgroundImage": "none",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "p",
+              "selector": "p.font-legan.text-\\[26px\\].uppercase",
+              "id": null,
+              "classes": [
+                "font-legan",
+                "text-[26px]",
+                "uppercase",
+                "tracking-[0.38em]",
+                "text-white/75"
+              ],
+              "dataId": null,
+              "dataElementType": null,
+              "widgetType": null,
+              "text": "THE WEDDING OF",
+              "innerText": "THE WEDDING OF",
+              "rect": {
+                "x": 550,
+                "y": 396,
+                "width": 340,
+                "height": 39,
+                "viewportX": 550,
+                "viewportY": 396
+              },
+              "styles": {
+                "fontSize": "26px",
+                "fontWeight": "400",
+                "fontFamily": "Legan, sans-serif",
+                "lineHeight": "39px",
+                "letterSpacing": "9.88px",
+                "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.75)",
+                "textTransform": "uppercase",
+                "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+                "margin": "0px 0px 24px",
+                "marginBottom": "24px",
+                "width": "339.797px",
+                "height": "39px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+                "overflow": "visible",
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "position": "static",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "objectPosition": "50% 50%",
+                "textOverflow": "clip"
+              },
+              "image": null,
+              "backgroundImage": "none",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "selector": "div.mx-auto.h-\\[90px\\].w-\\[130px\\]",
+              "id": null,
+              "classes": [
+                "mx-auto",
+                "h-[90px]",
+                "w-[130px]",
+                "bg-reveused-00186",
+                "bg-cover",
+                "bg-center",
+                "grayscale"
+              ],
+              "dataId": null,
+              "dataElementType": null,
+              "widgetType": null,
+              "text": "",
+              "innerText": "",
+              "rect": {
+                "x": 655,
+                "y": 459,
+                "width": 130,
+                "height": 90,
+                "viewportX": 655,
+                "viewportY": 459
+              },
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Legan, ui-sans-serif, system-ui, sans-serif",
+                "lineHeight": "24px",
+                "color": "rgb(255, 255, 255)",
+                "backgroundImage": "url(\"http://localhost:3000/images/reveused/reveused-imam-nandira-00186-copy.jpg-1.jpeg\")",
+                "background": "rgba(0, 0, 0, 0) url(\"http://localhost:3000/images/reveused/reveused-imam-nandira-00186-copy.jpg-1.jpeg\") repeat scroll 50% 50% / cover padding-box border-box",
+                "margin": "0px 104.906px 24px 104.891px",
+                "marginRight": "104.906px",
+                "marginBottom": "24px",
+                "marginLeft": "104.891px",
+                "width": "130px",
+                "height": "90px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+                "overflow": "visible",
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "position": "static",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "objectPosition": "50% 50%",
+                "filter": "grayscale(1)",
+                "textOverflow": "clip"
+              },
+              "image": null,
+              "backgroundImage": "url(\"http://localhost:3000/images/reveused/reveused-imam-nandira-00186-copy.jpg-1.jpeg\")",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "p",
+              "selector": "p.font-legan.text-\\[26px\\].uppercase",
+              "id": null,
+              "classes": [
+                "font-legan",
+                "text-[26px]",
+                "uppercase",
+                "tracking-[0.28em]",
+                "text-white/75"
+              ],
+              "dataId": null,
+              "dataElementType": null,
+              "widgetType": null,
+              "text": "IMAM NANDIRA",
+              "innerText": "IMAM NANDIRA",
+              "rect": {
+                "x": 550,
+                "y": 573,
+                "width": 340,
+                "height": 39,
+                "viewportX": 550,
+                "viewportY": 573
+              },
+              "styles": {
+                "fontSize": "26px",
+                "fontWeight": "400",
+                "fontFamily": "Legan, sans-serif",
+                "lineHeight": "39px",
+                "letterSpacing": "7.28px",
+                "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.75)",
+                "textTransform": "uppercase",
+                "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+                "width": "339.797px",
+                "height": "39px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+                "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+                "overflow": "visible",
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "position": "static",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "objectPosition": "50% 50%",
+                "textOverflow": "clip"
+              },
+              "image": null,
+              "backgroundImage": "none",
+              "childCount": 0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "tag": "p",
+          "selector": "p.mt-24.font-legan.text-\\[24px\\]",
+          "id": null,
+          "classes": [
+            "mt-24",
+            "font-legan",
+            "text-[24px]",
+            "uppercase",
+            "tracking-[0.18em]",
+            "text-white/75"
+          ],
+          "dataId": null,
+          "dataElementType": null,
+          "widgetType": null,
+          "text": "LOADING... 99 %",
+          "innerText": "LOADING... 99%",
+          "rect": {
+            "x": 608,
+            "y": 768,
+            "width": 224,
+            "height": 36,
+            "viewportX": 608,
+            "viewportY": 768
+          },
+          "styles": {
+            "fontSize": "24px",
+            "fontWeight": "400",
+            "fontFamily": "Legan, sans-serif",
+            "lineHeight": "36px",
+            "letterSpacing": "4.32px",
+            "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.75)",
+            "textTransform": "uppercase",
+            "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+            "margin": "96px 0px 0px",
+            "marginTop": "96px",
+            "width": "224.219px",
+            "height": "36px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderTop": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderBottom": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderLeft": "0px solid lab(90.952 0 -0.0000119209)",
+            "borderRight": "0px solid lab(90.952 0 -0.0000119209)",
+            "overflow": "visible",
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "textOverflow": "clip"
+          },
+          "image": null,
+          "backgroundImage": "none",
+          "childCount": 0,
+          "children": []
+        }
+      ]
+    }
+  ],
+  "textContent": "THE WEDDING OF\n\nIMAM NANDIRA\n\nLOADING... 99%"
+}

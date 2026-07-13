@@ -1,0 +1,1 @@
+export { OpeningHero } from "./InvitationSections";

@@ -4,11 +4,91 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Lausanne300";
+  src: url("/fonts/Lausanne-300.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Candlefish";
+  src: url("/fonts/Candlefish.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TimesNow";
+  src: url("/fonts/TimesNow-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TimesNow";
+  src: url("/fonts/TimesNow-SemiLight.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TimesNow";
+  src: url("/fonts/TimesNow-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OvoCustom";
+  src: url("/fonts/Ovo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Legan";
+  src: url("/fonts/Legan.ttf") format("truetype");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TheSignature";
+  src: url("/fonts/Thesignature.ttf") format("truetype");
+  font-weight: 300 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InterLocal";
+  src: url("/fonts/Inter-VariableFont_slntwght.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roxborough";
+  src: url("/fonts/Roxborough-CF.ttf") format("truetype");
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-sans: "Legan", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "InterLocal", ui-monospace, monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -49,8 +129,8 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: #101010;
+  --foreground: #ffffff;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -126,5 +206,724 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-candlefish {
+    font-family: "Candlefish", serif;
+  }
+
+  .font-legan {
+    font-family: "Legan", sans-serif;
+  }
+
+  .font-times {
+    font-family: "TimesNow", serif;
+  }
+
+  .font-signature {
+    font-family: "TheSignature", cursive;
+  }
+
+  .font-lausanne {
+    font-family: "Lausanne300", sans-serif;
+  }
+
+  .font-ovo {
+    font-family: "OvoCustom", serif;
+  }
+
+  .font-roxborough {
+    font-family: "Roxborough", serif;
+  }
+
+  .font-inter-local {
+    font-family: "InterLocal", sans-serif;
+  }
+
+  .bg-invitation-00137 {
+    background-image: url("/images/imam-nandira-00137.jpg.jpeg");
+  }
+
+  .bg-invitation-00139 {
+    background-image: url("/images/imam-nandira-00139.jpg.jpeg");
+  }
+
+  .bg-invitation-00141 {
+    background-image: url("/images/imam-nandira-00141.jpg.jpeg");
+  }
+
+  .bg-invitation-00148 {
+    background-image: url("/images/imam-nandira-00148.jpg-1.jpeg");
+  }
+
+  .bg-invitation-00152 {
+    background-image: url("/images/imam-nandira-00152.jpg.jpeg");
+  }
+
+  .bg-invitation-00162 {
+    background-image: url("/images/imam-nandira-00162.jpg.jpeg");
+  }
+
+  .bg-invitation-00171 {
+    background-image: url("/images/imam-nandira-00171.jpg.jpeg");
+  }
+
+  .bg-invitation-00181 {
+    background-image: url("/images/imam-nandira-00181.jpg-1.jpeg");
+  }
+
+  .bg-invitation-00183 {
+    background-image: url("/images/imam-nandira-00183.jpg-1.jpeg");
+  }
+
+  .bg-invitation-00186 {
+    background-image: url("/images/imam-nandira-00186-copy.jpg-1.jpeg");
+  }
+
+  .bg-invitation-00187 {
+    background-image: url("/images/imam-nandira-00187.jpg.jpeg");
+  }
+
+  .bg-invitation-00188 {
+    background-image: url("/images/imam-nandira-00188.jpg.jpeg");
+  }
+
+  .bg-invitation-00189-copy {
+    background-image: url("/images/imam-nandira-00189-copy.jpg.jpeg");
+  }
+
+  .bg-invitation-00189 {
+    background-image: url("/images/imam-nandira-00189.jpg.jpeg");
+  }
+
+  .bg-invitation-00195 {
+    background-image: url("/images/imam-nandira-00195-copy.jpg.jpeg");
+  }
+
+  .bg-invitation-00200 {
+    background-image: url("/images/imam-nandira-00200-copy.jpg.jpeg");
+  }
+
+  .bg-invitation-00204 {
+    background-image: url("/images/imam-nandira-00204.jpg.jpeg");
+  }
+
+  .invitation-panel-frame {
+    min-height: 100vh;
+  }
+
+  @supports (min-height: 100dvh) {
+    .invitation-panel-frame {
+      min-height: 100dvh;
+    }
+  }
+
+  .invitation-preloader {
+    animation: invitation-preloader-fallback-out 5500ms linear forwards;
+    opacity: 1;
+    transition: opacity 1000ms ease;
+  }
+
+  .invitation-preloader[data-hiding="true"] {
+    animation: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .invitation-loading-percent {
+    display: inline-block;
+    min-width: 2.8ch;
+    font-size: 0;
+    text-align: left;
+    vertical-align: baseline;
+  }
+
+  .invitation-loading-percent::after {
+    animation: invitation-loading-percent-fallback 4000ms steps(1, end) forwards;
+    content: "1";
+    font-size: 12px;
+    line-height: inherit;
+  }
+
+  .invitation-loading-percent[data-js-progress="true"]::after {
+    animation: none;
+    content: attr(data-percent);
+  }
+
+  .invitation-loader-word {
+    display: block;
+    width: 240px;
+    font-family: "Lausanne300", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c2c2c2;
+    white-space: nowrap;
+  }
+
+  .invitation-loader-word-inner {
+    display: block;
+    position: relative;
+    text-align: center;
+  }
+
+  .invitation-loader-word-group,
+  .invitation-loader-char {
+    display: inline-block;
+    position: relative;
+  }
+
+  .invitation-loader-char {
+    opacity: 0;
+    will-change: opacity, transform;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  .invitation-loader-word-from-right .invitation-loader-char {
+    animation-delay: var(--invitation-loader-delay);
+    animation-name: invitation-loader-char-from-right;
+  }
+
+  .invitation-loader-word-from-left .invitation-loader-char {
+    animation-delay: var(--invitation-loader-reverse-delay);
+    animation-name: invitation-loader-char-from-left;
+  }
+
+  .invitation-loader-char-0 {
+    --invitation-loader-delay: 0ms;
+    --invitation-loader-reverse-delay: 700ms;
+  }
+
+  .invitation-loader-char-1 {
+    --invitation-loader-delay: 70ms;
+    --invitation-loader-reverse-delay: 630ms;
+  }
+
+  .invitation-loader-char-2 {
+    --invitation-loader-delay: 140ms;
+    --invitation-loader-reverse-delay: 560ms;
+  }
+
+  .invitation-loader-char-3 {
+    --invitation-loader-delay: 210ms;
+    --invitation-loader-reverse-delay: 490ms;
+  }
+
+  .invitation-loader-char-4 {
+    --invitation-loader-delay: 280ms;
+    --invitation-loader-reverse-delay: 420ms;
+  }
+
+  .invitation-loader-char-5 {
+    --invitation-loader-delay: 350ms;
+    --invitation-loader-reverse-delay: 350ms;
+  }
+
+  .invitation-loader-char-6 {
+    --invitation-loader-delay: 420ms;
+    --invitation-loader-reverse-delay: 280ms;
+  }
+
+  .invitation-loader-char-7 {
+    --invitation-loader-delay: 490ms;
+    --invitation-loader-reverse-delay: 210ms;
+  }
+
+  .invitation-loader-char-8 {
+    --invitation-loader-delay: 560ms;
+    --invitation-loader-reverse-delay: 140ms;
+  }
+
+  .invitation-loader-char-9 {
+    --invitation-loader-delay: 630ms;
+    --invitation-loader-reverse-delay: 70ms;
+  }
+
+  .invitation-loader-char-10 {
+    --invitation-loader-delay: 700ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-11 {
+    --invitation-loader-delay: 770ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-12 {
+    --invitation-loader-delay: 840ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-13 {
+    --invitation-loader-delay: 910ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  @media (min-width: 1024px) {
+    .invitation-loader-word {
+      font-size: 15px;
+      line-height: 19.5px;
+    }
+
+    .invitation-loading-percent::after {
+      font-size: 14px;
+    }
+  }
+
+  .invitation-preloader-thumb {
+    width: 90px;
+    height: 90px;
+    background-image: url("/images/imam-nandira-00189.jpg.jpeg");
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1);
+    animation:
+      invitation-loader-thumb-cycle 720ms steps(1, end) infinite,
+      invitation-loader-thumb-zoom 1000ms ease both;
+  }
+
+  .invitation-fade-up {
+    animation: invitation-fade-up 900ms cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  }
+
+  .invitation-slow-zoom {
+    animation: invitation-slow-zoom 18s ease-in-out infinite alternate;
+  }
+
+  .invitation-page-enter {
+    animation: invitation-page-enter 900ms cubic-bezier(0.76, 0, 0.24, 1) both;
+    transform: none !important;
+  }
+
+  .invitation-root-snap {
+    scroll-snap-type: y mandatory;
+  }
+
+  .invitation-root-snap-disabled {
+    scroll-snap-type: none;
+  }
+
+  .invitation-root-snap .invitation-page-open section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .invitation-page-open [data-invitation-panel] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .invitation-page-open .invitation-fade-up {
+    animation: none;
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      transform 1000ms ease-in-out,
+      opacity 1000ms ease-in-out;
+  }
+
+  .invitation-page-open .invitation-fade-up[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .invitation-page-open .invitation-fade-up[data-visible="true"] > * {
+    animation: invitation-scroll-child-fade 1000ms ease-in-out both;
+  }
+
+  .invitation-page-open .invitation-fade-up[data-visible="true"] > :nth-child(2) {
+    animation-delay: 100ms;
+  }
+
+  .invitation-page-open .invitation-fade-up[data-visible="true"] > :nth-child(3) {
+    animation-delay: 200ms;
+  }
+
+  .invitation-page-open .invitation-fade-up[data-visible="true"] > :nth-child(4) {
+    animation-delay: 300ms;
+  }
+
+  .invitation-page-open .invitation-fade-up[data-visible="true"] > :nth-child(5) {
+    animation-delay: 400ms;
+  }
+
+  .invitation-page-open .invitation-hero-title,
+  .invitation-page-open .invitation-hero-title[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .invitation-page-open .invitation-hero-title[data-visible="true"] > * {
+    animation: none;
+  }
+
+  .invitation-cover-recipient-leaving {
+    animation: invitation-cover-recipient-leaving 520ms cubic-bezier(0.645, 0.045, 0.355, 1) both;
+    pointer-events: none;
+  }
+
+  .invitation-open-scroll-cue {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  .invitation-open-scroll-cue-enter {
+    animation: invitation-open-scroll-cue-enter 280ms ease-in-out 280ms both;
+  }
+
+  .invitation-open-scroll-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: invitation-open-scroll-ring 3300ms ease-in-out infinite;
+  }
+
+  .invitation-open-scroll-arrow {
+    animation: invitation-open-scroll-arrow 3300ms ease-in-out infinite;
+  }
+
+  .invitation-hero-slide {
+    opacity: 0;
+    animation:
+      invitation-hero-fade 7500ms ease-in-out infinite,
+      invitation-slow-zoom 18s ease-in-out infinite alternate;
+  }
+
+  .invitation-hero-slide-1 {
+    animation-delay: -900ms, 0ms;
+  }
+
+  .invitation-hero-slide-2 {
+    animation-delay: 1600ms, 0ms;
+  }
+
+  .invitation-hero-slide-3 {
+    animation-delay: 4100ms, 0ms;
+  }
+
+  .invitation-music-control[data-playing="true"] {
+    animation: invitation-audio-pulse 1800ms ease-in-out infinite;
+  }
+
+  .invitation-overlay-enter {
+    animation: invitation-overlay-enter 300ms ease both;
+  }
+
+  .invitation-wishes-page {
+    animation: invitation-wishes-page 700ms ease-in-out both;
+  }
+
+  .invitation-menu-link {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .invitation-menu-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.85;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 750ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .invitation-menu-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes invitation-page-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes invitation-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes invitation-loader-char-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes invitation-loader-char-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes invitation-loading-percent-fallback {
+  0% {
+    content: "1";
+  }
+  8% {
+    content: "8";
+  }
+  16% {
+    content: "16";
+  }
+  25% {
+    content: "25";
+  }
+  35% {
+    content: "35";
+  }
+  45% {
+    content: "45";
+  }
+  56% {
+    content: "56";
+  }
+  68% {
+    content: "68";
+  }
+  80% {
+    content: "80";
+  }
+  92% {
+    content: "92";
+  }
+  100% {
+    content: "100";
+  }
+}
+
+@keyframes invitation-preloader-fallback-out {
+  0%,
+  81.8% {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+@keyframes invitation-loader-thumb-cycle {
+  0% {
+    background-image: url("/images/imam-nandira-00189.jpg.jpeg");
+  }
+  12.5% {
+    background-image: url("/images/imam-nandira-00195-copy.jpg.jpeg");
+  }
+  25% {
+    background-image: url("/images/imam-nandira-00171.jpg.jpeg");
+  }
+  37.5% {
+    background-image: url("/images/imam-nandira-00162.jpg.jpeg");
+  }
+  50% {
+    background-image: url("/images/imam-nandira-00148.jpg-1.jpeg");
+  }
+  62.5% {
+    background-image: url("/images/imam-nandira-00181.jpg-1.jpeg");
+  }
+  75% {
+    background-image: url("/images/imam-nandira-00183.jpg-1.jpeg");
+  }
+  87.5%,
+  100% {
+    background-image: url("/images/imam-nandira-00186-copy.jpg-1.jpeg");
+  }
+}
+
+@keyframes invitation-loader-thumb-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes invitation-scroll-child-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes invitation-cover-recipient-leaving {
+  0% {
+    opacity: 1;
+    max-height: 180px;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes invitation-open-scroll-cue-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes invitation-open-scroll-ring {
+  0%,
+  100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.58;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes invitation-open-scroll-arrow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  45% {
+    opacity: 0.64;
+    transform: translateY(5px);
+  }
+}
+
+@keyframes invitation-hero-fade {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes invitation-audio-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgb(255 255 255 / 0);
+  }
+}
+
+@keyframes invitation-overlay-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes invitation-wishes-page {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-fade-up,
+  .invitation-slow-zoom,
+  .invitation-page-enter,
+  .invitation-hero-slide,
+  .invitation-open-scroll-cue-enter,
+  .invitation-open-scroll-ring,
+  .invitation-open-scroll-arrow,
+  .invitation-loader-char,
+  .invitation-preloader-thumb,
+  .invitation-cover-recipient-leaving,
+  .invitation-music-control[data-playing="true"],
+  .invitation-overlay-enter,
+  .invitation-wishes-page {
+    animation: none !important;
+  }
+
+  .invitation-page-open [data-invitation-panel],
+  .invitation-page-open .invitation-fade-up,
+  .invitation-page-open .invitation-fade-up[data-visible="true"] > *,
+  .invitation-loader-char,
+  .invitation-preloader {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none !important;
+  }
+
+  .invitation-hero-slide {
+    opacity: 0;
+  }
+
+  .invitation-hero-slide-1 {
+    opacity: 1;
+  }
+}
+
+@keyframes invitation-slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
   }
 }

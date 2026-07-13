@@ -1,0 +1,140 @@
+{
+  "preloaderVisible": false,
+  "text": "SAVE OUR DATE\n\nSATURDAY\n01 MARCH 202X\nHoly Matrimony\n12.00 - 01.00 PM\n\nGereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\nGOOGLE MAPS\nWedding Reception\n12.00 - 01.00 PM\n\nGereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\nGOOGLE MAPS",
+  "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 390,
+    "h": 844
+  },
+  "nodes": [
+    {
+      "tag": "img",
+      "text": "",
+      "rect": {
+        "x": 170,
+        "y": 157,
+        "w": 50,
+        "h": 50
+      },
+      "opacity": "1",
+      "href": null,
+      "complete": true,
+      "naturalWidth": 112
+    },
+    {
+      "tag": "p",
+      "text": "SAVE OUR DATE",
+      "rect": {
+        "x": 0,
+        "y": 223,
+        "w": 390,
+        "h": 10
+      },
+      "opacity": "1",
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "h2",
+      "text": "SATURDAY\n01 MARCH 202X",
+      "rect": {
+        "x": 0,
+        "y": 243,
+        "w": 390,
+        "h": 62
+      },
+      "opacity": "1",
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "h3",
+      "text": "Holy Matrimony\n12.00 - 01.00 PM",
+      "rect": {
+        "x": 0,
+        "y": 325,
+        "w": 390,
+        "h": 56
+      },
+      "opacity": "1",
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "p",
+      "text": "Gereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rect": {
+        "x": 80,
+        "y": 391,
+        "w": 230,
+        "h": 59
+      },
+      "opacity": "1",
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "a",
+      "text": "GOOGLE MAPS",
+      "rect": {
+        "x": 130,
+        "y": 463,
+        "w": 130,
+        "h": 33
+      },
+      "opacity": "1",
+      "href": "https://maps.app.goo.gl/fQGiC37iEx6fcuNq8",
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "h3",
+      "text": "Wedding Reception\n12.00 - 01.00 PM",
+      "rect": {
+        "x": 0,
+        "y": 516,
+        "w": 390,
+        "h": 56
+      },
+      "opacity": "1",
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "p",
+      "text": "Gereja Katedral Jakarta\nJl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rect": {
+        "x": 80,
+        "y": 582,
+        "w": 230,
+        "h": 59
+      },
+      "opacity": "1",
+      "href": null,
+      "complete": null,
+      "naturalWidth": null
+    },
+    {
+      "tag": "a",
+      "text": "GOOGLE MAPS",
+      "rect": {
+        "x": 130,
+        "y": 655,
+        "w": 130,
+        "h": 33
+      },
+      "opacity": "1",
+      "href": "https://maps.app.goo.gl/fQGiC37iEx6fcuNq8",
+      "complete": null,
+      "naturalWidth": null
+    }
+  ],
+  "scrollY": 4220,
+  "opened": true
+}

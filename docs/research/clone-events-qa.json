@@ -1,0 +1,126 @@
+{
+  "afterOpen": {
+    "opened": true,
+    "rootClasses": [
+      "h-full",
+      "antialiased",
+      "invitation-root-snap"
+    ],
+    "rootSnapType": "y mandatory",
+    "sectionSnaps": [
+      {
+        "id": "home",
+        "snapAlign": "start",
+        "snapStop": "always",
+        "height": 844
+      },
+      {
+        "id": "quote",
+        "snapAlign": "start",
+        "snapStop": "always",
+        "height": 844
+      },
+      {
+        "id": "profile",
+        "snapAlign": "start",
+        "snapStop": "always",
+        "height": 844
+      },
+      {
+        "id": null,
+        "snapAlign": "start",
+        "snapStop": "always",
+        "height": 844
+      },
+      {
+        "id": "lovestory",
+        "snapAlign": "start",
+        "snapStop": "always",
+        "height": 844
+      }
+    ],
+    "audioSrc": "http://localhost:3000/audio/sod-ven-infinity.mp3",
+    "audioPaused": false,
+    "musicControlPlaying": "true"
+  },
+  "menuOpen": {
+    "visible": true,
+    "rootSnapType": "none",
+    "rootClasses": [
+      "h-full",
+      "antialiased",
+      "invitation-root-snap",
+      "invitation-root-snap-disabled"
+    ],
+    "underlineTransition": "transform 0.75s cubic-bezier(0.645, 0.045, 0.355, 1)",
+    "underlineTransformBeforeHover": "matrix(0, 0, 0, 1, 0, 0)"
+  },
+  "menuHover": {
+    "underlineTransformAfterHover": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  "menuClosed": {
+    "visible": false,
+    "rootSnapType": "y mandatory",
+    "rootClasses": [
+      "h-full",
+      "antialiased",
+      "invitation-root-snap"
+    ]
+  },
+  "saveDate": {
+    "visible": true,
+    "text": "xThe Wedding ofImam NandiraSaturday, 9th December 202XThank You For Your AttendanceIt is a pleasure and honor for us, if you are willing to attend and give us your blessing.DOWNLOAD JPG",
+    "hasDownload": true,
+    "bodyOverflow": "hidden"
+  },
+  "wishes": {
+    "found": true,
+    "before": "Guest Name",
+    "after": "Anastasya",
+    "pageAnimated": true
+  },
+  "galleryPreview": {
+    "dialogVisible": true,
+    "counter": "5 / 8",
+    "bodyOverflow": "hidden",
+    "imageLoaded": true,
+    "imageNaturalWidth": 2400,
+    "imageRect": {
+      "width": 371,
+      "height": 760
+    }
+  },
+  "galleryNext": {
+    "counter": "6 / 8"
+  },
+  "videoPreview": {
+    "dialogVisible": true,
+    "iframeSrc": "https://www.youtube.com/embed/a-kLVfwTZnM?autoplay=1&controls=1&loop=1&playlist=a-kLVfwTZnM&modestbranding=1",
+    "bodyOverflow": "hidden",
+    "audioPausedWhileVideoOpen": true,
+    "musicControlPlayingWhileVideoOpen": "false"
+  },
+  "videoClosed": {
+    "dialogVisible": false,
+    "audioPausedAfterVideoClose": false,
+    "musicControlPlayingAfterVideoClose": "true"
+  },
+  "consoleErrors": [],
+  "runtimeErrors": [],
+  "assertions": {
+    "opened": true,
+    "scrollSnap": true,
+    "musicStarted": true,
+    "menuSnapDisabled": true,
+    "menuHoverUnderline": true,
+    "menuOutsideClose": true,
+    "saveDateOverlay": true,
+    "wishesPagination": true,
+    "galleryPreview": true,
+    "galleryNext": true,
+    "videoPreview": true,
+    "videoResume": true,
+    "cleanConsole": true
+  },
+  "passed": true
+}
