@@ -21,12 +21,11 @@ import {
   ScriptureQuoteSection,
   SideMenu,
   StreamingSection,
-  VideoStorySection,
   WeddingDateSection,
   WishesSection,
 } from "./InvitationSections";
+import { backgroundMusicSrc } from "./content";
 
-const backgroundMusicSrc = "/audio/sod-ven-infinity.mp3";
 const preloaderProgressMs = 4000;
 const preloaderFadeStartMs = 4500;
 const preloaderDoneMs = 5500;
@@ -44,7 +43,6 @@ export function WeddingInvitation() {
   const invitationRef = useRef<HTMLDivElement>(null);
   const openTimerRef = useRef<number | null>(null);
   const snapRestoreTimerRef = useRef<number | null>(null);
-  const resumeMusicAfterVideoRef = useRef(false);
 
   useEffect(() => {
     const startedAt = window.performance.now();
@@ -125,28 +123,6 @@ export function WeddingInvitation() {
       root.classList.remove("invitation-root-snap", "invitation-root-snap-disabled");
     };
   }, [menuOpen, opened, snapSuppressed]);
-
-  useEffect(() => {
-    const handleVideoOpen = () => {
-      resumeMusicAfterVideoRef.current = Boolean(audioRef.current && !audioRef.current.paused);
-      pauseMusic();
-    };
-
-    const handleVideoClose = () => {
-      if (resumeMusicAfterVideoRef.current) {
-        void playMusic();
-      }
-      resumeMusicAfterVideoRef.current = false;
-    };
-
-    window.addEventListener("invitation-video-open", handleVideoOpen);
-    window.addEventListener("invitation-video-close", handleVideoClose);
-
-    return () => {
-      window.removeEventListener("invitation-video-open", handleVideoOpen);
-      window.removeEventListener("invitation-video-close", handleVideoClose);
-    };
-  }, []);
 
   useEffect(() => {
     if (!opened) return;
@@ -317,7 +293,6 @@ export function WeddingInvitation() {
               <StreamingSection />
               <GiftSection />
               <GallerySection />
-              <VideoStorySection />
               <ClosingSection />
             </>
           ) : null}

@@ -1,6 +1,13 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import {
+  Fragment,
+  type FormEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 
 import {
@@ -8,21 +15,23 @@ import {
   ArrowRightIcon,
   CheckIcon,
   CopyIcon,
-  PlayCircleIcon,
 } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 import {
   brideProfile,
   confirmationUrl,
+  dressCode,
   galleryImages,
   giftAccounts,
   groomProfile,
-  instagramUrl,
+  invitationInfo,
   loveStory,
   menuItems,
   streamingUrl,
+  verse,
   weddingEvents,
+  weddingVenue,
   wishes,
 } from "./content";
 import {
@@ -32,49 +41,96 @@ import {
   SourceButton,
 } from "./InvitationPrimitives";
 
-const saveDateCardImage = "/images/groove-blog-olive-versi-400173.jpg";
 const weddingOrnamentImage = "/images/wedding-ornament.svg";
-const weddingVideoEmbedUrl = "https://www.youtube.com/embed/a-kLVfwTZnM?autoplay=1&controls=1&loop=1&playlist=a-kLVfwTZnM&modestbranding=1";
+const receptionEvent = weddingEvents.find((event) => event.title === "Wedding Reception") ?? weddingEvents[1];
 
-function downloadSaveDateImage() {
-  const canvas = document.createElement("canvas");
-  const width = 1080;
-  const height = 1450;
-  canvas.width = width;
-  canvas.height = height;
+function eventDateLines() {
+  return invitationInfo.eventDateDisplay.split("\n");
+}
 
-  const context = canvas.getContext("2d");
-  if (!context) return;
+function calculateCountdown() {
+  const target = new Date(invitationInfo.countdownDate).getTime();
+  const distance = Math.max(0, target - Date.now());
 
-  const background = new window.Image();
-  background.crossOrigin = "anonymous";
-  background.onload = () => {
-    context.fillStyle = "#ebe3da";
-    context.fillRect(0, 0, width, height);
-    context.globalAlpha = 0.42;
-    context.drawImage(background, 0, 0, width, height);
-    context.globalAlpha = 1;
-
-    context.fillStyle = "#101010";
-    context.textAlign = "center";
-    context.font = "44px serif";
-    context.fillText("The Wedding of", width / 2, 310);
-    context.font = "104px serif";
-    context.fillText("Imam Nandira", width / 2, 440);
-    context.font = "34px sans-serif";
-    context.fillText("Saturday, 9th December 202X", width / 2, 525);
-    context.font = "38px sans-serif";
-    context.fillText("THANK YOU FOR YOUR ATTENDANCE", width / 2, 1040);
-    context.font = "30px sans-serif";
-    context.fillText("It is a pleasure and honor for us,", width / 2, 1110);
-    context.fillText("if you are willing to attend and give us your blessing.", width / 2, 1160);
-
-    const link = document.createElement("a");
-    link.download = "Imam Nandira.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+  return {
+    days: Math.floor(distance / 86_400_000),
+    hours: Math.floor((distance / 3_600_000) % 24),
+    minutes: Math.floor((distance / 60_000) % 60),
+    seconds: Math.floor((distance / 1_000) % 60),
   };
-  background.src = saveDateCardImage;
+}
+
+function dressCodeSwatchClass(value: string) {
+  switch (value) {
+    case "#111111":
+      return "bg-[#111111]";
+    case "#6B4A35":
+      return "bg-[#6B4A35]";
+    case "#D8C7A5":
+      return "bg-[#D8C7A5]";
+    case "#68724B":
+      return "bg-[#68724B]";
+    case "#A8B57A":
+      return "bg-[#A8B57A]";
+    default:
+      return "bg-white";
+  }
+}
+
+function toIcsLocalDateTime(value: string) {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?/);
+
+  if (!match) {
+    return value.replace(/[-:]/g, "").replace(/[+.].*$/, "");
+  }
+
+  const [, year, month, day, hour, minute, second = "00"] = match;
+  return `${year}${month}${day}T${hour}${minute}${second}`;
+}
+
+function escapeIcsText(value: string) {
+  return value
+    .replace(/\\/g, "\\\\")
+    .replace(/\r?\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
+}
+
+function encodeBase64Utf8(value: string) {
+  const bytes = new TextEncoder().encode(value);
+  const binary = Array.from(bytes, (byte) => String.fromCharCode(byte)).join("");
+
+  return window.btoa(binary);
+}
+
+function createCalendarInvite() {
+  const calendarLines = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "BEGIN:VEVENT",
+    `UID:${invitationInfo.slug}-20260809`,
+    `SUMMARY:${escapeIcsText(`The Wedding of ${invitationInfo.coupleNames}`)}`,
+    `DTSTART;TZID=${invitationInfo.calendarTimeZone}:${toIcsLocalDateTime(invitationInfo.calendarStartDate)}`,
+    `DTEND;TZID=${invitationInfo.calendarTimeZone}:${toIcsLocalDateTime(invitationInfo.calendarEndDate)}`,
+    `DESCRIPTION:${escapeIcsText(invitationInfo.calendarDescription)}`,
+    `LOCATION:${escapeIcsText(weddingVenue.mapUrl)}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ];
+
+  return `${calendarLines.join("\r\n")}\r\n`;
+}
+
+function downloadCalendarInvite() {
+  const link = document.createElement("a");
+
+  link.download = `${invitationInfo.slug}.ics`;
+  link.href = `data:text/calendar;charset=utf8;base64,${encodeBase64Utf8(createCalendarInvite())}`;
+  link.rel = "nofollow";
+  link.target = "_blank";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 }
 
 export function OpeningHero({
@@ -93,18 +149,19 @@ export function OpeningHero({
   return (
     <PanelFrame
       id="home"
-      backgroundClassName="bg-invitation-00152"
-      backgroundLayers={["bg-invitation-00141", "bg-invitation-00195", "bg-invitation-00152"]}
+      backgroundClassName="bg-invitation-00148"
+      backgroundLayers={["bg-invitation-00148", "bg-invitation-00141", "bg-invitation-00148"]}
       contentClassName="px-5 text-center"
       overlayClassName="bg-black/42"
     >
       <div className="invitation-hero-title absolute inset-x-5 top-[14%] space-y-[10px] invitation-fade-up" data-visible="true">
         <SectionKicker>THE WEDDING OF</SectionKicker>
-        <h1 className="font-candlefish text-[33px] leading-none text-white sm:text-[40px]">
-          Imam&nbsp; Nandira
+        <h1 className="mx-auto max-w-[310px] font-candlefish text-[30px] leading-[0.95] text-white sm:max-w-none sm:text-[38px]">
+          <span className="block sm:inline">{invitationInfo.groomName}</span>
+          <span className="block sm:inline sm:pl-2">&amp; {invitationInfo.brideName}</span>
         </h1>
         <p className="font-legan text-[13px] uppercase leading-[17px] tracking-[1.8px]">
-          SATURDAY, 9TH DECEMBER 202X
+          {invitationInfo.weddingDate}
         </p>
       </div>
       {showRecipient ? (
@@ -116,9 +173,9 @@ export function OpeningHero({
           )}
           data-visible="true"
         >
-          <p className="font-legan text-xl font-medium leading-none">Dear,</p>
+          <p className="font-legan text-xl font-medium leading-none">{invitationInfo.guestGreeting}</p>
           <p className="mx-auto max-w-60 font-legan text-[11px] font-medium leading-[15px] text-white/80">
-            We apologize if there is any misspelling of name or title
+            {invitationInfo.nameNotice}
           </p>
           <button
             className="mt-2 h-[34px] bg-[#d5d5d5] px-5 font-inter-local text-xs uppercase leading-none text-[#252525] transition duration-300 hover:bg-white"
@@ -186,14 +243,10 @@ export function ScriptureQuoteSection() {
   return (
     <PanelFrame id="quote" backgroundClassName="bg-invitation-00195" contentClassName="justify-end px-[30px] pb-[90px]">
       <p className="max-w-[330px] font-legan text-[14px] font-medium leading-[21px] text-white">
-        Two are better than one because they have a good reward for their toil. For if they fall,
-        one will lift up his fellow. But woe to him who is alone when he falls
-        and has not another to lift him up! Again, if two lie together, they keep warm,
-        but how can one keep warm alone? And though a man might prevail against
-        one who is alone, two will withstand him
+        {verse.text}
       </p>
       <p className="mt-5 font-candlefish text-[23px] font-medium uppercase leading-[23px] tracking-[0.8px] text-white">
-        ECCLESIASTES 4:9-12
+        {verse.reference}
       </p>
     </PanelFrame>
   );
@@ -220,7 +273,7 @@ function ProfileSection({
         <SignatureName className="text-[36px] font-medium">{profile.name}</SignatureName>
         <p className="font-signature text-[35px] font-light leading-[17px] text-white/90">{profile.relation}</p>
         <p className="font-legan text-[13px] leading-[19.5px] text-white/80">{profile.description}</p>
-        <SourceButton className="mt-1 h-[29px] px-[19px] py-0" href={instagramUrl}>
+        <SourceButton className="mt-1 h-[29px] px-[19px] py-0" href={profile.instagramUrl}>
           {profile.buttonLabel}
         </SourceButton>
       </div>
@@ -238,7 +291,7 @@ export function BrideProfileSection() {
 
 export function LoveStorySection() {
   return (
-    <PanelFrame id="lovestory" backgroundClassName="bg-invitation-00204" contentClassName="justify-center px-[39px]">
+    <PanelFrame id="lovestory" backgroundClassName="bg-invitation-00204" contentClassName="justify-center px-[39px]" overlayClassName="bg-black/48">
       <div className="space-y-5 text-white invitation-fade-up">
         <h2 className="font-candlefish text-[40px] font-normal leading-none">A journey in love</h2>
         {loveStory.map((item) => (
@@ -246,10 +299,10 @@ export function LoveStorySection() {
             <h3 className="font-roxborough text-[16px] font-normal uppercase leading-none">
               {item.year}
             </h3>
-            <p className="font-legan text-[13px] leading-[19.5px] text-white/78">{item.body}</p>
+            <p className="font-legan text-[13px] leading-[19.5px] text-white/88">{item.body}</p>
           </div>
         ))}
-        <p className="pt-2 font-ovo text-[14px] font-medium uppercase leading-none">IMAM NANDIRA</p>
+        <p className="pt-2 font-ovo text-[14px] font-medium uppercase leading-none">{invitationInfo.sideName}</p>
       </div>
     </PanelFrame>
   );
@@ -278,14 +331,18 @@ export function WeddingDateSection() {
             SAVE OUR DATE
           </SectionKicker>
           <h2 className="mt-[10px] font-candlefish text-[24px] font-medium leading-[31px]">
-            SATURDAY
-            <br />
-            01 MARCH 202X
+            {eventDateLines().map((line, index) => (
+              <Fragment key={line}>
+                {line}
+                {index < eventDateLines().length - 1 ? <br /> : null}
+              </Fragment>
+            ))}
           </h2>
         </div>
         {weddingEvents.map((event) => (
           <WeddingEventDetail event={event} key={event.title} />
         ))}
+        <WeddingVenueDetail />
       </div>
     </PanelFrame>
   );
@@ -299,14 +356,22 @@ function WeddingEventDetail({ event }: { event: (typeof weddingEvents)[number] }
         <br />
         {event.time}
       </h3>
-      <p className="mx-auto mt-[10px] w-[230px] font-legan text-[13px] font-normal leading-[19.5px] text-white">
-        {event.venue}
+    </div>
+  );
+}
+
+function WeddingVenueDetail() {
+  return (
+    <div className="w-full invitation-fade-up">
+      <SectionKicker className="text-[10px] leading-[10px]">Venue</SectionKicker>
+      <p className="mx-auto mt-[10px] w-[260px] font-legan text-[13px] font-normal leading-[19.5px] text-white">
+        {weddingVenue.name}
         <br />
-        {event.address}
+        {weddingVenue.address}
       </p>
       <a
         className="mt-[14px] inline-flex h-[33px] w-[130px] items-center justify-center bg-[#808080] px-[13px] py-[10px] font-legan text-[13px] uppercase leading-[13px] text-white transition duration-300 hover:bg-[#909090]"
-        href={event.mapUrl}
+        href={weddingVenue.mapUrl}
         rel="noopener"
         target="_blank"
       >
@@ -317,7 +382,19 @@ function WeddingEventDetail({ event }: { event: (typeof weddingEvents)[number] }
 }
 
 export function CountdownSection() {
-  const [saveDateOpen, setSaveDateOpen] = useState(false);
+  const [countdown, setCountdown] = useState(calculateCountdown);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setCountdown(calculateCountdown()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const countdownItems = [
+    { label: "DAYS", value: countdown.days },
+    { label: "HOURS", value: countdown.hours },
+    { label: "MINUTES", value: countdown.minutes },
+    { label: "SECONDS", value: countdown.seconds },
+  ];
 
   return (
     <PanelFrame backgroundClassName="bg-invitation-00152" contentClassName="items-center justify-end px-[30px] pb-[120px] text-center">
@@ -328,95 +405,24 @@ export function CountdownSection() {
           CELEBRATION
         </h2>
         <div className="grid grid-cols-4 gap-3">
-          {["DAYS", "HOURS", "MINUTES", "SECONDS"].map((label) => (
-            <div className="space-y-1" key={label}>
-              <p className="font-candlefish text-[39px] leading-none">00</p>
-              <p className="font-legan text-[10px] uppercase tracking-[0.1em]">{label}</p>
+          {countdownItems.map((item) => (
+            <div className="space-y-1" key={item.label}>
+              <p className="font-candlefish text-[39px] leading-none">
+                {String(item.value).padStart(2, "0")}
+              </p>
+              <p className="font-legan text-[10px] uppercase tracking-[0.1em]">{item.label}</p>
             </div>
           ))}
         </div>
         <button
           className="inline-flex h-[37px] items-center justify-center bg-[#808080] px-[15px] font-legan text-[13px] uppercase leading-none text-white transition duration-300 hover:bg-[#909090]"
-          onClick={() => setSaveDateOpen(true)}
+          onClick={downloadCalendarInvite}
           type="button"
         >
           SAVE THE DATE
         </button>
       </div>
-      {saveDateOpen ? <SaveDateOverlay onClose={() => setSaveDateOpen(false)} /> : null}
     </PanelFrame>
-  );
-}
-
-function SaveDateOverlay({ onClose }: { onClose: () => void }) {
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      aria-modal="true"
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-[#101010]/90 p-5 text-[#101010] invitation-overlay-enter"
-      onClick={onClose}
-      role="dialog"
-    >
-      <div
-        className="relative h-[min(84vh,620px)] w-full max-w-[360px] overflow-hidden bg-[#ebe3da] text-center shadow-2xl"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <Image
-          alt=""
-          className="object-cover opacity-45"
-          fill
-          sizes="360px"
-          src={saveDateCardImage}
-        />
-        <div className="relative z-[1] flex h-full flex-col items-center px-7 py-10">
-          <button
-            aria-label="Close save date"
-            className="absolute right-4 top-4 font-inter-local text-[20px] leading-none text-[#101010]"
-            onClick={onClose}
-            type="button"
-          >
-            x
-          </button>
-          <p className="mt-12 font-legan text-[13px] uppercase tracking-[0.22em]">The Wedding of</p>
-          <h2 className="mt-5 font-candlefish text-[42px] leading-none">Imam Nandira</h2>
-          <p className="mt-5 font-legan text-[12px] uppercase tracking-[0.12em]">
-            Saturday, 9th December 202X
-          </p>
-          <div className="mt-auto space-y-3">
-            <p className="font-candlefish text-[24px] uppercase leading-[27px]">
-              Thank You For Your Attendance
-            </p>
-            <p className="font-legan text-[12px] leading-[18px]">
-              It is a pleasure and honor for us, if you are willing to attend and give us your blessing.
-            </p>
-            <button
-              className="mt-4 h-10 bg-[#101010] px-6 font-legan text-xs uppercase tracking-[0.14em] text-white transition hover:bg-[#303030]"
-              onClick={downloadSaveDateImage}
-              type="button"
-            >
-              DOWNLOAD JPG
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -467,23 +473,64 @@ const rsvpInputClassName =
   "block h-10 w-full border border-white/55 bg-[#414141]/45 px-4 py-2 font-inter-local text-[13px] leading-[18.2px] text-[#c2c2c2] outline-none transition duration-300 placeholder:text-[#c2c2c2] focus:border-white focus:bg-[#414141]/60";
 
 const rsvpButtonClassName =
-  "flex h-10 w-full items-center justify-center bg-[#313131] font-inter-local text-[13px] uppercase leading-none tracking-[1px] text-white transition duration-300 hover:bg-[#444]";
+  "flex h-10 w-full items-center justify-center bg-[#313131] font-inter-local text-[13px] uppercase leading-none tracking-[1px] text-white transition duration-300 hover:bg-[#444] disabled:cursor-wait disabled:opacity-70";
+
+const rsvpWebhookUrl = process.env.NEXT_PUBLIC_RSVP_WEBHOOK_URL?.trim();
+const rsvpWebhookMode: RequestMode =
+  process.env.NEXT_PUBLIC_RSVP_WEBHOOK_MODE === "cors" ? "cors" : "no-cors";
+const defaultAttendance = invitationInfo.rsvpOptions[0];
+
+interface RsvpSubmissionPayload {
+  source: string;
+  couple: string;
+  name: string;
+  attendance: string;
+  guestCount: string;
+  message: string;
+  submittedAt: string;
+  userTimeZone: string;
+}
+
+async function submitRsvpToWebhook(payload: RsvpSubmissionPayload) {
+  if (!rsvpWebhookUrl) {
+    throw new Error("RSVP_WEBHOOK_MISSING");
+  }
+
+  const response = await fetch(rsvpWebhookUrl, {
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-Type": rsvpWebhookMode === "cors" ? "application/json" : "text/plain;charset=utf-8",
+    },
+    keepalive: true,
+    method: "POST",
+    mode: rsvpWebhookMode,
+  });
+
+  if (rsvpWebhookMode === "cors" && !response.ok) {
+    throw new Error(`RSVP_WEBHOOK_${response.status}`);
+  }
+}
 
 export function RsvpSection() {
   const [step, setStep] = useState<RsvpStep>(1);
   const [name, setName] = useState("");
-  const [attendance, setAttendance] = useState<"EXCITED TO ATTEND" | "UNABLE ATTEND" | "">("");
+  const [attendance, setAttendance] = useState(defaultAttendance);
   const [guestCount, setGuestCount] = useState("1");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const lastAttendanceTapRef = useRef<{ option: string; time: number } | null>(null);
 
   function goPrevious() {
     setSubmitted(false);
+    setSubmitError("");
     setStep((current) => Math.max(1, current - 1) as RsvpStep);
   }
 
   function goNext() {
     setSubmitted(false);
+    setSubmitError("");
 
     if (step === 1 && !name.trim()) return;
     if (step === 2 && !attendance) return;
@@ -492,9 +539,90 @@ export function RsvpSection() {
     setStep((current) => Math.min(4, current + 1) as RsvpStep);
   }
 
-  function submitRsvp() {
-    setSubmitted(true);
-    setStep(1);
+  async function submitRsvp() {
+    if (submitting) return;
+
+    setSubmitted(false);
+    setSubmitError("");
+
+    if (!name.trim()) {
+      setStep(1);
+      return;
+    }
+    if (!attendance) {
+      setStep(2);
+      return;
+    }
+    if (!guestCount.trim()) {
+      setStep(3);
+      return;
+    }
+
+    const payload: RsvpSubmissionPayload = {
+      attendance,
+      couple: invitationInfo.coupleNames,
+      guestCount,
+      message: message.trim(),
+      name: name.trim(),
+      source: window.location.href,
+      submittedAt: new Date().toISOString(),
+      userTimeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    };
+
+    setSubmitting(true);
+
+    try {
+      await submitRsvpToWebhook(payload);
+      setSubmitted(true);
+      setStep(1);
+      setName("");
+      setAttendance(defaultAttendance);
+      setGuestCount("1");
+      setMessage("");
+      lastAttendanceTapRef.current = null;
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error && error.message === "RSVP_WEBHOOK_MISSING"
+          ? "Chưa cấu hình nơi lưu RSVP. Vui lòng thêm webhook trước khi gửi."
+          : "Chưa gửi được xác nhận. Vui lòng thử lại sau ít phút.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  function chooseAttendance(option: string) {
+    const now = window.performance.now();
+    const previousTap = lastAttendanceTapRef.current;
+    const repeatedTap =
+      Boolean(previousTap && previousTap.option === option && now - previousTap.time < 650);
+
+    setAttendance(option);
+    setSubmitted(false);
+    setSubmitError("");
+    lastAttendanceTapRef.current = { option, time: now };
+
+    if (repeatedTap) {
+      setStep(3);
+    }
+  }
+
+  function handleInputKeyDown(event: ReactKeyboardEvent<HTMLInputElement>) {
+    if (event.key !== "Enter" || event.nativeEvent.isComposing) return;
+
+    event.preventDefault();
+    goNext();
+  }
+
+  function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (step < 4) {
+      goNext();
+      return;
+    }
+
+    void submitRsvp();
   }
 
   return (
@@ -503,21 +631,18 @@ export function RsvpSection() {
       backgroundClassName="bg-invitation-00189-copy"
       contentClassName="px-[50.6875px] pt-[78px] text-left"
     >
-      <div className="invitation-fade-up">
+      <div className="invitation-fade-up" data-visible="true">
         <h2 className="font-candlefish text-[28px] font-normal leading-[28px] tracking-[0.5px]">
           Kindly Confirm Your Presence And Share Your Blessings
         </h2>
         <p className="mt-5 font-legan text-[13px] leading-[19.5px] tracking-[0.65px] text-white">
-          Kindly express your best wishes and kindly confirm your attendance by using the form provided below. Thank you.
+          {invitationInfo.rsvpIntro}
         </p>
         <RsvpStepper step={step} />
 
         <form
           className="mt-5"
-          onSubmit={(event) => {
-            event.preventDefault();
-            submitRsvp();
-          }}
+          onSubmit={handleFormSubmit}
         >
           {step === 1 ? (
             <div>
@@ -527,11 +652,13 @@ export function RsvpSection() {
                 onChange={(event) => {
                   setName(event.target.value);
                   setSubmitted(false);
+                  setSubmitError("");
                 }}
+                onKeyDown={handleInputKeyDown}
                 value={name}
               />
               <button className={cn(rsvpButtonClassName, "mt-[10px]")} onClick={goNext} type="button">
-                NEXT
+                TIẾP TỤC
               </button>
             </div>
           ) : null}
@@ -540,18 +667,16 @@ export function RsvpSection() {
             <div>
               <RsvpLabel>ATTENDANCE</RsvpLabel>
               <div className="grid grid-cols-2 gap-[14px]">
-                {(["EXCITED TO ATTEND", "UNABLE ATTEND"] as const).map((option) => (
+                {invitationInfo.rsvpOptions.map((option) => (
                   <button
                     aria-pressed={attendance === option}
                     className={cn(
                       "flex h-10 items-center justify-center border border-white/55 bg-transparent px-2 font-inter-local text-[11px] uppercase leading-none tracking-[1px] text-white transition duration-300 hover:bg-white/10",
-                      attendance === option && "border-[#39b54a] bg-white/10",
+                      attendance === option &&
+                        "border-[#39d567] bg-[#2fbd50] text-white shadow-[0_0_22px_rgba(47,189,80,0.46)] hover:bg-[#36cf5b]",
                     )}
                     key={option}
-                    onClick={() => {
-                      setAttendance(option);
-                      setSubmitted(false);
-                    }}
+                    onClick={() => chooseAttendance(option)}
                     type="button"
                   >
                     {option}
@@ -560,10 +685,10 @@ export function RsvpSection() {
               </div>
               <div className="mt-[14px] grid grid-cols-2 gap-[10px]">
                 <button className={cn(rsvpButtonClassName, "bg-[#69727d] hover:bg-[#7b8490]")} onClick={goPrevious} type="button">
-                  PREVIOUS
+                  QUAY LẠI
                 </button>
                 <button className={rsvpButtonClassName} onClick={goNext} type="button">
-                  NEXT
+                  TIẾP TỤC
                 </button>
               </div>
             </div>
@@ -579,16 +704,18 @@ export function RsvpSection() {
                 onChange={(event) => {
                   setGuestCount(event.target.value);
                   setSubmitted(false);
+                  setSubmitError("");
                 }}
+                onKeyDown={handleInputKeyDown}
                 type="number"
                 value={guestCount}
               />
               <div className="mt-[10px] grid grid-cols-2 gap-[10px]">
                 <button className={cn(rsvpButtonClassName, "bg-[#69727d] hover:bg-[#7b8490]")} onClick={goPrevious} type="button">
-                  PREVIOUS
+                  QUAY LẠI
                 </button>
                 <button className={rsvpButtonClassName} onClick={goNext} type="button">
-                  NEXT
+                  TIẾP TỤC
                 </button>
               </div>
             </div>
@@ -602,15 +729,16 @@ export function RsvpSection() {
                 onChange={(event) => {
                   setMessage(event.target.value);
                   setSubmitted(false);
+                  setSubmitError("");
                 }}
                 value={message}
               />
               <div className="mt-[10px] grid grid-cols-2 gap-[10px]">
                 <button className={cn(rsvpButtonClassName, "bg-[#69727d] hover:bg-[#7b8490]")} onClick={goPrevious} type="button">
-                  PREVIOUS
+                  QUAY LẠI
                 </button>
-                <button className={rsvpButtonClassName} type="submit">
-                  SEND
+                <button className={rsvpButtonClassName} disabled={submitting} type="submit">
+                  {submitting ? "ĐANG GỬI..." : invitationInfo.rsvpButton}
                 </button>
               </div>
             </div>
@@ -619,7 +747,13 @@ export function RsvpSection() {
           {submitted ? (
             <p className="mt-4 flex items-center gap-2 font-legan text-[16px] leading-[24px] text-[#d9ffd9]">
               <CheckIcon aria-hidden="true" size={18} strokeWidth={2.6} />
-              Your submission was successful.
+              Xác nhận của bạn đã được gửi thành công.
+            </p>
+          ) : null}
+
+          {submitError ? (
+            <p className="mt-4 font-legan text-[16px] leading-[24px] text-[#ffd7d7]">
+              {submitError}
             </p>
           ) : null}
         </form>
@@ -651,7 +785,7 @@ export function WishesSection() {
             onClick={() => setPage((current) => (current + 1) % pageCount)}
             type="button"
           >
-            <span>NEXT</span>
+            <span>TIẾP</span>
             <ArrowRightIcon aria-hidden="true" size={15} strokeWidth={1.4} />
           </button>
         </div>
@@ -675,28 +809,49 @@ export function WishesSection() {
 
 export function DressCodeSection() {
   return (
-    <PanelFrame backgroundClassName="bg-invitation-00200" contentClassName="items-center justify-center px-5 text-center">
-      <p className="translate-y-[66px] font-signature text-[35px] font-light leading-[17px] text-white invitation-fade-up">
-        Imam Nandira
-      </p>
+    <PanelFrame backgroundClassName="bg-invitation-00200" contentClassName="items-center justify-center px-8 text-center">
+      <div className="max-w-[300px] space-y-5 invitation-fade-up">
+        <SectionKicker>Dress Code</SectionKicker>
+        <h2 className="font-candlefish text-[34px] font-normal leading-none text-white">
+          {dressCode.title}
+        </h2>
+        <p className="font-legan text-[13px] leading-[19.5px] text-white/80">
+          {dressCode.description}
+        </p>
+        <div className="grid grid-cols-5 gap-3 pt-2">
+          {dressCode.colors.map((color) => (
+            <div className="space-y-2" key={color.name}>
+              <span
+                aria-label={color.name}
+                className={cn("mx-auto block size-9 rounded-full border border-white/45", dressCodeSwatchClass(color.value))}
+              />
+              <span className="block font-legan text-[9px] uppercase leading-none tracking-[0.08em] text-white/75">
+                {color.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
     </PanelFrame>
   );
 }
 
 export function StreamingSection() {
   return (
-    <PanelFrame backgroundClassName="bg-invitation-00139" contentClassName="items-start px-[30px] pt-[70px]">
+    <PanelFrame backgroundClassName="bg-invitation-00139" contentClassName="items-start px-[30px] pt-[70px]" overlayClassName="bg-black/58">
       <div className="max-w-[260px] space-y-4 invitation-fade-up">
         <h2 className="font-candlefish text-[28px] font-normal uppercase leading-[31px]">
-          JOIN OUR EXCLUSIVE LIVE STREAMING EVENT
+          JOIN OUR CELEBRATION IN DA NANG
         </h2>
         <p className="font-legan text-[13px] uppercase leading-[19.5px] text-white/90">
-          SATURDAY, 1 MARCH 202X - 11.00 WIB
+          {invitationInfo.weddingDate} - {receptionEvent?.time}
         </p>
         <p className="font-legan text-[13px] leading-[19.5px] text-white/70">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+          {weddingVenue.name}
+          <br />
+          {weddingVenue.address}
         </p>
-        <SourceButton href={streamingUrl}>Join Streaming</SourceButton>
+        <SourceButton href={streamingUrl}>Open Maps</SourceButton>
       </div>
     </PanelFrame>
   );
@@ -720,21 +875,33 @@ export function GiftSection() {
         </p>
         <div className="space-y-2">
           {giftAccounts.map((gift) => (
-            <div className="flex items-center justify-between bg-black/30 px-4 py-3" key={`${gift.bank}-${gift.account}`}>
+            <div className="flex items-center justify-between gap-3 bg-black/30 px-4 py-3" key={`${gift.bank}-${gift.account}`}>
               <div>
                 <p className="font-legan text-[13px] text-white">{gift.name}</p>
                 <p className="font-inter-local text-[10px] uppercase text-white/65">
                   {gift.bank} {gift.account}
                 </p>
               </div>
-              <button
-                aria-label={`Copy ${gift.account}`}
-                className="flex size-[29px] items-center justify-center text-white transition hover:bg-white/10"
-                onClick={() => void copyAccount(gift.account)}
-                type="button"
-              >
-                <CopyIcon size={15} />
-              </button>
+              <div className="flex items-center gap-2">
+                {gift.qrImage ? (
+                  <Image
+                    alt={gift.qrAlt ?? `QR ${gift.bank} ${gift.account}`}
+                    className="size-[58px] bg-white object-contain p-1"
+                    height={58}
+                    src={gift.qrImage}
+                    unoptimized
+                    width={58}
+                  />
+                ) : null}
+                <button
+                  aria-label={`Copy ${gift.account}`}
+                  className="flex size-[29px] items-center justify-center text-white transition hover:bg-white/10"
+                  onClick={() => void copyAccount(gift.account)}
+                  type="button"
+                >
+                  <CopyIcon size={15} />
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -838,11 +1005,11 @@ export function GallerySection() {
       <div className="absolute inset-0 bg-black/10" />
       <div className="relative z-[2] mb-auto mt-16 space-y-4">
         <h2 className="font-candlefish text-[28px] font-normal uppercase leading-[31px]">
-          OUR PRE-WEDDING CELEBRATION
+          OUR WEDDING MOMENTS
         </h2>
-        <p className="font-inter-local text-[10px] uppercase leading-none tracking-[5.4px]">IMAM NANDIRA</p>
+        <p className="font-inter-local text-[10px] uppercase leading-none tracking-[5.4px]">{invitationInfo.sideName}</p>
         <p className="font-legan text-[15px]">{active + 1} / {galleryImages.length}</p>
-        <p className="font-legan text-[15px]">Click image for preview</p>
+        <p className="font-legan text-[15px]">Tap image for preview</p>
       </div>
       <button
         aria-label="Previous image"
@@ -928,82 +1095,6 @@ export function GallerySection() {
   );
 }
 
-export function VideoStorySection() {
-  const [videoOpen, setVideoOpen] = useState(false);
-
-  useEffect(() => {
-    if (!videoOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    window.dispatchEvent(new CustomEvent("invitation-video-open"));
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setVideoOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-      window.dispatchEvent(new CustomEvent("invitation-video-close"));
-    };
-  }, [videoOpen]);
-
-  return (
-    <PanelFrame backgroundClassName="bg-invitation-00189-copy" contentClassName="items-start justify-center px-[30px]">
-      <div className="max-w-[300px] space-y-5 invitation-fade-up">
-        <h2 className="font-candlefish text-[21px] font-normal uppercase leading-none tracking-[0.5px]">
-          UNVEILING OUR PREWEDDING STORY
-        </h2>
-        <button
-          className="flex items-center gap-3 font-legan text-[13px] transition hover:text-white/75"
-          onClick={() => setVideoOpen(true)}
-          type="button"
-        >
-          <PlayCircleIcon size={64} strokeWidth={1.1} />
-          <span>Play Video</span>
-        </button>
-        <p className="font-legan text-[13px] leading-[19.5px] text-white/75">
-          Every love story is beautiful, but ours is my favorite. Through the highs and lows, our love grows stronger and deeper with each passing day.
-        </p>
-      </div>
-      {videoOpen ? (
-        <div
-          aria-modal="true"
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/90 p-5 invitation-overlay-enter"
-          onClick={() => setVideoOpen(false)}
-          role="dialog"
-        >
-          <div
-            className="relative aspect-video w-full max-w-[760px] bg-black shadow-2xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <iframe
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="h-full w-full"
-              src={weddingVideoEmbedUrl}
-              title="Prewedding story video"
-            />
-            <button
-              aria-label="Close video"
-              className="absolute -right-1 -top-12 font-legan text-[30px] leading-none text-white"
-              onClick={() => setVideoOpen(false)}
-              type="button"
-            >
-              x
-            </button>
-          </div>
-        </div>
-      ) : null}
-    </PanelFrame>
-  );
-}
-
 export function ClosingSection() {
   return (
     <PanelFrame backgroundClassName="bg-invitation-00141" contentClassName="items-center justify-end px-5 pb-[70px] text-center" overlayClassName="bg-black/12">
@@ -1012,18 +1103,18 @@ export function ClosingSection() {
           THANK YOU FOR YOUR ATTENDANCE
         </h2>
         <p className="mx-auto max-w-[310px] font-legan text-[13px] leading-[19.5px] text-white/75">
-          It is a pleasure and honor for us, if you are willing to attend and give us your blessing.
+          {invitationInfo.closingLine}
         </p>
-        <p className="font-ovo text-[16px] font-medium uppercase leading-none">IMAM NANDIRA</p>
-        <a className="block font-legan text-[9px] uppercase text-white" href="https://groovepublic.com/">
-          CREATED BY GROOVE PUBLIC
-        </a>
+        <p className="font-ovo text-[16px] font-medium uppercase leading-none">{invitationInfo.sideName}</p>
+        <p className="block font-legan text-[9px] uppercase text-white">
+          CREATED BY {invitationInfo.createdBy}
+        </p>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 font-legan text-[12px] uppercase text-white">
-          <a href="https://wa.link/amk9ua">+62 813-2757-7133</a>
-          <a href="https://www.instagram.com/groovepublic.id/">GROOVEPUBLIC.ID</a>
-          <a href="https://groovepublic.com/">GROOVEPUBLIC.COM</a>
+          <a href={weddingVenue.mapUrl}>TEMPLE BEACH RESTAURANT</a>
+          <a href={brideProfile.instagramUrl}>{invitationInfo.brideName}</a>
+          <a href={groomProfile.instagramUrl}>{invitationInfo.groomName}</a>
         </div>
-        <p className="font-legan text-[12px] text-white/80">© All rights reserved by groovepublic</p>
+        <p className="font-legan text-[12px] text-white/80">09.08.2026</p>
       </div>
     </PanelFrame>
   );
@@ -1034,7 +1125,7 @@ export function DesktopFixedPanel() {
     <aside className="fixed inset-y-0 left-0 z-[1] hidden w-[calc(100vw-min(32vw,460px))] overflow-hidden bg-[#101010] bg-invitation-00162 bg-cover bg-center lg:block">
       <div className="absolute inset-0 bg-black/58" />
       <div className="relative z-[1] flex h-full flex-col items-center justify-end gap-5 p-[50px] text-center">
-        <h2 className="font-legan text-[13px] uppercase tracking-[0.32em] text-white/85">IMAM NANDIRA</h2>
+        <h2 className="font-legan text-[13px] uppercase tracking-[0.32em] text-white/85">{invitationInfo.sideName}</h2>
       </div>
     </aside>
   );
@@ -1092,7 +1183,7 @@ export function Preloader({ hiding, percent }: { hiding?: boolean; percent: numb
       <div className="absolute inset-x-0 top-[35.3svh] flex flex-col items-center lg:top-[41.9svh]">
         <PreloaderAnimatedWord direction="from-right" text="The Wedding of" />
         <div className="invitation-preloader-thumb mt-[19px]" />
-        <PreloaderAnimatedWord className="mt-5" direction="from-left" text="Imam Nandira" />
+        <PreloaderAnimatedWord className="mt-5" direction="from-left" text={invitationInfo.sideName} />
       </div>
       <p className="absolute inset-x-0 top-[76.9svh] font-lausanne text-xs uppercase leading-[18px] tracking-[1px] text-[#c2c2c2] lg:inset-x-auto lg:bottom-[36px] lg:left-[43px] lg:top-auto lg:text-left lg:text-sm lg:leading-[21px]">
         LOADING...{" "}

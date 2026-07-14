@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
+
+import { invitationInfo } from "@/components/invitation/content";
+
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "The Wedding of Imam Nandira",
-  description: "Invitation",
+  title: invitationInfo.metaTitle,
+  description: invitationInfo.metaDescription,
   openGraph: {
-    title: "The Wedding of Imam Nandira",
-    description: "Invitation",
-    images: ["/images/imam-nandira-00189.jpg.jpeg"],
+    title: invitationInfo.metaTitle,
+    description: invitationInfo.metaDescription,
+    images: ["/images/our-images/optimized/NgocQuan.8935.jpg"],
   },
 };
 

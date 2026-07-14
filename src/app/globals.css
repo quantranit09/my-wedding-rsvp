@@ -244,71 +244,71 @@
   }
 
   .bg-invitation-00137 {
-    background-image: url("/images/imam-nandira-00137.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2686.jpg");
   }
 
   .bg-invitation-00139 {
-    background-image: url("/images/imam-nandira-00139.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2688.jpg");
   }
 
   .bg-invitation-00141 {
-    background-image: url("/images/imam-nandira-00141.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9257.jpg");
   }
 
   .bg-invitation-00148 {
-    background-image: url("/images/imam-nandira-00148.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9206.jpg");
   }
 
   .bg-invitation-00152 {
-    background-image: url("/images/imam-nandira-00152.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/AZ9A0952.jpg");
   }
 
   .bg-invitation-00162 {
-    background-image: url("/images/imam-nandira-00162.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9702-bw.jpg");
   }
 
   .bg-invitation-00171 {
-    background-image: url("/images/imam-nandira-00171.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2690.jpg");
   }
 
   .bg-invitation-00181 {
-    background-image: url("/images/imam-nandira-00181.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2695.jpg");
   }
 
   .bg-invitation-00183 {
-    background-image: url("/images/imam-nandira-00183.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2699.jpg");
   }
 
   .bg-invitation-00186 {
-    background-image: url("/images/imam-nandira-00186-copy.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2700.jpg");
   }
 
   .bg-invitation-00187 {
-    background-image: url("/images/imam-nandira-00187.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9702.jpg");
   }
 
   .bg-invitation-00188 {
-    background-image: url("/images/imam-nandira-00188.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2684.jpg");
   }
 
   .bg-invitation-00189-copy {
-    background-image: url("/images/imam-nandira-00189-copy.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2687-bw.jpg");
   }
 
   .bg-invitation-00189 {
-    background-image: url("/images/imam-nandira-00189.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2696.jpg");
   }
 
   .bg-invitation-00195 {
-    background-image: url("/images/imam-nandira-00195-copy.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/AZ9A0454-bw.jpg");
   }
 
   .bg-invitation-00200 {
-    background-image: url("/images/imam-nandira-00200-copy.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2691.jpg");
   }
 
   .bg-invitation-00204 {
-    background-image: url("/images/imam-nandira-00204.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9257.jpg");
   }
 
   .invitation-panel-frame {
@@ -398,71 +398,106 @@
 
   .invitation-loader-char-0 {
     --invitation-loader-delay: 0ms;
-    --invitation-loader-reverse-delay: 700ms;
+    --invitation-loader-reverse-delay: 1050ms;
   }
 
   .invitation-loader-char-1 {
     --invitation-loader-delay: 70ms;
-    --invitation-loader-reverse-delay: 630ms;
+    --invitation-loader-reverse-delay: 980ms;
   }
 
   .invitation-loader-char-2 {
     --invitation-loader-delay: 140ms;
-    --invitation-loader-reverse-delay: 560ms;
+    --invitation-loader-reverse-delay: 910ms;
   }
 
   .invitation-loader-char-3 {
     --invitation-loader-delay: 210ms;
-    --invitation-loader-reverse-delay: 490ms;
+    --invitation-loader-reverse-delay: 840ms;
   }
 
   .invitation-loader-char-4 {
     --invitation-loader-delay: 280ms;
-    --invitation-loader-reverse-delay: 420ms;
+    --invitation-loader-reverse-delay: 770ms;
   }
 
   .invitation-loader-char-5 {
     --invitation-loader-delay: 350ms;
-    --invitation-loader-reverse-delay: 350ms;
+    --invitation-loader-reverse-delay: 700ms;
   }
 
   .invitation-loader-char-6 {
     --invitation-loader-delay: 420ms;
-    --invitation-loader-reverse-delay: 280ms;
+    --invitation-loader-reverse-delay: 630ms;
   }
 
   .invitation-loader-char-7 {
     --invitation-loader-delay: 490ms;
-    --invitation-loader-reverse-delay: 210ms;
+    --invitation-loader-reverse-delay: 560ms;
   }
 
   .invitation-loader-char-8 {
     --invitation-loader-delay: 560ms;
-    --invitation-loader-reverse-delay: 140ms;
+    --invitation-loader-reverse-delay: 490ms;
   }
 
   .invitation-loader-char-9 {
     --invitation-loader-delay: 630ms;
-    --invitation-loader-reverse-delay: 70ms;
+    --invitation-loader-reverse-delay: 420ms;
   }
 
   .invitation-loader-char-10 {
     --invitation-loader-delay: 700ms;
-    --invitation-loader-reverse-delay: 0ms;
+    --invitation-loader-reverse-delay: 350ms;
   }
 
   .invitation-loader-char-11 {
     --invitation-loader-delay: 770ms;
-    --invitation-loader-reverse-delay: 0ms;
+    --invitation-loader-reverse-delay: 280ms;
   }
 
   .invitation-loader-char-12 {
     --invitation-loader-delay: 840ms;
-    --invitation-loader-reverse-delay: 0ms;
+    --invitation-loader-reverse-delay: 210ms;
   }
 
   .invitation-loader-char-13 {
     --invitation-loader-delay: 910ms;
+    --invitation-loader-reverse-delay: 140ms;
+  }
+
+  .invitation-loader-char-14 {
+    --invitation-loader-delay: 980ms;
+    --invitation-loader-reverse-delay: 70ms;
+  }
+
+  .invitation-loader-char-15 {
+    --invitation-loader-delay: 1050ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-16 {
+    --invitation-loader-delay: 1120ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-17 {
+    --invitation-loader-delay: 1190ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-18 {
+    --invitation-loader-delay: 1260ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-19 {
+    --invitation-loader-delay: 1330ms;
+    --invitation-loader-reverse-delay: 0ms;
+  }
+
+  .invitation-loader-char-20 {
+    --invitation-loader-delay: 1400ms;
     --invitation-loader-reverse-delay: 0ms;
   }
 
@@ -480,7 +515,7 @@
   .invitation-preloader-thumb {
     width: 90px;
     height: 90px;
-    background-image: url("/images/imam-nandira-00189.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.8935.jpg");
     background-size: cover;
     background-position: center;
     filter: grayscale(1);
@@ -738,29 +773,29 @@
 
 @keyframes invitation-loader-thumb-cycle {
   0% {
-    background-image: url("/images/imam-nandira-00189.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.8935.jpg");
   }
   12.5% {
-    background-image: url("/images/imam-nandira-00195-copy.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9257.jpg");
   }
   25% {
-    background-image: url("/images/imam-nandira-00171.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9702.jpg");
   }
   37.5% {
-    background-image: url("/images/imam-nandira-00162.jpg.jpeg");
+    background-image: url("/images/our-images/optimized/AZ9A0466.jpg");
   }
   50% {
-    background-image: url("/images/imam-nandira-00148.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2682.jpg");
   }
   62.5% {
-    background-image: url("/images/imam-nandira-00181.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2684.jpg");
   }
   75% {
-    background-image: url("/images/imam-nandira-00183.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2686.jpg");
   }
   87.5%,
   100% {
-    background-image: url("/images/imam-nandira-00186-copy.jpg-1.jpeg");
+    background-image: url("/images/our-images/optimized/IMG_2700.jpg");
   }
 }
 
