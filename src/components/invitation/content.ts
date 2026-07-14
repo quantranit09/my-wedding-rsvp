@@ -40,7 +40,7 @@ export const invitationInfo: InvitationInfo = {
   calendarEndDate: "2026-08-09T21:30:00+07:00",
   calendarTimeZone: "Asia/Ho_Chi_Minh",
   calendarDescription:
-    "<p>Hãy bật nhắc lịch nếu chưa được bật mặc định. (gợi ý: 15 phút trước sự kiện, hoặc tùy chỉnh lại)</p><p>Please enable alerts if they are not active by default. (set 15 minutes previously, or adjust again)</p>",
+    "<p>Hãy bật nhắc lịch nếu chưa được bật mặc định. (gợi ý: 15 phút trước sự kiện, hoặc tùy chỉnh lại)</p>",
   guestGreeting: "Dear cherished guest,",
   nameNotice:
     "With warm regards, please accept our apologies for any misspelling of names or titles.",
@@ -89,7 +89,7 @@ export const brideProfile: PersonProfile = {
 
 export const verse: Verse = {
   reference: "A NOTE ON LOVE",
-  text: "May this day mark the beginning of a gentle, faithful, and joyful journey together.",
+  text: "Mong ngày hôm nay mở ra một hành trình dịu dàng, thủy chung và đầy niềm vui.",
 };
 
 export const loveStory: TimelineItem[] = [
@@ -146,25 +146,26 @@ export const wishes: WishItem[] = [
   },
   {
     name: "Lưu giữ",
-    message: "Từng lời chúc sẽ được chúng tôi lưu lại như một kỷ niệm của ngày đặc biệt này.",
+    message:
+      "Từng lời chúc sẽ được chúng tôi lưu lại như một kỷ niệm của ngày đặc biệt này.",
     date: "09 Aug 2026",
   },
 ];
 
 export const giftAccounts: GiftAccount[] = [
   {
-    name: "Lan Ngọc",
+    name: "Nguyễn Thị Lan Ngọc",
     bank: "TPBank",
-    account: "0935426117",
-    qrImage: "https://img.vietqr.io/image/970423-0935426117-qr_only.png",
-    qrAlt: "QR chuyển khoản TPBank 0935426117",
+    account: "0421 5210 001",
+    qrImage: "https://img.vietqr.io/image/970423-04215210001-qr_only.png",
+    qrAlt: "QR chuyển khoản TPBank 0421 5210 001",
   },
 ];
 
 export const dressCode: DressCode = {
   title: "Earth Tone Elegance",
   description:
-    "We would be delighted if guests could wear refined earth tones in black, brown, beige, olive, or matcha green.",
+    "Chúng tôi rất vui nếu bạn có thể chọn trang phục theo các tông màu trang nhã như đen, nâu, be, xanh olive hoặc xanh matcha.",
   colors: [
     { name: "Black", value: "#111111" },
     { name: "Brown", value: "#6B4A35" },
@@ -175,25 +176,70 @@ export const dressCode: DressCode = {
 };
 
 export const galleryImages: GalleryImage[] = [
-  { src: "/images/our-images/optimized/NgocQuan.9206.jpg", label: "Cảnh Quân and Lan Ngọc holding hands" },
-  { src: "/images/our-images/optimized/NgocQuan.8935.jpg", label: "Cảnh Quân and Lan Ngọc under the veil" },
-  { src: "/images/our-images/optimized/NgocQuan.9257.jpg", label: "Celebration with confetti" },
-  { src: "/images/our-images/optimized/NgocQuan.9702.jpg", label: "Elegant studio portrait" },
-  { src: "/images/our-images/optimized/AZ9A0466.jpg", label: "Cảnh Quân and Lan Ngọc by the sea" },
-  { src: "/images/our-images/optimized/AZ9A0952.jpg", label: "Beach ceremony portrait" },
-  { src: "/images/our-images/optimized/IMG_2682.jpg", label: "Joyful sunset portrait" },
+  {
+    src: "/images/our-images/optimized/NgocQuan.9206.jpg",
+    label: "Cảnh Quân and Lan Ngọc holding hands",
+  },
+  {
+    src: "/images/our-images/optimized/NgocQuan.8935.jpg",
+    label: "Cảnh Quân and Lan Ngọc under the veil",
+  },
+  {
+    src: "/images/our-images/optimized/NgocQuan.9257.jpg",
+    label: "Celebration with confetti",
+  },
+  {
+    src: "/images/our-images/optimized/NgocQuan.9702.jpg",
+    label: "Elegant studio portrait",
+  },
+  {
+    src: "/images/our-images/optimized/AZ9A0466.jpg",
+    label: "Cảnh Quân and Lan Ngọc by the sea",
+  },
+  {
+    src: "/images/our-images/optimized/AZ9A0952.jpg",
+    label: "Beach ceremony portrait",
+  },
+  {
+    src: "/images/our-images/optimized/IMG_2682.jpg",
+    label: "Joyful sunset portrait",
+  },
   { src: "/images/our-images/optimized/IMG_2680.jpg", label: "Indoor embrace" },
   { src: "/images/our-images/optimized/IMG_2684.jpg", label: "Groom portrait" },
   { src: "/images/our-images/optimized/IMG_2686.jpg", label: "Bride portrait" },
-  { src: "/images/our-images/optimized/IMG_2687.jpg", label: "Bride bouquet detail" },
+  {
+    src: "/images/our-images/optimized/IMG_2687.jpg",
+    label: "Bride bouquet detail",
+  },
   { src: "/images/our-images/optimized/IMG_2690.jpg", label: "Bouquet detail" },
-  { src: "/images/our-images/optimized/IMG_2691.jpg", label: "Dress and flower detail" },
-  { src: "/images/our-images/optimized/IMG_2692.jpg", label: "Tender seated portrait" },
-  { src: "/images/our-images/optimized/IMG_2695.jpg", label: "Studio full portrait" },
-  { src: "/images/our-images/optimized/IMG_2700.jpg", label: "Golden veil silhouette" },
-  { src: "/images/our-images/optimized/IMG_2768.jpg", label: "Golden beach portrait" },
-  { src: "/images/our-images/optimized/AZ9A0437.jpg", label: "Bouquet walk detail" },
-  { src: "/images/our-images/optimized/AZ9A0454.jpg", label: "Hands and bouquet at sunset" },
+  {
+    src: "/images/our-images/optimized/IMG_2691.jpg",
+    label: "Dress and flower detail",
+  },
+  {
+    src: "/images/our-images/optimized/IMG_2692.jpg",
+    label: "Tender seated portrait",
+  },
+  {
+    src: "/images/our-images/optimized/IMG_2695.jpg",
+    label: "Studio full portrait",
+  },
+  {
+    src: "/images/our-images/optimized/IMG_2700.jpg",
+    label: "Golden veil silhouette",
+  },
+  {
+    src: "/images/our-images/optimized/IMG_2768.jpg",
+    label: "Golden beach portrait",
+  },
+  {
+    src: "/images/our-images/optimized/AZ9A0437.jpg",
+    label: "Bouquet walk detail",
+  },
+  {
+    src: "/images/our-images/optimized/AZ9A0454.jpg",
+    label: "Hands and bouquet at sunset",
+  },
 ];
 
 export const streamingUrl = weddingVenue.mapUrl;

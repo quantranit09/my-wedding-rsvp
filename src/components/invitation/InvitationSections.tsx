@@ -1062,7 +1062,7 @@ export function GiftSection() {
   const [copied, setCopied] = useState<string | null>(null);
 
   async function copyAccount(account: string) {
-    await navigator.clipboard?.writeText(account);
+    await navigator.clipboard?.writeText(account.replace(/\s/g, ""));
     setCopied(account);
     window.setTimeout(() => setCopied(null), 1300);
   }
@@ -1072,7 +1072,7 @@ export function GiftSection() {
       <div className="space-y-4 invitation-fade-up">
         <h2 className="font-candlefish text-[28px] font-normal leading-[31px]">Wedding Gift</h2>
         <p className="font-legan text-[13px] leading-[19.5px] text-white/76">
-          For those of you who want to give a token of love to the bride and groom, you can use the account number below:
+          Nếu bạn muốn gửi một món quà nhỏ thay cho lời chúc mừng, bạn có thể dùng thông tin bên dưới:
         </p>
         <div className="space-y-2">
           {giftAccounts.map((gift) => (
