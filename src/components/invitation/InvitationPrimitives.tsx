@@ -25,8 +25,7 @@ export function PanelFrame({
     <section
       id={id}
       className={cn(
-        "invitation-panel-frame relative flex w-full overflow-hidden bg-cover bg-center text-white",
-        backgroundClassName,
+        "invitation-panel-frame relative flex w-full overflow-hidden bg-[#101010] text-white",
         className,
       )}
     >
@@ -35,15 +34,20 @@ export function PanelFrame({
           <div
             aria-hidden="true"
             className={cn(
-              "absolute inset-0 bg-cover bg-center invitation-hero-slide",
+              "absolute inset-0 invitation-panel-bg invitation-hero-slide",
               `invitation-hero-slide-${index + 1}`,
               backgroundLayer,
             )}
             key={`${backgroundLayer}-${index}`}
           />
         ))
+      ) : backgroundClassName ? (
+        <div
+          aria-hidden="true"
+          className={cn("absolute inset-0 invitation-panel-bg invitation-slow-zoom", backgroundClassName)}
+        />
       ) : (
-        <div className="absolute inset-0 invitation-slow-zoom bg-inherit bg-cover bg-center" />
+        null
       )}
       <div className={cn("absolute inset-0 bg-black/35", overlayClassName)} />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-gradient-to-t from-[#101010]/85 via-[#101010]/35 to-transparent" />

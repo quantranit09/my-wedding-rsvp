@@ -245,79 +245,126 @@
 
   .bg-invitation-00137 {
     background-image: url("/images/our-images/optimized/IMG_2686.jpg");
+    --invitation-bg-position: 36% 38%;
+    --invitation-bg-origin: 36% 38%;
   }
 
   .bg-invitation-00139 {
     background-image: url("/images/our-images/optimized/IMG_2688.jpg");
+    --invitation-bg-position: 54% 45%;
+    --invitation-bg-origin: 54% 45%;
   }
 
   .bg-invitation-00141 {
     background-image: url("/images/our-images/optimized/NgocQuan.9257.jpg");
+    --invitation-bg-position: 50% 42%;
+    --invitation-bg-origin: 50% 42%;
   }
 
   .bg-invitation-00148 {
     background-image: url("/images/our-images/optimized/NgocQuan.9206.jpg");
+    --invitation-bg-position: 50% 43%;
+    --invitation-bg-origin: 50% 43%;
   }
 
   .bg-invitation-00152 {
-    background-image: url("/images/our-images/optimized/AZ9A0952.jpg");
+    background-image: url("/images/our-images/optimized/IMG_2693.jpg");
+    --invitation-bg-position: 72% 40%;
+    --invitation-bg-origin: 72% 40%;
   }
 
   .bg-invitation-00162 {
     background-image: url("/images/our-images/optimized/NgocQuan.9702-bw.jpg");
+    --invitation-bg-position: 50% 42%;
+    --invitation-bg-origin: 50% 42%;
   }
 
   .bg-invitation-00171 {
     background-image: url("/images/our-images/optimized/IMG_2690.jpg");
+    --invitation-bg-position: 50% 55%;
+    --invitation-bg-origin: 50% 55%;
   }
 
   .bg-invitation-00181 {
     background-image: url("/images/our-images/optimized/IMG_2695.jpg");
+    --invitation-bg-position: 50% 42%;
+    --invitation-bg-origin: 50% 42%;
   }
 
   .bg-invitation-00183 {
     background-image: url("/images/our-images/optimized/IMG_2699.jpg");
+    --invitation-bg-position: 50% 45%;
+    --invitation-bg-origin: 50% 45%;
   }
 
   .bg-invitation-00186 {
     background-image: url("/images/our-images/optimized/IMG_2700.jpg");
+    --invitation-bg-position: 50% 50%;
+    --invitation-bg-origin: 50% 50%;
   }
 
   .bg-invitation-00187 {
-    background-image: url("/images/our-images/optimized/NgocQuan.9702.jpg");
+    background-image: url("/images/our-images/optimized/NgocQuan.9702-event-crop.jpg");
+    --invitation-bg-position: center;
+    --invitation-bg-origin: center;
   }
 
   .bg-invitation-00188 {
     background-image: url("/images/our-images/optimized/IMG_2684.jpg");
+    --invitation-bg-position: 68% 38%;
+    --invitation-bg-origin: 68% 38%;
   }
 
   .bg-invitation-00189-copy {
     background-image: url("/images/our-images/optimized/IMG_2687-bw.jpg");
+    --invitation-bg-position: 50% 42%;
+    --invitation-bg-origin: 50% 42%;
   }
 
   .bg-invitation-00189 {
-    background-image: url("/images/our-images/optimized/IMG_2696.jpg");
+    background-image: url("/images/our-images/optimized/IMG_2702.jpg");
+    --invitation-bg-position: 70% 50%;
+    --invitation-bg-origin: 70% 50%;
   }
 
   .bg-invitation-00195 {
     background-image: url("/images/our-images/optimized/AZ9A0454-bw.jpg");
+    --invitation-bg-position: 50% 45%;
+    --invitation-bg-origin: 50% 45%;
   }
 
   .bg-invitation-00200 {
     background-image: url("/images/our-images/optimized/IMG_2691.jpg");
+    --invitation-bg-position: 50% 50%;
+    --invitation-bg-origin: 50% 50%;
   }
 
   .bg-invitation-00204 {
     background-image: url("/images/our-images/optimized/NgocQuan.9257.jpg");
+    --invitation-bg-position: 50% 42%;
+    --invitation-bg-origin: 50% 42%;
+  }
+
+  .bg-invitation-closing {
+    background-image: url("/images/our-images/optimized/IMG_2680.jpg");
+    --invitation-bg-position: 50% 38%;
+    --invitation-bg-origin: 50% 38%;
+  }
+
+  .invitation-panel-bg {
+    background-position: var(--invitation-bg-position, center);
+    background-repeat: no-repeat;
+    background-size: var(--invitation-bg-size, cover);
+    transform-origin: var(--invitation-bg-origin, center);
   }
 
   .invitation-panel-frame {
-    min-height: 100vh;
+    min-height: var(--invitation-viewport-height, 100vh);
   }
 
   @supports (min-height: 100dvh) {
     .invitation-panel-frame {
-      min-height: 100dvh;
+      min-height: var(--invitation-viewport-height, 100dvh);
     }
   }
 
@@ -530,6 +577,7 @@
 
   .invitation-slow-zoom {
     animation: invitation-slow-zoom 18s ease-in-out infinite alternate;
+    will-change: transform;
   }
 
   .invitation-page-enter {
@@ -626,6 +674,7 @@
 
   .invitation-hero-slide {
     opacity: 0;
+    will-change: opacity, transform;
     animation:
       invitation-hero-fade 7500ms ease-in-out infinite,
       invitation-slow-zoom 18s ease-in-out infinite alternate;
@@ -645,6 +694,32 @@
 
   .invitation-music-control[data-playing="true"] {
     animation: invitation-audio-pulse 1800ms ease-in-out infinite;
+  }
+
+  .invitation-save-date-cta {
+    position: relative;
+    overflow: hidden;
+    animation: invitation-save-date-pulse 2400ms ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 0.26);
+  }
+
+  .invitation-save-date-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 0%, rgb(255 255 255 / 0.36) 46%, transparent 58%);
+    transform: translateX(-140%);
+    animation: invitation-save-date-shimmer 3200ms ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .invitation-save-date-cta > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .invitation-save-date-icon {
+    animation: invitation-save-date-icon-nudge 1800ms ease-in-out infinite;
   }
 
   .invitation-overlay-enter {
@@ -897,6 +972,39 @@
   }
 }
 
+@keyframes invitation-save-date-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 0.22);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 0);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes invitation-save-date-shimmer {
+  0%,
+  42% {
+    transform: translateX(-140%);
+  }
+  64%,
+  100% {
+    transform: translateX(140%);
+  }
+}
+
+@keyframes invitation-save-date-icon-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+}
+
 @keyframes invitation-overlay-enter {
   from {
     opacity: 0;
@@ -929,6 +1037,9 @@
   .invitation-preloader-thumb,
   .invitation-cover-recipient-leaving,
   .invitation-music-control[data-playing="true"],
+  .invitation-save-date-cta,
+  .invitation-save-date-cta::after,
+  .invitation-save-date-icon,
   .invitation-overlay-enter,
   .invitation-wishes-page {
     animation: none !important;
@@ -959,6 +1070,6 @@
     transform: scale(1);
   }
   to {
-    transform: scale(1.06);
+    transform: scale(1.025);
   }
 }

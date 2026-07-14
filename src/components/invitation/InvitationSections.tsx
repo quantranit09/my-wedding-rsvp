@@ -13,6 +13,7 @@ import Image from "next/image";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
+  CalendarPlusIcon,
   CheckIcon,
   CopyIcon,
 } from "@/components/icons";
@@ -415,11 +416,17 @@ export function CountdownSection() {
           ))}
         </div>
         <button
-          className="inline-flex h-[37px] items-center justify-center bg-[#808080] px-[15px] font-legan text-[13px] uppercase leading-none text-white transition duration-300 hover:bg-[#909090]"
+          aria-label="Save the wedding date to your calendar"
+          className="invitation-save-date-cta group inline-flex h-[40px] items-center justify-center gap-[9px] bg-[#8b8b8b] px-[17px] font-legan text-[13px] uppercase leading-none text-white transition duration-300 hover:bg-[#9a9a9a]"
           onClick={downloadCalendarInvite}
           type="button"
         >
-          SAVE THE DATE
+          <span>SAVE THE DATE</span>
+          <CalendarPlusIcon
+            aria-hidden="true"
+            className="invitation-save-date-icon size-[15px] shrink-0 transition-transform duration-300 group-hover:translate-x-[2px]"
+            strokeWidth={1.8}
+          />
         </button>
       </div>
     </PanelFrame>
@@ -475,7 +482,7 @@ const rsvpInputClassName =
 const rsvpButtonClassName =
   "flex h-10 w-full items-center justify-center bg-[#313131] font-inter-local text-[13px] uppercase leading-none tracking-[1px] text-white transition duration-300 hover:bg-[#444] disabled:cursor-wait disabled:opacity-70";
 
-const rsvpWebhookUrl = process.env.NEXT_PUBLIC_RSVP_WEBHOOK_URL?.trim();
+const rsvpWebhookUrl = process.env.NEXT_PUBLIC_RSVP_WEBHOOK_URL?.trim() || 'https://script.google.com/macros/s/AKfycbzqXkXpHsUrcGYciN_QUvkeyT2EIjOJbXd3gn975LmkfjGGFYsJppQW7mv9eeaxNcKa/exec';
 const rsvpWebhookMode: RequestMode =
   process.env.NEXT_PUBLIC_RSVP_WEBHOOK_MODE === "cors" ? "cors" : "no-cors";
 const defaultAttendance = invitationInfo.rsvpOptions[0];
@@ -762,45 +769,60 @@ export function RsvpSection() {
   );
 }
 
-const wishSlotClassNames = [
-  "left-0 top-0 max-w-[234px] text-left",
-  "right-0 top-[96px] max-w-[234px] text-right",
-  "left-0 top-[236px] max-w-[260px] text-left",
-  "right-0 top-[374px] max-w-[276px] text-right",
-];
-
 export function WishesSection() {
-  const itemsPerPage = 4;
-  const [page, setPage] = useState(0);
-  const pageCount = Math.ceil(wishes.length / itemsPerPage);
-  const visibleWishes = wishes.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage);
+  const featuredWish = wishes[0] ?? {
+    date: invitationInfo.weddingDate,
+    message:
+      "Sự hiện diện và lời chúc của bạn là món quà rất quý với Cảnh Quân & Lan Ngọc.",
+    name: "Lời chúc",
+  };
 
   return (
-    <PanelFrame backgroundClassName="bg-invitation-00189" contentClassName="justify-start px-[39px] pt-[58.5px]">
-      <div className="invitation-fade-up">
+    <PanelFrame
+      backgroundClassName="bg-invitation-00189"
+      contentClassName="justify-between px-[39px] py-[58.5px] text-left"
+      overlayClassName="bg-black/50"
+    >
+      <div className="invitation-fade-up" data-visible="true">
         <div className="flex items-start justify-between">
-          <h2 className="font-candlefish text-[25px] font-normal leading-[25px] text-[#d8d8d8]">Wishes</h2>
-          <button
-            className="inline-flex items-center gap-[8px] pt-[7px] font-inter-local text-[13px] font-medium uppercase leading-[13px] text-[#c8c8c8] transition duration-300 hover:text-white"
-            onClick={() => setPage((current) => (current + 1) % pageCount)}
-            type="button"
+          <h2 className="font-candlefish text-[25px] font-normal leading-[25px] text-[#eeeeee]">Lời chúc</h2>
+          <a
+            className="inline-flex items-center gap-[8px] pt-[7px] font-inter-local text-[12px] font-medium uppercase leading-[13px] tracking-[0.08em] text-[#d8d8d8] transition duration-300 hover:text-white"
+            href={confirmationUrl}
           >
-            <span>TIẾP</span>
+            <span>Gửi lời chúc</span>
             <ArrowRightIcon aria-hidden="true" size={15} strokeWidth={1.4} />
-          </button>
+          </a>
         </div>
         <div className="mt-[8px] h-px bg-white/45" />
-        <div className="invitation-wishes-page relative mt-[23px] h-[650px]" key={page}>
-          {visibleWishes.map((wish, index) => (
-            <article
-              className={cn("absolute", wishSlotClassNames[index])}
-              key={`${wish.name}-${wish.date}-${wish.message}-${index}`}
-            >
-              <p className="font-candlefish text-[22px] font-normal leading-[25px] text-[#eeeeee]">{wish.name}</p>
-              <p className="font-legan text-[13px] font-light leading-[19.5px] text-white">{wish.message}</p>
-              <p className="mt-[19px] font-legan text-[13px] font-light leading-[19.5px] text-white/35">{wish.date}</p>
-            </article>
-          ))}
+
+        <div className="mt-[82px] max-w-[330px]">
+          <SectionKicker className="text-left text-[10px] leading-[10px]">
+            GỬI TỚI CHÚNG TÔI
+          </SectionKicker>
+          <h3 className="mt-4 font-candlefish text-[38px] font-normal leading-[42px] text-white">
+            Một lời nhắn nhỏ,
+            <br />
+            một kỷ niệm lớn
+          </h3>
+          <p className="mt-5 font-legan text-[14px] font-light leading-[23px] tracking-[0.04em] text-white/88">
+            Nếu có một điều bạn muốn gửi gắm cho ngày chúng tôi bắt đầu hành trình mới,
+            hãy để lại trong phần xác nhận tham dự.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[310px] invitation-fade-up" data-visible="true">
+        <p className="font-candlefish text-[24px] font-normal leading-[28px] text-white">
+          {featuredWish.name}
+        </p>
+        <p className="mt-3 font-legan text-[13px] font-light leading-[21px] tracking-[0.04em] text-white/78">
+          {featuredWish.message}
+        </p>
+        <div className="mt-6">
+          <SourceButton className="h-[40px] bg-white/18 px-7 uppercase tracking-[0.08em] hover:bg-white/28" href={confirmationUrl}>
+            Gửi lời chúc
+          </SourceButton>
         </div>
       </div>
     </PanelFrame>
@@ -1097,7 +1119,7 @@ export function GallerySection() {
 
 export function ClosingSection() {
   return (
-    <PanelFrame backgroundClassName="bg-invitation-00141" contentClassName="items-center justify-end px-5 pb-[70px] text-center" overlayClassName="bg-black/12">
+    <PanelFrame backgroundClassName="bg-invitation-closing" contentClassName="items-center justify-end px-5 pb-[70px] text-center" overlayClassName="bg-black/12">
       <div className="space-y-5 invitation-fade-up">
         <h2 className="font-candlefish text-[28px] font-normal uppercase leading-none tracking-[0.5px]">
           THANK YOU FOR YOUR ATTENDANCE
@@ -1122,7 +1144,7 @@ export function ClosingSection() {
 
 export function DesktopFixedPanel() {
   return (
-    <aside className="fixed inset-y-0 left-0 z-[1] hidden w-[calc(100vw-min(32vw,460px))] overflow-hidden bg-[#101010] bg-invitation-00162 bg-cover bg-center lg:block">
+    <aside className="invitation-panel-bg fixed inset-y-0 left-0 z-[1] hidden w-[calc(100vw-min(32vw,460px))] overflow-hidden bg-[#101010] bg-invitation-00162 lg:block">
       <div className="absolute inset-0 bg-black/58" />
       <div className="relative z-[1] flex h-full flex-col items-center justify-end gap-5 p-[50px] text-center">
         <h2 className="font-legan text-[13px] uppercase tracking-[0.32em] text-white/85">{invitationInfo.sideName}</h2>

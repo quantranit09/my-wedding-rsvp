@@ -45,6 +45,29 @@ export function WeddingInvitation() {
   const snapRestoreTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const root = document.documentElement;
+
+    const syncViewportHeight = () => {
+      const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+      root.style.setProperty("--invitation-viewport-height", `${viewportHeight}px`);
+    };
+
+    syncViewportHeight();
+    window.addEventListener("resize", syncViewportHeight);
+    window.addEventListener("orientationchange", syncViewportHeight);
+    window.visualViewport?.addEventListener("resize", syncViewportHeight);
+    window.visualViewport?.addEventListener("scroll", syncViewportHeight);
+
+    return () => {
+      root.style.removeProperty("--invitation-viewport-height");
+      window.removeEventListener("resize", syncViewportHeight);
+      window.removeEventListener("orientationchange", syncViewportHeight);
+      window.visualViewport?.removeEventListener("resize", syncViewportHeight);
+      window.visualViewport?.removeEventListener("scroll", syncViewportHeight);
+    };
+  }, []);
+
+  useEffect(() => {
     const startedAt = window.performance.now();
     let frame = 0;
 

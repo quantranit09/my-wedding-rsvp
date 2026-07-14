@@ -1,0 +1,352 @@
+[
+  {
+    "index": 0,
+    "id": "home",
+    "text": "THE WEDDING OF Cảnh Quân & Lan Ngọc SUNDAY, 9TH AUGUST 2026",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-hero-slide invitation-hero-slide-1 bg-invitation-00148",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/NgocQuan.9206.jpg",
+    "bgPosition": "50% 43%",
+    "bgSize": "cover",
+    "transform": "matrix(1.00993, 0, 0, 1.00993, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 460,
+      "height": 960,
+      "top": 0,
+      "right": 460,
+      "bottom": 960,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 1,
+    "id": "quote",
+    "text": "May this day mark the beginning of a gentle, faithful, and joyful journey together. ",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00195",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/AZ9A0454-bw.jpg",
+    "bgPosition": "50% 45%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 960,
+      "width": 460,
+      "height": 960,
+      "top": 960,
+      "right": 460,
+      "bottom": 1920,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 2,
+    "id": "profile",
+    "text": "THE GROOM Cảnh Quân The first son A calm and thoughtful groom whose quiet sincerity ",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00188",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2684.jpg",
+    "bgPosition": "68% 38%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 1920,
+      "width": 460,
+      "height": 960,
+      "top": 1920,
+      "right": 460,
+      "bottom": 2880,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 3,
+    "id": "",
+    "text": "THE BRIDE Lan Ngọc The first daughter A graceful bride with a gentle heart, carrying",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00137",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2686.jpg",
+    "bgPosition": "36% 38%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 2880,
+      "width": 460,
+      "height": 960,
+      "top": 2880,
+      "right": 460,
+      "bottom": 3840,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 4,
+    "id": "lovestory",
+    "text": "A journey in love 2021 Chúng tôi gặp nhau ở EM&AI, khi mọi thứ còn bắt đầu từ những ",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00204",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/NgocQuan.9257.jpg",
+    "bgPosition": "50% 42%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 3840,
+      "width": 460,
+      "height": 960,
+      "top": 3840,
+      "right": 460,
+      "bottom": 4800,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 5,
+    "id": "weddingevent",
+    "text": "SAVE OUR DATE SUNDAY 09 AUGUST 2026 Wedding Vow 15:30 Wedding Reception 17:30 VENUE ",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00187",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/NgocQuan.9702.jpg",
+    "bgPosition": "50% 42%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 4800,
+      "width": 460,
+      "height": 960,
+      "top": 4800,
+      "right": 460,
+      "bottom": 5760,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 6,
+    "id": "",
+    "text": "ALMOST TIME FOR OUR CELEBRATION 25 DAYS 19 HOURS 55 MINUTES 57 SECONDS SAVE THE DATE",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00152",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2693.jpg",
+    "bgPosition": "72% 40%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 5760,
+      "width": 460,
+      "height": 960,
+      "top": 5760,
+      "right": 460,
+      "bottom": 6720,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 7,
+    "id": "rsvp",
+    "text": "Kindly Confirm Your Presence And Share Your Blessings Xin vui lòng xác nhận sự hiện ",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00189-copy",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2687-bw.jpg",
+    "bgPosition": "50% 42%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 6720,
+      "width": 460,
+      "height": 960,
+      "top": 6720,
+      "right": 460,
+      "bottom": 7680,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 8,
+    "id": "",
+    "text": "Wishes TIẾP A dear guest Wishing you both a lifetime of happiness, love, and peacefu",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00189",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2696.jpg",
+    "bgPosition": "50% 43%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 7680,
+      "width": 460,
+      "height": 960,
+      "top": 7680,
+      "right": 460,
+      "bottom": 8640,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 9,
+    "id": "",
+    "text": "DRESS CODE Earth Tone Elegance We would be delighted if guests could wear refined ea",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00200",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2691.jpg",
+    "bgPosition": "50% 50%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 8640,
+      "width": 460,
+      "height": 960,
+      "top": 8640,
+      "right": 460,
+      "bottom": 9600,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 10,
+    "id": "",
+    "text": "JOIN OUR CELEBRATION IN DA NANG SUNDAY, 9TH AUGUST 2026 - 17:30 Temple Beach Restaur",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00139",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2688.jpg",
+    "bgPosition": "54% 45%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 9600,
+      "width": 460,
+      "height": 960,
+      "top": 9600,
+      "right": 460,
+      "bottom": 10560,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 11,
+    "id": "weddinggift",
+    "text": "Wedding Gift For those of you who want to give a token of love to the bride and groo",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-00171",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2690.jpg",
+    "bgPosition": "50% 55%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 10560,
+      "width": 460,
+      "height": 960,
+      "top": 10560,
+      "right": 460,
+      "bottom": 11520,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 12,
+    "id": "gallery",
+    "text": "OUR WEDDING MOMENTS CẢNH QUÂN & LAN NGỌC 1 / 19 Tap image for preview",
+    "bgClass": "",
+    "bgImage": "",
+    "bgPosition": "",
+    "bgSize": "",
+    "transform": "",
+    "rect": {
+      "x": 0,
+      "y": 11520,
+      "width": 460,
+      "height": 960,
+      "top": 11520,
+      "right": 460,
+      "bottom": 12480,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  },
+  {
+    "index": 13,
+    "id": "",
+    "text": "THANK YOU FOR YOUR ATTENDANCE Cảm ơn bạn đã có mặt trong ngày chúng tôi bắt đầu một ",
+    "bgClass": "absolute inset-0 invitation-panel-bg invitation-slow-zoom bg-invitation-closing",
+    "bgImage": "http://localhost:3000/images/our-images/optimized/IMG_2680.jpg",
+    "bgPosition": "50% 38%",
+    "bgSize": "cover",
+    "transform": "matrix(1.0003, 0, 0, 1.0003, 0, 0)",
+    "rect": {
+      "x": 0,
+      "y": 12480,
+      "width": 460,
+      "height": 960,
+      "top": 12480,
+      "right": 460,
+      "bottom": 13440,
+      "left": 0
+    },
+    "viewport": {
+      "width": 460,
+      "height": 960,
+      "visualHeight": 960
+    }
+  }
+]
