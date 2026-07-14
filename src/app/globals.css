@@ -322,9 +322,9 @@
   }
 
   .bg-invitation-00189 {
-    background-image: url("/images/our-images/optimized/IMG_2702.jpg");
-    --invitation-bg-position: 70% 50%;
-    --invitation-bg-origin: 70% 50%;
+    background-image: url("/images/our-images/optimized/IMG_2702-wishes-crop.jpg");
+    --invitation-bg-position: center;
+    --invitation-bg-origin: center;
   }
 
   .bg-invitation-00195 {
@@ -593,9 +593,54 @@
     scroll-snap-type: none;
   }
 
+  .invitation-root-form-focused {
+    scroll-snap-type: none;
+  }
+
   .invitation-root-snap .invitation-page-open section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
+  }
+
+  .invitation-root-form-focused .invitation-page-open section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  .invitation-rsvp-section:focus-within {
+    overflow: visible;
+  }
+
+  .invitation-rsvp-section input,
+  .invitation-rsvp-section textarea {
+    scroll-margin-bottom: calc(240px + env(safe-area-inset-bottom));
+    scroll-margin-top: 40px;
+  }
+
+  .invitation-rsvp-section:focus-within .invitation-rsvp-content {
+    min-height: max(var(--invitation-viewport-height, 100vh), 620px);
+    padding-top: 34px;
+    padding-bottom: calc(34px + env(safe-area-inset-bottom));
+  }
+
+  .invitation-rsvp-section:focus-within .invitation-rsvp-title {
+    font-size: 23px;
+    line-height: 25px;
+  }
+
+  .invitation-rsvp-section:focus-within .invitation-rsvp-intro {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .invitation-rsvp-section:focus-within .invitation-rsvp-stepper {
+    margin-top: 14px;
+    height: 34px;
+  }
+
+  .invitation-rsvp-section:focus-within .invitation-rsvp-form {
+    margin-top: 14px;
   }
 
   .invitation-page-open [data-invitation-panel] {

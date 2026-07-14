@@ -22,7 +22,7 @@ export const requestedAssets = {
   eventBg: "/images/our-images/optimized/NgocQuan.9702-event-crop.jpg",
   countdownBg: "/images/our-images/optimized/IMG_2693.jpg",
   rsvpBg: "/images/our-images/optimized/IMG_2687-bw.jpg",
-  wishesBg: "/images/our-images/optimized/IMG_2702.jpg",
+  wishesBg: "/images/our-images/optimized/IMG_2702-wishes-crop.jpg",
   dressBg: "/images/our-images/optimized/IMG_2691.jpg",
   giftBg: "/images/our-images/optimized/IMG_2690.jpg",
   thanksBg: "/images/our-images/optimized/IMG_2680.jpg",

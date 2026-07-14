@@ -2,6 +2,7 @@
 
 import {
   Fragment,
+  type FocusEvent as ReactFocusEvent,
   type FormEvent,
   type KeyboardEvent as ReactKeyboardEvent,
   useEffect,
@@ -16,6 +17,9 @@ import {
   CalendarPlusIcon,
   CheckIcon,
   CopyIcon,
+  GiftIcon,
+  MessageSquareTextIcon,
+  MicVocalIcon,
 } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
@@ -433,13 +437,33 @@ export function CountdownSection() {
   );
 }
 
-type RsvpStep = 1 | 2 | 3 | 4;
+type RsvpStep = 1 | 2 | 3 | 4 | 5;
+type RsvpExtraRequest = "gift" | "speech";
 
-const rsvpSteps: RsvpStep[] = [1, 2, 3, 4];
+const rsvpSteps: RsvpStep[] = [1, 2, 3, 4, 5];
+const rsvpExtraOptions: {
+  description: string;
+  icon: typeof MessageSquareTextIcon;
+  label: string;
+  value: RsvpExtraRequest;
+}[] = [
+  {
+    description: "Mình sẽ xem thông tin quà mừng ở phần Wedding Gift.",
+    icon: GiftIcon,
+    label: "Muốn gửi quà mừng",
+    value: "gift",
+  },
+  {
+    description: "Mình muốn phát biểu hoặc gửi lời chúc trực tiếp tại tiệc.",
+    icon: MicVocalIcon,
+    label: "Muốn phát biểu",
+    value: "speech",
+  },
+];
 
-function RsvpStepper({ step }: { step: RsvpStep }) {
+function RsvpStepper({ className, step }: { className?: string; step: RsvpStep }) {
   return (
-    <div className="mt-5 grid h-10 grid-cols-[30px_1fr_30px_1fr_30px_1fr_30px] items-start">
+    <div className={cn("mt-5 grid h-10 grid-cols-[30px_1fr_30px_1fr_30px_1fr_30px_1fr_30px] items-start", className)}>
       {rsvpSteps.map((value, index) => {
         const state = value < step ? "complete" : value === step ? "active" : "inactive";
 
@@ -492,9 +516,11 @@ interface RsvpSubmissionPayload {
   couple: string;
   name: string;
   attendance: string;
+  extras: RsvpExtraRequest[];
   guestCount: string;
   message: string;
   submittedAt: string;
+  partyNote: string;
   userTimeZone: string;
 }
 
@@ -523,11 +549,19 @@ export function RsvpSection() {
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState(defaultAttendance);
   const [guestCount, setGuestCount] = useState("1");
+  const [extraRequests, setExtraRequests] = useState<RsvpExtraRequest[]>([]);
+  const [partyNote, setPartyNote] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const lastAttendanceTapRef = useRef<{ option: string; time: number } | null>(null);
+
+  useEffect(() => {
+    return () => {
+      document.documentElement.classList.remove("invitation-root-form-focused");
+    };
+  }, []);
 
   function goPrevious() {
     setSubmitted(false);
@@ -543,7 +577,7 @@ export function RsvpSection() {
     if (step === 2 && !attendance) return;
     if (step === 3 && !guestCount.trim()) return;
 
-    setStep((current) => Math.min(4, current + 1) as RsvpStep);
+    setStep((current) => Math.min(5, current + 1) as RsvpStep);
   }
 
   async function submitRsvp() {
@@ -568,9 +602,11 @@ export function RsvpSection() {
     const payload: RsvpSubmissionPayload = {
       attendance,
       couple: invitationInfo.coupleNames,
+      extras: extraRequests,
       guestCount,
       message: message.trim(),
       name: name.trim(),
+      partyNote: partyNote.trim(),
       source: window.location.href,
       submittedAt: new Date().toISOString(),
       userTimeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -580,11 +616,14 @@ export function RsvpSection() {
 
     try {
       await submitRsvpToWebhook(payload);
+      document.documentElement.classList.remove("invitation-root-form-focused");
       setSubmitted(true);
       setStep(1);
       setName("");
       setAttendance(defaultAttendance);
       setGuestCount("1");
+      setExtraRequests([]);
+      setPartyNote("");
       setMessage("");
       lastAttendanceTapRef.current = null;
     } catch (error) {
@@ -614,6 +653,22 @@ export function RsvpSection() {
     }
   }
 
+  function toggleExtraRequest(option: RsvpExtraRequest) {
+    setExtraRequests((current) => {
+      const next = current.includes(option)
+        ? current.filter((item) => item !== option)
+        : [...current, option];
+
+      if (next.length === 0) {
+        setPartyNote("");
+      }
+
+      return next;
+    });
+    setSubmitted(false);
+    setSubmitError("");
+  }
+
   function handleInputKeyDown(event: ReactKeyboardEvent<HTMLInputElement>) {
     if (event.key !== "Enter" || event.nativeEvent.isComposing) return;
 
@@ -621,10 +676,42 @@ export function RsvpSection() {
     goNext();
   }
 
+  function handleFormFocus(event: ReactFocusEvent<HTMLFormElement>) {
+    const target = event.target;
+
+    if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement)) return;
+
+    document.documentElement.classList.add("invitation-root-form-focused");
+
+    const scrollFocusedField = () => {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest",
+      });
+    };
+
+    window.setTimeout(scrollFocusedField, 80);
+    window.setTimeout(scrollFocusedField, 360);
+  }
+
+  function handleFormBlur(event: ReactFocusEvent<HTMLFormElement>) {
+    const form = event.currentTarget;
+    const nextTarget = event.relatedTarget;
+
+    if (nextTarget instanceof Node && form.contains(nextTarget)) return;
+
+    window.setTimeout(() => {
+      if (!form.contains(document.activeElement)) {
+        document.documentElement.classList.remove("invitation-root-form-focused");
+      }
+    }, 80);
+  }
+
   function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (step < 4) {
+    if (step < 5) {
       goNext();
       return;
     }
@@ -636,19 +723,22 @@ export function RsvpSection() {
     <PanelFrame
       id="rsvp"
       backgroundClassName="bg-invitation-00189-copy"
-      contentClassName="px-[50.6875px] pt-[78px] text-left"
+      className="invitation-rsvp-section"
+      contentClassName="invitation-rsvp-content px-[50.6875px] pt-[78px] text-left"
     >
       <div className="invitation-fade-up" data-visible="true">
-        <h2 className="font-candlefish text-[28px] font-normal leading-[28px] tracking-[0.5px]">
+        <h2 className="invitation-rsvp-title font-candlefish text-[28px] font-normal leading-[28px] tracking-[0.5px]">
           Kindly Confirm Your Presence And Share Your Blessings
         </h2>
-        <p className="mt-5 font-legan text-[13px] leading-[19.5px] tracking-[0.65px] text-white">
+        <p className="invitation-rsvp-intro mt-5 font-legan text-[13px] leading-[19.5px] tracking-[0.65px] text-white">
           {invitationInfo.rsvpIntro}
         </p>
-        <RsvpStepper step={step} />
+        <RsvpStepper className="invitation-rsvp-stepper" step={step} />
 
         <form
-          className="mt-5"
+          className="invitation-rsvp-form mt-5"
+          onBlurCapture={handleFormBlur}
+          onFocusCapture={handleFormFocus}
           onSubmit={handleFormSubmit}
         >
           {step === 1 ? (
@@ -730,7 +820,95 @@ export function RsvpSection() {
 
           {step === 4 ? (
             <div>
-              <RsvpLabel>WISHES</RsvpLabel>
+              <RsvpLabel>GHI CHÚ</RsvpLabel>
+              <p className="mb-[10px] font-legan text-[12px] leading-[18px] tracking-[0.04em] text-white/78">
+                Bạn có điều gì muốn nhắn trước cho buổi tiệc không?
+              </p>
+              <div className="space-y-[8px]">
+                <button
+                  aria-pressed={extraRequests.length === 0}
+                  className={cn(
+                    "flex min-h-[48px] w-full items-center gap-3 border border-white/45 bg-[#414141]/35 px-3 py-2 text-left font-inter-local text-white transition duration-300 hover:bg-white/10",
+                    extraRequests.length === 0 &&
+                      "border-[#39d567] bg-[#2fbd50]/35 shadow-[0_0_20px_rgba(47,189,80,0.34)]",
+                  )}
+                  onClick={() => {
+                    setExtraRequests([]);
+                    setPartyNote("");
+                    setSubmitted(false);
+                    setSubmitError("");
+                  }}
+                  type="button"
+                >
+                  <MessageSquareTextIcon aria-hidden="true" className="shrink-0" size={17} strokeWidth={1.8} />
+                  <span className="flex flex-col gap-1">
+                    <span className="text-[11px] uppercase leading-none tracking-[1px]">
+                      Không có ghi chú thêm
+                    </span>
+                    <span className="font-legan text-[11px] leading-[15px] tracking-[0.03em] text-white/68">
+                      Mặc định, bạn có thể tiếp tục tới lời chúc.
+                    </span>
+                  </span>
+                </button>
+                {rsvpExtraOptions.map((option) => {
+                  const active = extraRequests.includes(option.value);
+                  const Icon = option.icon;
+
+                  return (
+                    <button
+                      aria-pressed={active}
+                      className={cn(
+                        "flex min-h-[48px] w-full items-center gap-3 border border-white/45 bg-[#414141]/35 px-3 py-2 text-left font-inter-local text-white transition duration-300 hover:bg-white/10",
+                        active &&
+                          "border-[#39d567] bg-[#2fbd50]/35 shadow-[0_0_20px_rgba(47,189,80,0.34)]",
+                      )}
+                      key={option.value}
+                      onClick={() => toggleExtraRequest(option.value)}
+                      type="button"
+                    >
+                      <Icon aria-hidden="true" className="shrink-0" size={17} strokeWidth={1.8} />
+                      <span className="flex flex-col gap-1">
+                        <span className="text-[11px] uppercase leading-none tracking-[1px]">
+                          {option.label}
+                        </span>
+                        <span className="font-legan text-[11px] leading-[15px] tracking-[0.03em] text-white/68">
+                          {option.description}
+                        </span>
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {extraRequests.length > 0 ? (
+                <div className="mt-[10px]">
+                  <textarea
+                    className={cn(rsvpInputClassName, "h-[82px] resize-none")}
+                    onChange={(event) => {
+                      setPartyNote(event.target.value);
+                      setSubmitted(false);
+                      setSubmitError("");
+                    }}
+                    placeholder="Ví dụ: muốn phát biểu ngắn, gửi video chúc mừng, hoặc nhờ chuẩn bị micro..."
+                    value={partyNote}
+                  />
+                </div>
+              ) : null}
+
+              <div className="mt-[10px] grid grid-cols-2 gap-[10px]">
+                <button className={cn(rsvpButtonClassName, "bg-[#69727d] hover:bg-[#7b8490]")} onClick={goPrevious} type="button">
+                  QUAY LẠI
+                </button>
+                <button className={rsvpButtonClassName} onClick={goNext} type="button">
+                  TIẾP TỤC
+                </button>
+              </div>
+            </div>
+          ) : null}
+
+          {step === 5 ? (
+            <div>
+              <RsvpLabel>LỜI CHÚC</RsvpLabel>
               <textarea
                 className={cn(rsvpInputClassName, "h-[118px] resize-none")}
                 onChange={(event) => {
@@ -738,6 +916,7 @@ export function RsvpSection() {
                   setSubmitted(false);
                   setSubmitError("");
                 }}
+                placeholder="Gửi một lời chúc nhỏ tới Cảnh Quân & Lan Ngọc..."
                 value={message}
               />
               <div className="mt-[10px] grid grid-cols-2 gap-[10px]">
