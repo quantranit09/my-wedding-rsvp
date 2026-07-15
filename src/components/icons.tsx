@@ -5,6 +5,7 @@ import {
   CalendarPlus,
   Check,
   Copy,
+  Download,
   Gift,
   MessageSquareText,
   MicVocal,
@@ -23,6 +24,7 @@ export const ArrowRightIcon = ArrowRight;
 export const CalendarPlusIcon = CalendarPlus;
 export const CheckIcon = Check;
 export const CopyIcon = Copy;
+export const DownloadIcon = Download;
 export const GiftIcon = Gift;
 export const MessageSquareTextIcon = MessageSquareText;
 export const MicVocalIcon = MicVocal;

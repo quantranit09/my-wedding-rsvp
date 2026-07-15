@@ -22,7 +22,7 @@ export const requestedAssets = {
   eventBg: "/images/our-images/optimized/NgocQuan.9702-event-crop.jpg",
   countdownBg: "/images/our-images/optimized/IMG_2693.jpg",
   rsvpBg: "/images/our-images/optimized/IMG_2687-bw.jpg",
-  wishesBg: "/images/our-images/optimized/IMG_2702-wishes-crop.jpg",
+  wishesBg: "/images/our-images/optimized/NgocQuan.8665.jpg",
   dressBg: "/images/our-images/optimized/IMG_2691.jpg",
   giftBg: "/images/our-images/optimized/IMG_2690.jpg",
   thanksBg: "/images/our-images/optimized/IMG_2680.jpg",
@@ -72,7 +72,7 @@ export const groomProfile: PersonProfile = {
   name: "Cảnh Quân",
   relation: "The first son",
   description:
-    "A calm and thoughtful groom whose quiet sincerity brings warmth, steadiness, and joy to the people he loves.",
+    "Raised with love, shaped by family, and ready to begin a lifetime of his own.",
   buttonLabel: "Cảnh Quân",
   instagramUrl: "https://www.instagram.com/aflyinghusky__/",
 };
@@ -82,7 +82,7 @@ export const brideProfile: PersonProfile = {
   name: "Lan Ngọc",
   relation: "The first daughter",
   description:
-    "A graceful bride with a gentle heart, carrying beauty, kindness, and a quiet radiance into every moment.",
+    "Raised with love, cherished by family, and ready to begin a lifetime of her own.",
   buttonLabel: "Lan Ngọc",
   instagramUrl: "https://www.instagram.com/nemo.ow/",
 };
@@ -92,22 +92,25 @@ export const verse: Verse = {
   text: "Mong ngày hôm nay mở ra một hành trình dịu dàng, thủy chung và đầy niềm vui.",
 };
 
+export const loveStoryIntro =
+  "Rồi cũng đến một ngày, chúng mình đủ mạnh dạn để kể với mọi người về câu chuyện của hai đứa...";
+
 export const loveStory: TimelineItem[] = [
   {
     year: "2021",
-    body: "Chúng tôi gặp nhau ở EM&AI, khi mọi thứ còn bắt đầu từ những câu chuyện rất đỗi bình thường. Không ai biết rằng, giữa những ngày tháng giản dị ấy, chúng tôi đã dần để ý đến nhau.",
+    body: "Tại EM&AI, chúng mình gặp nhau với vai trò là đồng nghiệp, cùng đồng hành trong một sản phẩm. Chẳng ai ngờ rằng những buổi làm việc, những lần hỗ trợ nhau mỗi ngày lại lặng lẽ mở đầu cho một hành trình dài phía trước.",
   },
   {
     year: "2022",
-    body: "Rồi những lần đi chơi cùng nhau khiến chúng tôi tin rằng giữa hai đứa có một chữ duyên. Tình cảm đến không ồn ào, chỉ lặng lẽ lớn lên sau từng lần gặp, từng câu chuyện, từng cái nhìn.",
+    body: "Cơ duyên bắt đầu từ chiếc máy tính bị hư, ngày ấy có một người đã sẵn lòng chở cô gái đi sửa. Tình cảm cứ thế đến không ồn ào, lặng lẽ lớn lên sau những lần gặp gỡ, những câu chuyện chưa bao giờ thấy đủ và những ánh mắt dần trở nên quen thuộc. Rồi ngày 29/03 năm ấy, chúng mình chính thức thành đôi.",
   },
   {
-    year: "CUỐI 2022",
-    body: "Quê nhà hai đứa vốn cách xa nhau, nên khi chọn yêu lâu dài, chúng tôi cũng chọn nghiêm túc với hành trình này. Cuối năm ấy, chúng tôi về ra mắt hai bên gia đình, để tình yêu có thêm sự thấu hiểu và gắn bó.",
+    year: "THÁNG 11 - 2022",
+    body: 'Chúng mình về Bắc ra mắt gia đình và bạn bè. Một chút hồi hộp, một chút nôn nóng, có lẽ đến giờ cảm xúc ấy vẫn vẹn nguyên. Sáng mới báo tin "Con có người yêu rồi" mà tối đó, người ta đã đứng trước cửa nhà. Tình yêu nhỏ được ôm trọn trong tình yêu lớn của gia đình. Cứ thế, chúng mình trở thành con của bố mẹ hai bên.',
   },
   {
     year: "2026",
-    body: "Sau những mùa thương nhau, chúng tôi nhận ra nơi bình yên nhất vẫn là cạnh bên nhau. Năm 2026, chúng tôi quyết định về chung một nhà, cùng bắt đầu một đời sống mới với nhau.",
+    body: "Sau những năm tháng cùng nhau trưởng thành, chúng mình nhận ra nơi bình yên nhất vẫn là cạnh bên nhau. Và thế là, chúng mình quyết định về chung một nhà. Để mỗi hành trình phía trước đều cùng nhau bước tiếp, và câu chuyện của hai đứa sẽ không dừng lại ở đây, mà chỉ vừa mở sang một chương mới.",
   },
 ];
 
@@ -133,21 +136,21 @@ export const weddingEvents: WeddingEvent[] = [
 
 export const wishes: WishItem[] = [
   {
-    name: "Lời chúc",
+    name: "Từ trái tim",
     message:
-      "Sự hiện diện và lời chúc của bạn là món quà rất quý với Cảnh Quân & Lan Ngọc.",
+      "Sự hiện diện của bạn đã là niềm vui lớn. Nếu có thêm một lời chúc, chúng mình sẽ giữ lại như một kỷ niệm thật đẹp.",
     date: "09 Aug 2026",
   },
   {
-    name: "Gửi yêu thương",
+    name: "Một vài dòng thôi",
     message:
-      "Bạn có thể gửi lời nhắn cho chúng tôi trong phần xác nhận tham dự.",
+      "Bạn có thể gửi lời nhắn, lời chúc hoặc một kỷ niệm nhỏ trong phần xác nhận tham dự.",
     date: "09 Aug 2026",
   },
   {
-    name: "Lưu giữ",
+    name: "Ngày vui thêm trọn",
     message:
-      "Từng lời chúc sẽ được chúng tôi lưu lại như một kỷ niệm của ngày đặc biệt này.",
+      "Mỗi lời nhắn đều là một món quà nhỏ mà Cảnh Quân & Lan Ngọc rất trân quý.",
     date: "09 Aug 2026",
   },
 ];

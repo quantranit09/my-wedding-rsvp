@@ -5,6 +5,9 @@ import {
   type FocusEvent as ReactFocusEvent,
   type FormEvent,
   type KeyboardEvent as ReactKeyboardEvent,
+  type MouseEvent as ReactMouseEvent,
+  type PointerEvent as ReactPointerEvent,
+  type TouchEvent as ReactTouchEvent,
   useEffect,
   useRef,
   useState,
@@ -17,6 +20,7 @@ import {
   CalendarPlusIcon,
   CheckIcon,
   CopyIcon,
+  DownloadIcon,
   GiftIcon,
   MessageSquareTextIcon,
   MicVocalIcon,
@@ -32,6 +36,7 @@ import {
   groomProfile,
   invitationInfo,
   loveStory,
+  loveStoryIntro,
   menuItems,
   streamingUrl,
   verse,
@@ -141,15 +146,128 @@ function downloadCalendarInvite() {
 export function OpeningHero({
   leaving,
   locked,
+  onDebug,
   openingRecipientVisible,
   onOpen,
+  onScrollCue,
+  scrollCueEnabled = true,
 }: {
   leaving?: boolean;
   locked?: boolean;
+  onDebug?: (message: string) => void;
   openingRecipientVisible?: boolean;
   onOpen?: () => void;
+  onScrollCue?: () => void;
+  scrollCueEnabled?: boolean;
 }) {
   const showRecipient = Boolean(locked || openingRecipientVisible);
+  const openButtonRef = useRef<HTMLAnchorElement>(null);
+  const openPressHandledRef = useRef(false);
+  const openPressResetTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (openPressResetTimerRef.current) {
+        window.clearTimeout(openPressResetTimerRef.current);
+      }
+    };
+  }, []);
+
+  function triggerOpenFromTap() {
+    onDebug?.(`[open-button:trigger] handled=${openPressHandledRef.current} leaving=${Boolean(leaving)}`);
+
+    if (openPressHandledRef.current || leaving) return;
+
+    openPressHandledRef.current = true;
+    onOpen?.();
+
+    if (openPressResetTimerRef.current) {
+      window.clearTimeout(openPressResetTimerRef.current);
+    }
+
+    openPressResetTimerRef.current = window.setTimeout(() => {
+      openPressHandledRef.current = false;
+    }, 900);
+  }
+
+  useEffect(() => {
+    const eventHitsOpenButton = (event: MouseEvent | PointerEvent | TouchEvent) => {
+      const button = openButtonRef.current;
+      if (!button) return false;
+
+      if (event.target instanceof Node && button.contains(event.target)) {
+        return true;
+      }
+
+      const point =
+        "changedTouches" in event
+          ? event.changedTouches.item(0)
+          : event;
+
+      if (!point) return false;
+
+      const rect = button.getBoundingClientRect();
+      return (
+        point.clientX >= rect.left &&
+        point.clientX <= rect.right &&
+        point.clientY >= rect.top &&
+        point.clientY <= rect.bottom
+      );
+    };
+
+    const handleNativeOpen = (event: MouseEvent | PointerEvent | TouchEvent) => {
+      if (!eventHitsOpenButton(event)) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      onDebug?.(`[open-button:native:${event.type}] hit`);
+      triggerOpenFromTap();
+    };
+
+    const touchOptions: AddEventListenerOptions = { capture: true, passive: false };
+
+    document.addEventListener("click", handleNativeOpen, true);
+    document.addEventListener("pointerup", handleNativeOpen, true);
+    document.addEventListener("touchend", handleNativeOpen, touchOptions);
+
+    return () => {
+      document.removeEventListener("click", handleNativeOpen, true);
+      document.removeEventListener("pointerup", handleNativeOpen, true);
+      document.removeEventListener("touchend", handleNativeOpen, touchOptions);
+    };
+  });
+
+  function handleOpenPointerUp(event: ReactPointerEvent<HTMLAnchorElement>) {
+    if (event.pointerType === "mouse") return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    onDebug?.(`[open-button:react:pointerup] type=${event.pointerType}`);
+    triggerOpenFromTap();
+  }
+
+  function handleOpenTouchEnd(event: ReactTouchEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    onDebug?.("[open-button:react:touchend]");
+    triggerOpenFromTap();
+  }
+
+  function handleOpenClick(event: ReactMouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    onDebug?.("[open-button:react:click]");
+    triggerOpenFromTap();
+  }
+
+  function handleScrollCueClick(event: ReactMouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!scrollCueEnabled) return;
+
+    onScrollCue?.();
+  }
 
   return (
     <PanelFrame
@@ -182,24 +300,32 @@ export function OpeningHero({
           <p className="mx-auto max-w-60 font-legan text-[11px] font-medium leading-[15px] text-white/80">
             {invitationInfo.nameNotice}
           </p>
-          <button
-            className="mt-2 h-[34px] bg-[#d5d5d5] px-5 font-inter-local text-xs uppercase leading-none text-[#252525] transition duration-300 hover:bg-white"
-            disabled={leaving}
-            onClick={onOpen}
-            type="button"
+          <a
+            aria-disabled={leaving ? "true" : undefined}
+            className="invitation-open-button relative z-[3] mt-2 inline-flex h-[34px] touch-manipulation select-none items-center justify-center bg-[#d5d5d5] px-5 font-inter-local text-xs uppercase leading-none text-[#252525] transition duration-300 hover:bg-white"
+            href="#open-invitation"
+            onClick={handleOpenClick}
+            onPointerUp={handleOpenPointerUp}
+            onTouchEnd={handleOpenTouchEnd}
+            ref={openButtonRef}
+            role="button"
           >
             LET&apos;S OPEN
-          </button>
+          </a>
         </div>
       ) : null}
       {!locked ? (
         <a
           aria-label="Scroll to quote"
+          aria-disabled={scrollCueEnabled ? undefined : true}
           className={cn(
             "invitation-open-scroll-cue absolute bottom-[26%] left-1/2 flex size-[50px] items-center justify-center text-white transition duration-300 hover:scale-105",
-            openingRecipientVisible && "invitation-open-scroll-cue-enter",
+            !scrollCueEnabled && "invitation-open-scroll-cue-disabled",
+            scrollCueEnabled && !openingRecipientVisible && "invitation-open-scroll-cue-enter",
           )}
           href="#quote"
+          onClick={handleScrollCueClick}
+          tabIndex={scrollCueEnabled ? undefined : -1}
         >
           <OpeningScrollCueIcon />
         </a>
@@ -296,18 +422,21 @@ export function BrideProfileSection() {
 
 export function LoveStorySection() {
   return (
-    <PanelFrame id="lovestory" backgroundClassName="bg-invitation-00204" contentClassName="justify-center px-[39px]" overlayClassName="bg-black/48">
-      <div className="space-y-5 text-white invitation-fade-up">
+    <PanelFrame id="lovestory" backgroundClassName="bg-invitation-00204" contentClassName="justify-center px-[30px] py-9" overlayClassName="bg-black/50">
+      <div className="invitation-love-story-scroll text-white invitation-fade-up">
         <h2 className="font-candlefish text-[40px] font-normal leading-none">A journey in love</h2>
+        <p className="mt-4 font-legan text-[12px] leading-[18px] text-white/88">
+          {loveStoryIntro}
+        </p>
         {loveStory.map((item) => (
-          <div className="space-y-2" key={item.year}>
-            <h3 className="font-roxborough text-[16px] font-normal uppercase leading-none">
+          <div className="mt-4 space-y-[6px]" key={item.year}>
+            <h3 className="font-roxborough text-[14px] font-normal uppercase leading-none tracking-[0.06em]">
               {item.year}
             </h3>
-            <p className="font-legan text-[13px] leading-[19.5px] text-white/88">{item.body}</p>
+            <p className="font-legan text-[11.5px] leading-[17px] text-white/86">{item.body}</p>
           </div>
         ))}
-        <p className="pt-2 font-ovo text-[14px] font-medium uppercase leading-none">{invitationInfo.sideName}</p>
+        <p className="pt-4 font-ovo text-[13px] font-medium uppercase leading-none">{invitationInfo.sideName}</p>
       </div>
     </PanelFrame>
   );
@@ -501,7 +630,7 @@ function RsvpLabel({ children }: { children: string }) {
 }
 
 const rsvpInputClassName =
-  "block h-10 w-full border border-white/55 bg-[#414141]/45 px-4 py-2 font-inter-local text-[13px] leading-[18.2px] text-[#c2c2c2] outline-none transition duration-300 placeholder:text-[#c2c2c2] focus:border-white focus:bg-[#414141]/60";
+  "block h-11 w-full border border-white/55 bg-[#414141]/45 px-4 py-2 font-inter-local text-[16px] leading-5 text-[#c2c2c2] outline-none transition duration-300 placeholder:text-[#c2c2c2] focus:border-white focus:bg-[#414141]/60";
 
 const rsvpButtonClassName =
   "flex h-10 w-full items-center justify-center bg-[#313131] font-inter-local text-[13px] uppercase leading-none tracking-[1px] text-white transition duration-300 hover:bg-[#444] disabled:cursor-wait disabled:opacity-70";
@@ -510,6 +639,10 @@ const rsvpWebhookUrl = process.env.NEXT_PUBLIC_RSVP_WEBHOOK_URL?.trim() || 'http
 const rsvpWebhookMode: RequestMode =
   process.env.NEXT_PUBLIC_RSVP_WEBHOOK_MODE === "cors" ? "cors" : "no-cors";
 const defaultAttendance = invitationInfo.rsvpOptions[0];
+
+function isRsvpEditableField(target: EventTarget | null): target is HTMLInputElement | HTMLTextAreaElement {
+  return target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement;
+}
 
 interface RsvpSubmissionPayload {
   source: string;
@@ -556,12 +689,40 @@ export function RsvpSection() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const lastAttendanceTapRef = useRef<{ option: string; time: number } | null>(null);
+  const rsvpFormRef = useRef<HTMLFormElement>(null);
+  const focusReleaseTimerRef = useRef<number | null>(null);
+  const interactionReleaseTimerRef = useRef<number | null>(null);
+  const nativeMoveHandlerRef = useRef<{
+    hold: () => void;
+    shouldKeepFocusedFieldStill: () => boolean;
+  }>({
+    hold: () => {},
+    shouldKeepFocusedFieldStill: () => false,
+  });
 
   useEffect(() => {
     return () => {
+      if (focusReleaseTimerRef.current) {
+        window.clearTimeout(focusReleaseTimerRef.current);
+      }
+      if (interactionReleaseTimerRef.current) {
+        window.clearTimeout(interactionReleaseTimerRef.current);
+      }
       document.documentElement.classList.remove("invitation-root-form-focused");
     };
   }, []);
+
+  useEffect(() => {
+    if (isRsvpEditableField(document.activeElement)) return;
+
+    const timer = window.setTimeout(() => {
+      if (!isRsvpEditableField(document.activeElement) && !interactionReleaseTimerRef.current) {
+        document.documentElement.classList.remove("invitation-root-form-focused");
+      }
+    }, 520);
+
+    return () => window.clearTimeout(timer);
+  }, [step]);
 
   function goPrevious() {
     setSubmitted(false);
@@ -676,36 +837,93 @@ export function RsvpSection() {
     goNext();
   }
 
+  function lockRsvpFocus() {
+    if (focusReleaseTimerRef.current) {
+      window.clearTimeout(focusReleaseTimerRef.current);
+      focusReleaseTimerRef.current = null;
+    }
+
+    document.documentElement.classList.add("invitation-root-form-focused");
+  }
+
+  function holdRsvpInteraction(delay = 1600) {
+    lockRsvpFocus();
+
+    if (interactionReleaseTimerRef.current) {
+      window.clearTimeout(interactionReleaseTimerRef.current);
+    }
+
+    interactionReleaseTimerRef.current = window.setTimeout(() => {
+      if (!isRsvpEditableField(document.activeElement)) {
+        document.documentElement.classList.remove("invitation-root-form-focused");
+      }
+      interactionReleaseTimerRef.current = null;
+    }, delay);
+  }
+
+  function releaseRsvpFocus(form: HTMLFormElement, delay = 520) {
+    if (focusReleaseTimerRef.current) {
+      window.clearTimeout(focusReleaseTimerRef.current);
+    }
+
+    focusReleaseTimerRef.current = window.setTimeout(() => {
+      const activeElement = document.activeElement;
+      if (isRsvpEditableField(activeElement) && form.contains(activeElement)) return;
+      if (interactionReleaseTimerRef.current) {
+        focusReleaseTimerRef.current = null;
+        return;
+      }
+
+      document.documentElement.classList.remove("invitation-root-form-focused");
+      focusReleaseTimerRef.current = null;
+    }, delay);
+  }
+
+  function handleFormInteractionStart() {
+    holdRsvpInteraction();
+  }
+
+  function shouldKeepFocusedFieldStill() {
+    const activeElement = document.activeElement;
+
+    if (activeElement instanceof HTMLInputElement) {
+      return true;
+    }
+
+    if (activeElement instanceof HTMLTextAreaElement) {
+      return activeElement.scrollHeight <= activeElement.clientHeight + 1;
+    }
+
+    return false;
+  }
+
+  function handleFormPointerDown(event: ReactPointerEvent<HTMLFormElement>) {
+    holdRsvpInteraction();
+
+    if (isRsvpEditableField(event.target)) {
+      lockRsvpFocus();
+    }
+  }
+
+  function handleFormTouchStart() {
+    handleFormInteractionStart();
+  }
+
   function handleFormFocus(event: ReactFocusEvent<HTMLFormElement>) {
     const target = event.target;
 
-    if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement)) return;
+    if (!isRsvpEditableField(target)) return;
 
-    document.documentElement.classList.add("invitation-root-form-focused");
-
-    const scrollFocusedField = () => {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
-    };
-
-    window.setTimeout(scrollFocusedField, 80);
-    window.setTimeout(scrollFocusedField, 360);
+    lockRsvpFocus();
   }
 
   function handleFormBlur(event: ReactFocusEvent<HTMLFormElement>) {
     const form = event.currentTarget;
     const nextTarget = event.relatedTarget;
 
-    if (nextTarget instanceof Node && form.contains(nextTarget)) return;
+    if (isRsvpEditableField(nextTarget) && form.contains(nextTarget)) return;
 
-    window.setTimeout(() => {
-      if (!form.contains(document.activeElement)) {
-        document.documentElement.classList.remove("invitation-root-form-focused");
-      }
-    }, 80);
+    releaseRsvpFocus(form);
   }
 
   function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
@@ -718,6 +936,35 @@ export function RsvpSection() {
 
     void submitRsvp();
   }
+
+  useEffect(() => {
+    nativeMoveHandlerRef.current = {
+      hold: holdRsvpInteraction,
+      shouldKeepFocusedFieldStill,
+    };
+  });
+
+  useEffect(() => {
+    const form = rsvpFormRef.current;
+    if (!form) return;
+
+    const eventOptions: AddEventListenerOptions = { capture: true, passive: false };
+    const handleNativeMove = (event: WheelEvent | TouchEvent) => {
+      nativeMoveHandlerRef.current.hold();
+
+      if (nativeMoveHandlerRef.current.shouldKeepFocusedFieldStill() && event.cancelable) {
+        event.preventDefault();
+      }
+    };
+
+    form.addEventListener("touchmove", handleNativeMove, eventOptions);
+    form.addEventListener("wheel", handleNativeMove, eventOptions);
+
+    return () => {
+      form.removeEventListener("touchmove", handleNativeMove, eventOptions);
+      form.removeEventListener("wheel", handleNativeMove, eventOptions);
+    };
+  }, []);
 
   return (
     <PanelFrame
@@ -739,7 +986,10 @@ export function RsvpSection() {
           className="invitation-rsvp-form mt-5"
           onBlurCapture={handleFormBlur}
           onFocusCapture={handleFormFocus}
+          onPointerDownCapture={handleFormPointerDown}
+          onTouchStartCapture={handleFormTouchStart}
           onSubmit={handleFormSubmit}
+          ref={rsvpFormRef}
         >
           {step === 1 ? (
             <div>
@@ -952,8 +1202,8 @@ export function WishesSection() {
   const featuredWish = wishes[0] ?? {
     date: invitationInfo.weddingDate,
     message:
-      "Sự hiện diện và lời chúc của bạn là món quà rất quý với Cảnh Quân & Lan Ngọc.",
-    name: "Lời chúc",
+      "Sự hiện diện của bạn đã là niềm vui lớn. Nếu có thêm một lời chúc, chúng mình sẽ giữ lại như một kỷ niệm thật đẹp.",
+    name: "Từ trái tim",
   };
 
   return (
@@ -975,20 +1225,6 @@ export function WishesSection() {
         </div>
         <div className="mt-[8px] h-px bg-white/45" />
 
-        <div className="mt-[82px] max-w-[330px]">
-          <SectionKicker className="text-left text-[10px] leading-[10px]">
-            GỬI TỚI CHÚNG TÔI
-          </SectionKicker>
-          <h3 className="mt-4 font-candlefish text-[38px] font-normal leading-[42px] text-white">
-            Một lời nhắn nhỏ,
-            <br />
-            một kỷ niệm lớn
-          </h3>
-          <p className="mt-5 font-legan text-[14px] font-light leading-[23px] tracking-[0.04em] text-white/88">
-            Nếu có một điều bạn muốn gửi gắm cho ngày chúng tôi bắt đầu hành trình mới,
-            hãy để lại trong phần xác nhận tham dự.
-          </p>
-        </div>
       </div>
 
       <div className="max-w-[310px] invitation-fade-up" data-visible="true">
@@ -1060,11 +1296,42 @@ export function StreamingSection() {
 
 export function GiftSection() {
   const [copied, setCopied] = useState<string | null>(null);
+  const [previewGiftIndex, setPreviewGiftIndex] = useState<number | null>(null);
+  const previewGift = previewGiftIndex === null ? null : giftAccounts[previewGiftIndex];
+  const previewGiftDownloadUrl = previewGiftIndex === null ? "" : qrDownloadUrl(previewGiftIndex);
+
+  useEffect(() => {
+    if (!previewGift) return;
+
+    document.documentElement.classList.add("invitation-preview-open");
+    window.dispatchEvent(new CustomEvent("invitation-gallery-preview-change", { detail: { open: true } }));
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setPreviewGiftIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.dispatchEvent(new CustomEvent("invitation-gallery-preview-change", { detail: { open: false } }));
+      document.documentElement.classList.remove("invitation-preview-open");
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [previewGift]);
 
   async function copyAccount(account: string) {
     await navigator.clipboard?.writeText(account.replace(/\s/g, ""));
     setCopied(account);
     window.setTimeout(() => setCopied(null), 1300);
+  }
+
+  function qrDownloadUrl(index: number) {
+    return `/api/gift-qr?index=${index}`;
   }
 
   return (
@@ -1075,24 +1342,37 @@ export function GiftSection() {
           Nếu bạn muốn gửi một món quà nhỏ thay cho lời chúc mừng, bạn có thể dùng thông tin bên dưới:
         </p>
         <div className="space-y-2">
-          {giftAccounts.map((gift) => (
+          {giftAccounts.map((gift, index) => (
             <div className="flex items-center justify-between gap-3 bg-black/30 px-4 py-3" key={`${gift.bank}-${gift.account}`}>
               <div>
                 <p className="font-legan text-[13px] text-white">{gift.name}</p>
                 <p className="font-inter-local text-[10px] uppercase text-white/65">
                   {gift.bank} {gift.account}
                 </p>
+                {gift.qrImage ? (
+                  <p className="mt-1 font-legan text-[10px] leading-none text-white/52">
+                    Chạm QR để xem lớn
+                  </p>
+                ) : null}
               </div>
               <div className="flex items-center gap-2">
                 {gift.qrImage ? (
-                  <Image
-                    alt={gift.qrAlt ?? `QR ${gift.bank} ${gift.account}`}
-                    className="size-[58px] bg-white object-contain p-1"
-                    height={58}
-                    src={gift.qrImage}
-                    unoptimized
-                    width={58}
-                  />
+                  <button
+                    aria-label={`Preview QR ${gift.bank} ${gift.account}`}
+                    className="group relative size-[58px] bg-white p-1 transition duration-300 hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+                    onClick={() => setPreviewGiftIndex(index)}
+                    type="button"
+                  >
+                    <Image
+                      alt={gift.qrAlt ?? `QR ${gift.bank} ${gift.account}`}
+                      className="object-contain"
+                      fill
+                      sizes="58px"
+                      src={gift.qrImage}
+                      unoptimized
+                    />
+                    <span className="pointer-events-none absolute inset-0 bg-black/0 transition group-hover:bg-black/10" />
+                  </button>
                 ) : null}
                 <button
                   aria-label={`Copy ${gift.account}`}
@@ -1113,6 +1393,72 @@ export function GiftSection() {
           {copied ? "COPIED" : "CONFIRM"}
         </a>
       </div>
+      {previewGift?.qrImage ? (
+        <div
+          aria-labelledby="gift-qr-preview-title"
+          aria-modal="true"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/88 px-5 py-8 invitation-overlay-enter"
+          onClick={() => setPreviewGiftIndex(null)}
+          role="dialog"
+        >
+          <div
+            className="w-full max-w-[360px] bg-[#f7f7f4] p-5 text-[#171717] shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="font-inter-local text-[10px] uppercase leading-none tracking-[0.18em] text-black/55">
+                  Wedding Gift
+                </p>
+                <h3 id="gift-qr-preview-title" className="mt-2 font-legan text-[19px] leading-[23px]">
+                  {previewGift.name}
+                </h3>
+                <p className="mt-1 font-inter-local text-[11px] uppercase leading-[16px] text-black/55">
+                  {previewGift.bank} {previewGift.account}
+                </p>
+              </div>
+              <button
+                aria-label="Close QR preview"
+                className="flex size-8 shrink-0 items-center justify-center text-black/70 transition hover:bg-black/10"
+                onClick={() => setPreviewGiftIndex(null)}
+                type="button"
+              >
+                x
+              </button>
+            </div>
+
+            <div className="relative mt-5 aspect-square w-full bg-white p-4">
+              <Image
+                alt={previewGift.qrAlt ?? `QR ${previewGift.bank} ${previewGift.account}`}
+                className="object-contain"
+                fill
+                sizes="320px"
+                src={previewGift.qrImage}
+                unoptimized
+              />
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <a
+                className="inline-flex h-11 items-center justify-center gap-2 bg-[#2f2f2f] px-3 font-inter-local text-[11px] uppercase tracking-[0.08em] text-white transition hover:bg-[#444]"
+                download
+                href={previewGiftDownloadUrl}
+              >
+                <span>Tải QR</span>
+                <DownloadIcon aria-hidden="true" size={15} strokeWidth={1.8} />
+              </a>
+              <button
+                className="inline-flex h-11 items-center justify-center gap-2 border border-black/25 px-3 font-inter-local text-[11px] uppercase tracking-[0.08em] text-black transition hover:bg-black/8"
+                onClick={() => void copyAccount(previewGift.account)}
+                type="button"
+              >
+                <span>{copied === previewGift.account ? "Đã copy" : "Copy STK"}</span>
+                <CopyIcon aria-hidden="true" size={15} strokeWidth={1.8} />
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </PanelFrame>
   );
 }
@@ -1135,6 +1481,8 @@ export function GallerySection() {
   useEffect(() => {
     if (!previewOpen) return;
 
+    document.documentElement.classList.add("invitation-preview-open");
+    window.dispatchEvent(new CustomEvent("invitation-gallery-preview-change", { detail: { open: true } }));
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
@@ -1153,6 +1501,8 @@ export function GallerySection() {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      window.dispatchEvent(new CustomEvent("invitation-gallery-preview-change", { detail: { open: false } }));
+      document.documentElement.classList.remove("invitation-preview-open");
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };

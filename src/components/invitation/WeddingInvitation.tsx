@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { PauseIcon, PlayIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
@@ -36,19 +36,162 @@ export function WeddingInvitation() {
   const [percent, setPercent] = useState(1);
   const [opened, setOpened] = useState(false);
   const [coverLeaving, setCoverLeaving] = useState(false);
+  const [scrollCueReady, setScrollCueReady] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [galleryPreviewOpen, setGalleryPreviewOpen] = useState(false);
   const [snapSuppressed, setSnapSuppressed] = useState(false);
   const [musicPlaying, setMusicPlaying] = useState(false);
+  const [debugEnabled, setDebugEnabled] = useState(false);
+  const [debugLines, setDebugLines] = useState<string[]>([]);
   const audioRef = useRef<HTMLAudioElement>(null);
   const invitationRef = useRef<HTMLDivElement>(null);
   const openTimerRef = useRef<number | null>(null);
+  const openInvitationRef = useRef<() => void>(() => {});
   const snapRestoreTimerRef = useRef<number | null>(null);
+  const stableViewportHeightRef = useRef<number | null>(null);
+  const debugEnabledRef = useRef(false);
+  const debugSequenceRef = useRef(0);
+
+  const appendDebugLine = useCallback((message: string) => {
+    if (!debugEnabledRef.current) return;
+
+    const sequence = debugSequenceRef.current + 1;
+    debugSequenceRef.current = sequence;
+    const timestamp = new Date().toLocaleTimeString("vi-VN", { hour12: false });
+
+    setDebugLines((current) => [...current, `${sequence} ${timestamp} ${message}`].slice(-36));
+  }, []);
+
+  useEffect(() => {
+    const enabled = new URLSearchParams(window.location.search).has("debug");
+
+    debugEnabledRef.current = enabled;
+    const setupTimer = window.setTimeout(() => {
+      setDebugEnabled(enabled);
+
+      if (!enabled) return;
+
+      const viewport = window.visualViewport;
+      setDebugLines([
+        `debug:on ua=${window.navigator.userAgent}`,
+        `viewport inner=${window.innerWidth}x${window.innerHeight} visual=${Math.round(viewport?.width ?? 0)}x${Math.round(viewport?.height ?? 0)} dpr=${window.devicePixelRatio}`,
+      ]);
+    }, 0);
+
+    return () => {
+      window.clearTimeout(setupTimer);
+    };
+  }, []);
+
+  useEffect(() => {
+    debugEnabledRef.current = debugEnabled;
+  }, [debugEnabled]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+
+    const describeEventTarget = (target: EventTarget | null) => {
+      return target instanceof Element ? describeDebugElement(target) : "non-element";
+    };
+
+    const getEventPoint = (event: Event) => {
+      if ("changedTouches" in event) {
+        const touch = (event as TouchEvent).changedTouches.item(0);
+        return touch ? { x: touch.clientX, y: touch.clientY } : null;
+      }
+
+      if (event instanceof MouseEvent) {
+        return { x: event.clientX, y: event.clientY };
+      }
+
+      return null;
+    };
+
+    const recordDomEvent = (event: Event) => {
+      const point = getEventPoint(event);
+      const button = document.querySelector<HTMLElement>(".invitation-open-button");
+      const rect = button?.getBoundingClientRect();
+      const hitElement = point ? document.elementFromPoint(point.x, point.y) : null;
+      const insideButton = Boolean(
+        point &&
+          rect &&
+          point.x >= rect.left &&
+          point.x <= rect.right &&
+          point.y >= rect.top &&
+          point.y <= rect.bottom,
+      );
+      const pointText = point ? `${Math.round(point.x)},${Math.round(point.y)}` : "none";
+      const buttonText = rect
+        ? `${Math.round(rect.left)},${Math.round(rect.top)},${Math.round(rect.width)}x${Math.round(rect.height)}`
+        : "none";
+
+      appendDebugLine(
+        `[event:${event.type}] target=${describeEventTarget(event.target)} hit=${describeDebugElement(hitElement)} point=${pointText} btn=${buttonText} inBtn=${insideButton}`,
+      );
+    };
+
+    const recordError = (event: ErrorEvent) => {
+      appendDebugLine(`[error] ${event.message} ${event.filename}:${event.lineno}:${event.colno}`);
+    };
+
+    const recordRejection = (event: PromiseRejectionEvent) => {
+      appendDebugLine(`[unhandled] ${String(event.reason)}`);
+    };
+
+    const recordCustomDebug = (event: Event) => {
+      const detail = (event as CustomEvent<string>).detail;
+      appendDebugLine(`[custom] ${String(detail)}`);
+    };
+
+    const touchOptions: AddEventListenerOptions = { capture: true, passive: true };
+
+    document.addEventListener("touchstart", recordDomEvent, touchOptions);
+    document.addEventListener("touchend", recordDomEvent, touchOptions);
+    document.addEventListener("pointerup", recordDomEvent, true);
+    document.addEventListener("click", recordDomEvent, true);
+    window.addEventListener("error", recordError);
+    window.addEventListener("unhandledrejection", recordRejection);
+    window.addEventListener("invitation-debug", recordCustomDebug);
+
+    appendDebugLine("[debug] listeners attached");
+
+    return () => {
+      document.removeEventListener("touchstart", recordDomEvent, touchOptions);
+      document.removeEventListener("touchend", recordDomEvent, touchOptions);
+      document.removeEventListener("pointerup", recordDomEvent, true);
+      document.removeEventListener("click", recordDomEvent, true);
+      window.removeEventListener("error", recordError);
+      window.removeEventListener("unhandledrejection", recordRejection);
+      window.removeEventListener("invitation-debug", recordCustomDebug);
+    };
+  }, [appendDebugLine, debugEnabled]);
+
+  useEffect(() => {
+    appendDebugLine(
+      `[state] loading=${loading} opened=${opened} leaving=${coverLeaving} hash=${window.location.hash || "none"} y=${Math.round(window.scrollY)}`,
+    );
+  }, [appendDebugLine, coverLeaving, loading, opened]);
 
   useEffect(() => {
     const root = document.documentElement;
 
     const syncViewportHeight = () => {
-      const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+      const layoutHeight = window.innerHeight;
+      const visualViewport = window.visualViewport;
+      const visualHeight = visualViewport?.height ?? layoutHeight;
+      const activeElement = document.activeElement;
+      const fieldFocused =
+        activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement;
+      const keyboardLikelyOpen = Boolean(fieldFocused && visualViewport && visualHeight < layoutHeight - 80);
+
+      if (!keyboardLikelyOpen) {
+        stableViewportHeightRef.current = visualHeight;
+      }
+
+      const viewportHeight = keyboardLikelyOpen
+        ? stableViewportHeightRef.current ?? layoutHeight
+        : visualHeight;
+
       root.style.setProperty("--invitation-viewport-height", `${viewportHeight}px`);
     };
 
@@ -124,6 +267,18 @@ export function WeddingInvitation() {
       if (snapRestoreTimerRef.current) {
         window.clearTimeout(snapRestoreTimerRef.current);
       }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleGalleryPreviewChange = (event: Event) => {
+      setGalleryPreviewOpen(Boolean((event as CustomEvent<{ open?: boolean }>).detail?.open));
+    };
+
+    window.addEventListener("invitation-gallery-preview-change", handleGalleryPreviewChange);
+
+    return () => {
+      window.removeEventListener("invitation-gallery-preview-change", handleGalleryPreviewChange);
     };
   }, []);
 
@@ -209,19 +364,137 @@ export function WeddingInvitation() {
     setMusicPlaying(false);
   }
 
-  function openInvitation() {
-    if (opened || coverLeaving) return;
+  function forceScrollTop() {
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
 
+    root.style.scrollBehavior = "auto";
+    try {
+      window.scrollTo(0, 0);
+    } catch {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+    root.style.scrollBehavior = previousScrollBehavior;
+  }
+
+  function smoothScrollToElement(element: HTMLElement) {
+    const startY = window.scrollY;
+    const targetY = startY + element.getBoundingClientRect().top;
+    const distance = targetY - startY;
+    const duration = 820;
+    const startedAt = window.performance.now();
+
+    if (Math.abs(distance) < 2) return;
+
+    const easeInOutCubic = (progress: number) => {
+      return progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    };
+
+    const step = (now: number) => {
+      const progress = Math.min(1, (now - startedAt) / duration);
+      const nextY = startY + distance * easeInOutCubic(progress);
+
+      try {
+        window.scrollTo(0, nextY);
+      } catch {
+        document.documentElement.scrollTop = nextY;
+        document.body.scrollTop = nextY;
+      }
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }
+
+  function scrollToQuote() {
+    if (!scrollCueReady || coverLeaving) return;
+
+    const quoteSection = document.getElementById("quote");
+    if (!quoteSection) return;
+
+    if (snapRestoreTimerRef.current) {
+      window.clearTimeout(snapRestoreTimerRef.current);
+      snapRestoreTimerRef.current = null;
+    }
+
+    setSnapSuppressed(true);
+    window.requestAnimationFrame(() => {
+      smoothScrollToElement(quoteSection);
+    });
+    snapRestoreTimerRef.current = window.setTimeout(() => {
+      setSnapSuppressed(false);
+      snapRestoreTimerRef.current = null;
+    }, 1050);
+  }
+
+  function openInvitation() {
+    appendDebugLine(
+      `[openInvitation] called opened=${opened} leaving=${coverLeaving} hash=${window.location.hash || "none"} y=${Math.round(window.scrollY)}`,
+    );
+
+    if (opened || coverLeaving) {
+      appendDebugLine("[openInvitation] ignored by guard");
+      return;
+    }
+
+    if (snapRestoreTimerRef.current) {
+      window.clearTimeout(snapRestoreTimerRef.current);
+      snapRestoreTimerRef.current = null;
+    }
+
+    setSnapSuppressed(true);
+    setScrollCueReady(false);
+    forceScrollTop();
     void playMusic();
     setCoverLeaving(true);
     setOpened(true);
+    appendDebugLine("[openInvitation] state queued");
     if (openTimerRef.current) {
       window.clearTimeout(openTimerRef.current);
     }
+
+    window.requestAnimationFrame(forceScrollTop);
+    window.setTimeout(forceScrollTop, 80);
+    window.setTimeout(forceScrollTop, 280);
     openTimerRef.current = window.setTimeout(() => {
+      forceScrollTop();
       setCoverLeaving(false);
-    }, 900);
+      setScrollCueReady(true);
+      setSnapSuppressed(false);
+    }, 980);
   }
+
+  useEffect(() => {
+    openInvitationRef.current = openInvitation;
+  });
+
+  useEffect(() => {
+    const clearOpenHash = () => {
+      if (window.location.hash !== "#open-invitation") return;
+
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    };
+
+    const handleOpenHash = () => {
+      if (window.location.hash !== "#open-invitation") return;
+
+      openInvitationRef.current();
+      window.setTimeout(clearOpenHash, 0);
+    };
+
+    window.addEventListener("hashchange", handleOpenHash);
+    handleOpenHash();
+
+    return () => {
+      window.removeEventListener("hashchange", handleOpenHash);
+    };
+  }, []);
 
   function toggleMusic() {
     if (musicPlaying) {
@@ -273,7 +546,10 @@ export function WeddingInvitation() {
           <>
             <button
               aria-label="Open menu"
-              className="fixed right-[20px] top-[24px] z-40 flex size-12 items-center justify-center text-white transition hover:scale-105"
+              className={cn(
+                "invitation-menu-toggle fixed right-[20px] top-[24px] z-40 flex size-12 items-center justify-center text-white transition hover:scale-105",
+                galleryPreviewOpen && "pointer-events-none opacity-0",
+              )}
               onClick={openMenu}
               type="button"
             >
@@ -299,8 +575,11 @@ export function WeddingInvitation() {
           <OpeningHero
             leaving={coverLeaving}
             locked={!opened}
+            onDebug={appendDebugLine}
             openingRecipientVisible={opened && coverLeaving}
             onOpen={openInvitation}
+            onScrollCue={scrollToQuote}
+            scrollCueEnabled={opened && scrollCueReady && !coverLeaving && !snapSuppressed}
           />
           {opened ? (
             <>
@@ -322,7 +601,57 @@ export function WeddingInvitation() {
         </div>
       </main>
       {loading ? <Preloader hiding={preloaderHiding} percent={percent} /> : null}
+      {debugEnabled ? (
+        <InvitationDebugOverlay
+          lines={debugLines}
+          onClear={() => setDebugLines([])}
+          onOpen={() => openInvitationRef.current()}
+        />
+      ) : null}
     </>
+  );
+}
+
+function describeDebugElement(element: Element | null) {
+  if (!element) return "null";
+
+  const id = element.id ? `#${element.id}` : "";
+  const className =
+    element instanceof HTMLElement
+      ? element.className
+          .split(/\s+/)
+          .filter(Boolean)
+          .slice(0, 3)
+          .map((value) => `.${value}`)
+          .join("")
+      : "";
+
+  return `<${element.tagName.toLowerCase()}${id}${className}>`;
+}
+
+function InvitationDebugOverlay({
+  lines,
+  onClear,
+  onOpen,
+}: {
+  lines: string[];
+  onClear: () => void;
+  onOpen: () => void;
+}) {
+  return (
+    <div className="fixed left-2 right-2 top-2 z-[10000000] max-h-[36vh] overflow-hidden rounded bg-black/85 p-2 font-mono text-[10px] leading-[13px] text-lime-200 shadow-2xl">
+      <div className="mb-1 flex items-center gap-2">
+        <button className="rounded bg-lime-200 px-2 py-1 text-[10px] uppercase text-black" onClick={onOpen} type="button">
+          Debug Open
+        </button>
+        <button className="rounded bg-white/20 px-2 py-1 text-[10px] uppercase text-white" onClick={onClear} type="button">
+          Clear
+        </button>
+      </div>
+      <pre className="max-h-[calc(36vh-34px)] overflow-auto whitespace-pre-wrap">
+        {lines.join("\n")}
+      </pre>
+    </div>
   );
 }
 

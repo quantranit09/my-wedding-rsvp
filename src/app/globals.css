@@ -13,7 +13,7 @@
 }
 
 @font-face {
-  font-family: "Candlefish";
+  font-family: "CandlefishVietnamese";
   src: url("/fonts/Candlefish.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -212,7 +212,7 @@
 
 @layer utilities {
   .font-candlefish {
-    font-family: "Candlefish", serif;
+    font-family: "CandlefishVietnamese", serif;
   }
 
   .font-legan {
@@ -322,7 +322,7 @@
   }
 
   .bg-invitation-00189 {
-    background-image: url("/images/our-images/optimized/IMG_2702-wishes-crop.jpg");
+    background-image: url("/images/our-images/optimized/NgocQuan.8665.jpg");
     --invitation-bg-position: center;
     --invitation-bg-origin: center;
   }
@@ -369,7 +369,6 @@
   }
 
   .invitation-preloader {
-    animation: invitation-preloader-fallback-out 5500ms linear forwards;
     opacity: 1;
     transition: opacity 1000ms ease;
   }
@@ -590,11 +589,22 @@
   }
 
   .invitation-root-snap-disabled {
-    scroll-snap-type: none;
+    scroll-behavior: auto;
+    scroll-snap-type: none !important;
+  }
+
+  .invitation-root-snap-disabled .invitation-page-open section {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
   }
 
   .invitation-root-form-focused {
-    scroll-snap-type: none;
+    scroll-behavior: auto;
+    scroll-snap-type: none !important;
+  }
+
+  .invitation-root-form-focused body {
+    scroll-snap-type: none !important;
   }
 
   .invitation-root-snap .invitation-page-open section {
@@ -603,16 +613,29 @@
   }
 
   .invitation-root-form-focused .invitation-page-open section {
-    scroll-snap-align: none;
-    scroll-snap-stop: normal;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
   }
 
   .invitation-rsvp-section:focus-within {
     overflow: visible;
   }
 
+  .invitation-rsvp-form {
+    overscroll-behavior: contain;
+    touch-action: manipulation;
+  }
+
+  .invitation-rsvp-form button,
+  .invitation-rsvp-form input,
+  .invitation-rsvp-form textarea {
+    touch-action: manipulation;
+  }
+
   .invitation-rsvp-section input,
   .invitation-rsvp-section textarea {
+    font-size: 16px;
+    line-height: 20px;
     scroll-margin-bottom: calc(240px + env(safe-area-inset-bottom));
     scroll-margin-top: 40px;
   }
@@ -641,6 +664,19 @@
 
   .invitation-rsvp-section:focus-within .invitation-rsvp-form {
     margin-top: 14px;
+  }
+
+  .invitation-love-story-scroll {
+    max-height: calc(var(--invitation-viewport-height, 100vh) - 72px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .invitation-love-story-scroll::-webkit-scrollbar {
+    display: none;
   }
 
   .invitation-page-open [data-invitation-panel] {
@@ -703,8 +739,26 @@
     transform: translateX(-50%) translateY(0) scale(1);
   }
 
+  .invitation-open-scroll-cue[aria-disabled="true"] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(-50%) translateY(10px) scale(0.96);
+  }
+
+  .invitation-open-scroll-cue-disabled {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(-50%) translateY(10px) scale(0.96);
+  }
+
   .invitation-open-scroll-cue-enter {
     animation: invitation-open-scroll-cue-enter 280ms ease-in-out 280ms both;
+  }
+
+  .invitation-open-button {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .invitation-open-scroll-ring {
@@ -739,6 +793,11 @@
 
   .invitation-music-control[data-playing="true"] {
     animation: invitation-audio-pulse 1800ms ease-in-out infinite;
+  }
+
+  .invitation-preview-open .invitation-menu-toggle {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .invitation-save-date-cta {
@@ -874,20 +933,6 @@
   }
   100% {
     content: "100";
-  }
-}
-
-@keyframes invitation-preloader-fallback-out {
-  0%,
-  81.8% {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
   }
 }
 
