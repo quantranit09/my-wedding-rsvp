@@ -60,7 +60,7 @@ export interface InvitationInfo {
   calendarTimeZone: string;
   calendarDescription: string;
   guestGreeting: string;
-  nameNotice: string;
+  guestSubline: string;
   rsvpIntro: string;
   rsvpOptions: [string, string];
   rsvpButton: string;

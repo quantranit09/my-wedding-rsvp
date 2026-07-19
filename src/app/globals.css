@@ -640,6 +640,15 @@
     scroll-margin-top: 40px;
   }
 
+  .invitation-rsvp-section input::placeholder,
+  .invitation-rsvp-section textarea::placeholder {
+    color: rgb(255 255 255 / 0.62);
+    font-family: "Legan", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    line-height: 19.5px;
+  }
+
   .invitation-root-form-focused .invitation-rsvp-section .invitation-rsvp-content {
     min-height: max(var(--invitation-viewport-height, 100vh), 620px);
     padding-top: 34px;

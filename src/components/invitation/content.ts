@@ -42,8 +42,7 @@ export const invitationInfo: InvitationInfo = {
   calendarDescription:
     "<p>Hãy bật nhắc lịch nếu chưa được bật mặc định. (gợi ý: 15 phút trước sự kiện, hoặc tùy chỉnh lại)</p>",
   guestGreeting: "Dear cherished guest,",
-  nameNotice:
-    "With warm regards, please accept our apologies for any misspelling of names or titles.",
+  guestSubline: "We would be honored to celebrate this day with you.",
   rsvpIntro:
     "Xin vui lòng xác nhận sự hiện diện của bạn qua biểu mẫu bên dưới.",
   rsvpOptions: ["Sẽ tham dự", "Không thể tham dự"],
@@ -89,7 +88,7 @@ export const brideProfile: PersonProfile = {
 
 export const verse: Verse = {
   reference: "A NOTE ON LOVE",
-  text: "May this day open the door to a lifetime of tenderness, devotion, and quiet joy.",
+  text: "May this day mark the beginning of a gentle, faithful, and joyful journey together.",
 };
 
 export const loveStoryIntro =

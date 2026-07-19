@@ -8,7 +8,7 @@ Form RSVP gửi dữ liệu tới `NEXT_PUBLIC_RSVP_WEBHOOK_URL`. Cách miễn p
 2. Đặt hàng đầu tiên:
 
 ```text
-submittedAt | name | attendance | guestCount | message | couple | source | userTimeZone
+submittedAt | name | attendance | guestCount | extras | partyNote | message | couple | source | userTimeZone
 ```
 
 3. Vào `Extensions` -> `Apps Script`.
@@ -27,6 +27,8 @@ function doPost(event) {
     data.name || "",
     data.attendance || "",
     data.guestCount || "",
+    Array.isArray(data.extras) ? data.extras.join(", ") : "",
+    data.partyNote || "",
     data.message || "",
     data.couple || "",
     data.source || "",
@@ -68,6 +70,8 @@ Form sẽ gửi:
   "name": "Guest name",
   "attendance": "Sẽ tham dự",
   "guestCount": "2",
+  "extras": ["gift", "speech"],
+  "partyNote": "Muốn phát biểu ngắn trong tiệc",
   "message": "Best wishes",
   "submittedAt": "ISO timestamp",
   "userTimeZone": "Asia/Ho_Chi_Minh"

@@ -296,8 +296,8 @@ export function OpeningHero({
           data-visible="true"
         >
           <p className="font-legan text-xl font-medium leading-none">{invitationInfo.guestGreeting}</p>
-          <p className="mx-auto max-w-60 font-legan text-[11px] font-medium leading-[15px] text-white/80">
-            {invitationInfo.nameNotice}
+          <p className="mx-auto w-full max-w-none whitespace-nowrap font-legan text-[10px] font-medium leading-[15px] text-white/80 min-[375px]:text-[11px]">
+            {invitationInfo.guestSubline}
           </p>
           <a
             aria-disabled={leaving ? "true" : undefined}
@@ -629,12 +629,12 @@ function RsvpLabel({ children }: { children: string }) {
 }
 
 const rsvpInputClassName =
-  "block h-11 w-full border border-white/55 bg-[#414141]/45 px-4 py-2 font-inter-local text-[16px] leading-5 text-[#c2c2c2] outline-none transition duration-300 placeholder:text-[#c2c2c2] focus:border-white focus:bg-[#414141]/60";
+  "block h-11 w-full border border-white/55 bg-[#414141]/45 px-4 py-2 font-inter-local text-[16px] leading-5 text-[#c2c2c2] outline-none transition duration-300 focus:border-white focus:bg-[#414141]/60";
 
 const rsvpButtonClassName =
   "flex h-10 w-full items-center justify-center bg-[#313131] font-inter-local text-[13px] uppercase leading-none tracking-[1px] text-white transition duration-300 hover:bg-[#444] disabled:cursor-wait disabled:opacity-70";
 
-const rsvpWebhookUrl = process.env.NEXT_PUBLIC_RSVP_WEBHOOK_URL?.trim() || 'https://script.google.com/macros/s/AKfycbzqXkXpHsUrcGYciN_QUvkeyT2EIjOJbXd3gn975LmkfjGGFYsJppQW7mv9eeaxNcKa/exec';
+const rsvpWebhookUrl = process.env.NEXT_PUBLIC_RSVP_WEBHOOK_URL?.trim() || 'https://script.google.com/macros/s/AKfycbyaq39M-3Cz78fJ5Xppelucj9NOCnh9LcXC6lTP8E6Qef3LHn6TYwG3xPtZmuHvoqAp/exec';
 const rsvpWebhookMode: RequestMode =
   process.env.NEXT_PUBLIC_RSVP_WEBHOOK_MODE === "cors" ? "cors" : "no-cors";
 const defaultAttendance = invitationInfo.rsvpOptions[0];
@@ -687,10 +687,11 @@ export function RsvpSection() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const lastAttendanceTapRef = useRef<{ option: string; time: number } | null>(null);
   const rsvpFormRef = useRef<HTMLFormElement>(null);
+  const editableInteractionStartedAtRef = useRef(0);
   const focusReleaseTimerRef = useRef<number | null>(null);
   const interactionReleaseTimerRef = useRef<number | null>(null);
+  const nextButtonInteractionStartedAtRef = useRef(0);
   const nativeMoveHandlerRef = useRef<{
     hold: () => void;
     shouldKeepFocusedFieldStill: () => boolean;
@@ -740,6 +741,26 @@ export function RsvpSection() {
     setStep((current) => Math.min(5, current + 1) as RsvpStep);
   }
 
+  function markNextButtonInteractionStart() {
+    nextButtonInteractionStartedAtRef.current = window.performance.now();
+  }
+
+  function shouldIgnoreAccidentalNextClick() {
+    const startedAt = editableInteractionStartedAtRef.current;
+
+    return (
+      startedAt > 0 &&
+      window.performance.now() - startedAt < 900 &&
+      nextButtonInteractionStartedAtRef.current < startedAt
+    );
+  }
+
+  function handleNextButtonClick() {
+    if (shouldIgnoreAccidentalNextClick()) return;
+
+    goNext();
+  }
+
   async function submitRsvp() {
     if (submitting) return;
 
@@ -785,7 +806,6 @@ export function RsvpSection() {
       setExtraRequests([]);
       setPartyNote("");
       setMessage("");
-      lastAttendanceTapRef.current = null;
     } catch (error) {
       setSubmitError(
         error instanceof Error && error.message === "RSVP_WEBHOOK_MISSING"
@@ -798,19 +818,9 @@ export function RsvpSection() {
   }
 
   function chooseAttendance(option: string) {
-    const now = window.performance.now();
-    const previousTap = lastAttendanceTapRef.current;
-    const repeatedTap =
-      Boolean(previousTap && previousTap.option === option && now - previousTap.time < 650);
-
     setAttendance(option);
     setSubmitted(false);
     setSubmitError("");
-    lastAttendanceTapRef.current = { option, time: now };
-
-    if (repeatedTap) {
-      setStep(3);
-    }
   }
 
   function toggleExtraRequest(option: RsvpExtraRequest) {
@@ -833,7 +843,6 @@ export function RsvpSection() {
     if (event.key !== "Enter" || event.nativeEvent.isComposing) return;
 
     event.preventDefault();
-    goNext();
   }
 
   function lockRsvpFocus() {
@@ -880,6 +889,7 @@ export function RsvpSection() {
 
   function handleFormInteractionStart(target: EventTarget | null) {
     if (isRsvpEditableField(target)) {
+      editableInteractionStartedAtRef.current = window.performance.now();
       lockRsvpFocus();
       return;
     }
@@ -932,7 +942,6 @@ export function RsvpSection() {
     event.preventDefault();
 
     if (step < 5) {
-      goNext();
       return;
     }
 
@@ -1008,7 +1017,13 @@ export function RsvpSection() {
                 onKeyDown={handleInputKeyDown}
                 value={name}
               />
-              <button className={cn(rsvpButtonClassName, "mt-[10px]")} onClick={goNext} type="button">
+              <button
+                className={cn(rsvpButtonClassName, "mt-[10px]")}
+                onClick={handleNextButtonClick}
+                onPointerDown={markNextButtonInteractionStart}
+                onTouchStart={markNextButtonInteractionStart}
+                type="button"
+              >
                 TIẾP TỤC
               </button>
             </div>
@@ -1038,7 +1053,13 @@ export function RsvpSection() {
                 <button className={cn(rsvpButtonClassName, "bg-[#69727d] hover:bg-[#7b8490]")} onClick={goPrevious} type="button">
                   QUAY LẠI
                 </button>
-                <button className={rsvpButtonClassName} onClick={goNext} type="button">
+                <button
+                  className={rsvpButtonClassName}
+                  onClick={handleNextButtonClick}
+                  onPointerDown={markNextButtonInteractionStart}
+                  onTouchStart={markNextButtonInteractionStart}
+                  type="button"
+                >
                   TIẾP TỤC
                 </button>
               </div>
@@ -1065,7 +1086,13 @@ export function RsvpSection() {
                 <button className={cn(rsvpButtonClassName, "bg-[#69727d] hover:bg-[#7b8490]")} onClick={goPrevious} type="button">
                   QUAY LẠI
                 </button>
-                <button className={rsvpButtonClassName} onClick={goNext} type="button">
+                <button
+                  className={rsvpButtonClassName}
+                  onClick={handleNextButtonClick}
+                  onPointerDown={markNextButtonInteractionStart}
+                  onTouchStart={markNextButtonInteractionStart}
+                  type="button"
+                >
                   TIẾP TỤC
                 </button>
               </div>
@@ -1153,7 +1180,13 @@ export function RsvpSection() {
                 <button className={cn(rsvpButtonClassName, "bg-[#69727d] hover:bg-[#7b8490]")} onClick={goPrevious} type="button">
                   QUAY LẠI
                 </button>
-                <button className={rsvpButtonClassName} onClick={goNext} type="button">
+                <button
+                  className={rsvpButtonClassName}
+                  onClick={handleNextButtonClick}
+                  onPointerDown={markNextButtonInteractionStart}
+                  onTouchStart={markNextButtonInteractionStart}
+                  type="button"
+                >
                   TIẾP TỤC
                 </button>
               </div>
