@@ -89,7 +89,7 @@ export const brideProfile: PersonProfile = {
 
 export const verse: Verse = {
   reference: "A NOTE ON LOVE",
-  text: "Mong ngày hôm nay mở ra một hành trình dịu dàng, thủy chung và đầy niềm vui.",
+  text: "May this day open the door to a lifetime of tenderness, devotion, and quiet joy.",
 };
 
 export const loveStoryIntro =

@@ -279,9 +279,9 @@ export function OpeningHero({
     >
       <div className="invitation-hero-title absolute inset-x-5 top-[14%] space-y-[10px] invitation-fade-up" data-visible="true">
         <SectionKicker>THE WEDDING OF</SectionKicker>
-        <h1 className="mx-auto max-w-[310px] font-candlefish text-[30px] leading-[0.95] text-white sm:max-w-none sm:text-[38px]">
-          <span className="block sm:inline">{invitationInfo.groomName}</span>
-          <span className="block sm:inline sm:pl-2">&amp; {invitationInfo.brideName}</span>
+        <h1 className="mx-auto max-w-none whitespace-nowrap font-candlefish text-[28px] leading-none text-white sm:text-[38px]">
+          <span>{invitationInfo.groomName}</span>{" "}
+          <span>&amp; {invitationInfo.brideName}</span>
         </h1>
         <p className="font-legan text-[13px] uppercase leading-[17px] tracking-[1.8px]">
           {invitationInfo.weddingDate}
@@ -423,7 +423,7 @@ export function BrideProfileSection() {
 export function LoveStorySection() {
   return (
     <PanelFrame id="lovestory" backgroundClassName="bg-invitation-00204" contentClassName="justify-center px-[30px] py-9" overlayClassName="bg-black/50">
-      <div className="invitation-love-story-scroll text-white invitation-fade-up">
+      <div className="text-white invitation-fade-up">
         <h2 className="font-candlefish text-[40px] font-normal leading-none">A journey in love</h2>
         <p className="mt-4 font-legan text-[12px] leading-[18px] text-white/88">
           {loveStoryIntro}
@@ -485,7 +485,7 @@ export function WeddingDateSection() {
 function WeddingEventDetail({ event }: { event: (typeof weddingEvents)[number] }) {
   return (
     <div className="w-full invitation-fade-up">
-      <h3 className="font-candlefish text-[24px] font-medium leading-[28px]">
+      <h3 className="font-times text-[23px] font-light leading-[27px] tracking-[0.01em]">
         {event.title}
         <br />
         {event.time}
@@ -879,8 +879,15 @@ export function RsvpSection() {
     }, delay);
   }
 
-  function handleFormInteractionStart() {
-    holdRsvpInteraction();
+  function handleFormInteractionStart(target: EventTarget | null) {
+    if (isRsvpEditableField(target)) {
+      lockRsvpFocus();
+      return;
+    }
+
+    if (shouldKeepFocusedFieldStill()) {
+      holdRsvpInteraction();
+    }
   }
 
   function shouldKeepFocusedFieldStill() {
@@ -898,15 +905,11 @@ export function RsvpSection() {
   }
 
   function handleFormPointerDown(event: ReactPointerEvent<HTMLFormElement>) {
-    holdRsvpInteraction();
-
-    if (isRsvpEditableField(event.target)) {
-      lockRsvpFocus();
-    }
+    handleFormInteractionStart(event.target);
   }
 
-  function handleFormTouchStart() {
-    handleFormInteractionStart();
+  function handleFormTouchStart(event: ReactTouchEvent<HTMLFormElement>) {
+    handleFormInteractionStart(event.target);
   }
 
   function handleFormFocus(event: ReactFocusEvent<HTMLFormElement>) {
@@ -950,9 +953,11 @@ export function RsvpSection() {
 
     const eventOptions: AddEventListenerOptions = { capture: true, passive: false };
     const handleNativeMove = (event: WheelEvent | TouchEvent) => {
+      if (!nativeMoveHandlerRef.current.shouldKeepFocusedFieldStill()) return;
+
       nativeMoveHandlerRef.current.hold();
 
-      if (nativeMoveHandlerRef.current.shouldKeepFocusedFieldStill() && event.cancelable) {
+      if (event.cancelable) {
         event.preventDefault();
       }
     };
