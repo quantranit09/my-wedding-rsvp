@@ -279,9 +279,8 @@ export function OpeningHero({
     >
       <div className="invitation-hero-title absolute inset-x-5 top-[14%] space-y-[10px] invitation-fade-up" data-visible="true">
         <SectionKicker>THE WEDDING OF</SectionKicker>
-        <h1 className="mx-auto max-w-none whitespace-nowrap font-candlefish text-[28px] leading-none text-white sm:text-[38px]">
-          <span>{invitationInfo.groomName}</span>{" "}
-          <span>&amp; {invitationInfo.brideName}</span>
+        <h1 className="mx-auto max-w-full whitespace-nowrap font-candlefish text-[26px] leading-none text-white min-[375px]:text-[28px] sm:text-[30px] md:text-[34px] lg:text-[38px]">
+          {invitationInfo.groomName} &amp; {invitationInfo.brideName}
         </h1>
         <p className="font-legan text-[13px] uppercase leading-[17px] tracking-[1.8px]">
           {invitationInfo.weddingDate}
